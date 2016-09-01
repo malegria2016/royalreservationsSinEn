@@ -19,6 +19,8 @@ return [
 	'contact'=>'contact',
 	'cookies-policy'=>'cookies-policy',
 	'gds'=>'gds/promos2016',
-	'webcams'=>'webcams'
-
+	'webcams'=>'webcams',
+	'bestDeal'=>'best-deal-guaranteed',
+	'whyBook'=>'why-book-with-us',
+	'hotelPolicies'=>'hotel-policies'
 ];

@@ -9,8 +9,6 @@
 @section('og_image', asset('img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg'))
 @section('og_description', $offer->contents[0]->metadescription)
 
-@section('javascript') <!--<script type="text/javascript" src="{{ asset('js/booking-single.js') }}"></script>-->@stop
-
 @section('container')
 
 {{--*/  $prefix='' /*--}}
@@ -24,9 +22,26 @@
 	{{--*/ 
 		$hoy = date("Y-m-d H:i:s"); 
 		$ban = 9;
-		//echo "Hoy".$hoy; 
-		//echo "<br/>Fin ".$offer->end_date;  
+
+    	if(isset($travel_window)){
+    		if($travel_window[0]['start_date']>$hoy){
+    			$date= strtotime($travel_window[0]['start_date']);
+    			$dateInDefault=  date('m/d/Y', $date);
+    			
+    			$dateOutDefault=date('m/d/Y', strtotime('+5 day',$date));
+    		}
+    		else{
+    			$dateInDefault= date("m/d/Y",strtotime("+25 day"));
+    			$dateOutDefault=date("m/d/Y",strtotime("+30 day"));
+    		}
+    	}
+    	else{
+    		$dateInDefault= date("m/d/Y",strtotime("+25 day"));
+    		$dateOutDefault=date("m/d/Y",strtotime("+30 day"));
+    	}
+
 	/*--}}
+
 
 	@if($offer->end_date >= $hoy)
   		<div>
@@ -37,8 +52,6 @@
 
 <div class="container">
 	
-
-
 	@if($offer->end_date < $hoy)
 
     <div class="row">
@@ -67,11 +80,7 @@
 		</div>
 	</div>
 
-	
-
-
-  <script>  var travel_window = {!! json_encode($travel_window->toArray()) !!}; </script>
-
+  <script>  var travel_window = {!!  json_encode($travel_window->toArray()) !!};</script>
 
 	<div class="row marginb50">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

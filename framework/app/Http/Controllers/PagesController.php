@@ -37,8 +37,8 @@ class PagesController extends Controller{
 			$this->lang_id = 1;
 		}*/
 
-		$resorts_routes_mex = Resort::mexico()->active()->select('identifier','name','ihotelier_id')->orderBy('id','desc')->get();
-		$resorts_routes_car = Resort::caribbean()->active()->select('identifier','name','ihotelier_id')->get();
+		$resorts_routes_mex = Resort::mexico()->active()->select('identifier','name','ihotelier_id','area')->orderBy('id','desc')->get();
+		$resorts_routes_car = Resort::caribbean()->active()->select('identifier','name','ihotelier_id','area')->get();
 		$destinations_routes_mex = Destination::mexico()->active()->select('identifier','name')->get();
 		$destinations_routes_car = Destination::caribbean()->active()->select('identifier','name')->get();
 		$experiences_routes_en = Experience::active()->with(['contents' => function($query){$query->where('lang_id', '=', 1);}])->get();
@@ -102,10 +102,10 @@ class PagesController extends Controller{
 			->where('mobile_only',0)->orderBy('priority','desc')->take(3)->get();
 		}
 
-		$resort = Resort::active()->main()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
-		->first();
-		$destination = Destination::active()->main()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
-		->first();
+		/*$resort = Resort::active()->main()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+		->first();*/
+		/*$destination = Destination::active()->main()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+		->first();*/
 		/*$package = Package::active()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
 		->orderBy('priority','desc')->first();*/
 
@@ -113,8 +113,10 @@ class PagesController extends Controller{
 		View::share('phones_mex',$this->phones_mex);
 		View::share('phones_car',$this->phones_car);
 		View::share('phone_skype',$this->phone_skype_mex);
+
+		//return dd($resort);
 		
-		return View('pages.home',compact('page','offers','resort','destination'));
+		return View('pages.home',compact('page','offers','destination'));
 	}
 	public function inicio(){
 		App::setLocale('es');
@@ -139,10 +141,10 @@ class PagesController extends Controller{
 			->where('mobile_only',0)->orderBy('priority','desc')->take(3)->get();
 		}
 
-		$resort = Resort::active()->main()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+		/*$resort = Resort::active()->main()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
 		->first();
 		$destination = Destination::active()->main()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
-		->first();
+		->first();*/
 		/*$package = Package::active()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
 		->orderBy('priority','desc')->first();*/
 
@@ -151,7 +153,7 @@ class PagesController extends Controller{
 		View::share('phones_car',$this->phones_car);
 		View::share('phone_skype',$this->phone_skype_mex);
 		
-		return View('pages.home',compact('page','offers','resort','destination'));
+		return View('pages.home',compact('page','offers','destination'));
 	}
 
 	public function resorts(){
@@ -169,6 +171,7 @@ class PagesController extends Controller{
 		View::share('phones_mex',$this->phones_mex);
 		View::share('phones_car',$this->phones_car);
 		View::share('phone_skype',$this->phone_skype_mex);
+
 		return view('pages.resorts',compact('page','resorts_mex','resorts_car'));
 	}
 
@@ -217,6 +220,7 @@ class PagesController extends Controller{
 			View::share('phones_car',$this->phones_car);
 			View::share('phone_skype',$this->phone_skype_car);
 		}
+			//return dd($resort);
 			return view('pages.resort', compact('resort','offers','package') );
 		}else{
 			abort(404);
@@ -485,9 +489,9 @@ class PagesController extends Controller{
 		if($offer){
 			$travel_window = App\OfferTravelWindow::where('offer_id',$offer->id)->orderBy('start_date','asc')->get();
 			
-			$travel_window_json = json_encode($travel_window);  //echo 	$travel_window_json;
+			//$travel_window_json = json_encode($travel_window);  //echo 	$travel_window_json;
 
-			//return dd($resources_JSON_array);
+			//return dd($travel_window_json);
 
 			$resorts = Resort::active()->whereHas('offers', function($q) use ($offer){
 					$q->where('id', $offer->id);
@@ -508,6 +512,7 @@ class PagesController extends Controller{
 						$offer_resort2[$i]['id']=$value->id;
 						$offer_resort2[$i]['name']=$value->name;
 						$offer_resort2[$i]['ihotelier_id']=$value->ihotelier_id;
+						$offer_resort2[$i]['area']=$value->area;
 					}
 				}
 
@@ -522,7 +527,7 @@ class PagesController extends Controller{
 				$i++;
 			}
 
-			//return dd($offer_resort);
+			//return dd($offer);
 
 			$all_offers = Offer::active()->range()->whereHas('resorts', function($q) use ($resorts){
 						$q->where('id', $resorts[0]->id);
@@ -533,6 +538,8 @@ class PagesController extends Controller{
 						->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
 						->where('mobile_only',0)->orderBy('priority','desc')->get();
 						//return dd($all_offers->toArray());
+
+			
 
 			View::share('phones_customer',$this->phones_customer);
 
@@ -644,6 +651,24 @@ class PagesController extends Controller{
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
 		return View("pages.offer-v3", compact('all_offers'));
+	}
+	public function bestDealShow(){
+		View::share('phones_customer',$this->phones_customer);
+		View::share('phone_skype',$this->phone_skype_mex);
+		return View("pages.best-deal");
+
+	}
+	public function whyBookShow(){
+		View::share('phones_customer',$this->phones_customer);
+		View::share('phone_skype',$this->phone_skype_mex);
+		return View("pages.why-book");
+
+	}
+	public function hotelPoliciesShow(){
+		View::share('phones_customer',$this->phones_customer);
+		View::share('phone_skype',$this->phone_skype_mex);
+		return View("pages.hotel-policies");
+
 	}
 
 }

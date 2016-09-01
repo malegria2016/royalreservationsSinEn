@@ -2,22 +2,10 @@
 
 <section>
 	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="POST" target="_blank">
-		@if(isset($rate_access_code))
-			<input type="hidden" name="identifier" value="{{$rate_access_code}}">
-		@endif
 		<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 bookesp">
 			<span class="lbForm">@lang('messages.select_resort')</span>
 			<select class="form-control" id="hotelid" name="hotelid">
-				<optgroup label="@lang('messages.mexico')">
-					@foreach($resorts_routes_mex as $resort_route)
-						<option value="{{$resort_route->ihotelier_id}}" data-subtext="{{$resort_route->area}}">{{$resort_route->name}}</option>
-					@endforeach
-				</optgroup>
-				<optgroup label="@lang('messages.caribbean')">
-					@foreach($resorts_routes_car as $resort_route)
-						<option value="{{$resort_route->ihotelier_id}}" data-subtext="{{$resort_route->area}}">{{$resort_route->name}}</option>
-					@endforeach
-				</optgroup>
+				<option value="{{$resort->ihotelier_id}}" data-subtext="{{$resort->area}}">{{$resort->name}}</option>
 			</select>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 bookesp">
@@ -32,7 +20,6 @@
 				<input type="text" class="form-control calendario" id="dateout" name="dateout" value="{{ $dateOutDefault }}"  readonly>
 			</div>
 		</div>
-		
 		<div class="col-lg-1 col-md-2 col-sm-4 col-xs-4 bookesp2">
 			<span id="spAdult" class="lbForm">@lang('messages.adults')</span>
 			<select name="adults" class="form-control" id="select-adults">
@@ -71,7 +58,6 @@
 		</div>
 		<div class="clear"></div>
 	</form>
-	
 	<input type="hidden" name="tag_adult" id="tag_adult" value="@lang('messages.adults')">
 	<input type="hidden" name="tag_adult2" id="tag_adult2" value="@lang('messages.adults2')">
 	<input type="hidden" name="tag_teen" id="tag_teen" value="@lang('messages.teen')">

@@ -1,7 +1,17 @@
 $(document).ready(function () {
     $().UItoTop({easingType: 'easeOutQuart'});
+    $('#hotelid').selectpicker();
 
-    
+    window.onload=changeBooking($( "#hotelid" ).val());
+
+    /*var today = new Date();
+    var today15 = new Date(today.getFullYear(), today.getMonth(), today.getDate()+15, 0,0,0,0);
+    var today20 = new Date(today.getFullYear(), today.getMonth(), today.getDate()+20, 0,0,0,0);
+
+    $("#datein").datepicker("setValue", today15);
+    $("#dateout").datepicker("setValue", today20);
+*/
+
     if(typeof(travel_window) != "undefined"){
       var temp = new Date();
       var hoy  = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), 0, 0, 0, 0);
@@ -34,9 +44,12 @@ $(document).ready(function () {
         endDate1=hoy;
       }
     }*/
-    
+
+
     var checkin = $('#datein').datepicker({
-        onRender: function (date) {
+
+        onRender: function (date) {                
+
           if(typeof(travel_window) == "undefined"){
             return date.valueOf() < now.valueOf() ? 'disabled' : '';
           }
@@ -254,14 +267,14 @@ $(document).ready(function () {
       var value = this.value;
   		changeBooking(value);
 	});
-  $( "#btn-flight" ).click(function() {
+  /*$( "#btn-flight" ).click(function() {
     $("#bookingResort").hide();
     $("#bookingFlight").show();
-});
-$( "#btn-resort" ).click(function() {
-  $("#bookingFlight").hide();
-  $("#bookingResort").show();
-});
+  });*/
+  /*$( "#btn-resort" ).click(function() {
+    $("#bookingFlight").hide();
+    $("#bookingResort").show();
+  });*/
 
 $("#cerrar").on( "click", function() {
   var e = new Date();
@@ -295,25 +308,30 @@ function changeBooking(value){
     if(value == "95939"){
       $("#select-childrens").val("0");
       $("#select-childrens").hide();
-      $('#select-adults option:eq(0)').text(tag_adult2);
-      $('#select-teens option:eq(0)').text(tag_children);
+      $("#spChildren").hide();
+      $("#spAdult").text(tag_adult2);
+      $("#spTeen").text(tag_children);
   }	else if(value == "86175" || value == "86182"){
       $("#select-childrens").val("0");
       $("#select-childrens").hide();
-      $('#select-adults option:eq(0)').text(tag_adult);
-      $('#select-teens option:eq(0)').text(tag_children2);
+      $("#spChildren").hide();
+      $("#spAdult").text(tag_adult);
+      $("#spTeen").text(tag_children2);
   }else{
     $("#select-childrens").val("0");
-    $('#select-adults option:eq(0)').text(tag_adult);
-    $('#select-teens option:eq(0)').text(tag_teen);
-    $('#select-childrens option:eq(0)').text(tag_children);
+    $("#spAdult").text(tag_adult);
+    $("#spTeen").text(tag_teen);
+    $("#spChildren").text(tag_children);
     $("#select-childrens").show();
+    $("#spChildren").show();
   }
+  searchIhotelierRatePlan();
+  searchIhotelierPackage();
 }
 
 function setClassActive(e) { $("#" + e).addClass("active") }
 
-function validateBooking(){
+/*function validateBooking(){
   if($("#hotelid").val() == "0"){
     $("#error-booking").show("slow");
     return false;
@@ -321,18 +339,18 @@ function validateBooking(){
     $("#error-booking").hide();
     return true;
   }
-}
+}*/
 
 function validateBookingSingle(){	
-  if($("#hotelid").val() == "0"){
+  /*if($("#hotelid").val() == "0"){
     $("#error-booking").show("slow");
     return false;
-  }else
+  }else*/
 
-  if ($("#datein").val() == '' && $("#dateout").val() == ''){
+  /*if ($("#datein").val() == '' && $("#dateout").val() == ''){
     $("#error-minimum").show("slow");
     return false;
-  }
+  }*/
   
   var DateIn  = new Date($("#datein").val());
   var DateOut = new Date($("#dateout").val());
@@ -341,11 +359,13 @@ function validateBookingSingle(){
     $("#error-minimum").show("slow");
     return false;
 
-  }else{
+  }
+  /*
+  else{
     $("#error-booking").hide();
     $("#error-minimun").hide();
     return true;
-  }
+  }*/
 }
   
 function obtenerRatePlan(){
@@ -353,8 +373,9 @@ function obtenerRatePlan(){
   if($("#hotelid").val() == "86180"){ $("#RatePlanID").val("2025588"); }
 }
 
-function searchIhotelierRatePlan(T){ var rate = T.options[T.selectedIndex].id; var minimum = T.options[T.selectedIndex].title; $("#RatePlanID").val(rate); $("#minimum").val(minimum);}
+function searchIhotelierRatePlan(T){ var rate = $('select option:selected').attr('id'); var minimum = $('select option:selected').attr('name');$("#RatePlanID").val(rate); $("#minimum").val(minimum); }
 
-function searchIhotelierPackage(T){ var rate = T.options[T.selectedIndex].id; var minimum = T.options[T.selectedIndex].title; $("#packageId").val(rate); $("#minimum").val(minimum);}
+function searchIhotelierPackage(T){ var rate = $('select option:selected').attr('id'); var minimum = $('select option:selected').attr('name');$("#packageId").val(rate); $("#minimum").val(minimum); }
+  
 
 

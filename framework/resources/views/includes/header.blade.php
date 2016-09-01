@@ -147,7 +147,7 @@
 						<li id="li-all-inc" class="mayusculas">
 						<a href="{{url($prefix.Lang::get('routes.all-inclusive'))}}">@lang('messages.all-inclusive')</a>
 						</li>
-						<li id="li-offers" class="mayusculas menuBook">
+						<li id="li-offers" class="mayusculas">
 						<a href="{{url($prefix.Lang::get('routes.offers'))}}">@lang('messages.offers')</a>
 						</li>
 

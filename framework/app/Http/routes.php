@@ -29,9 +29,7 @@ if (in_array($locale, $languages) && $locale != 'en') {
 
 Route::get('/','PagesController@home');
 Route::get('/es','PagesController@inicio');
-// "/" routes will be default language routes, and "/$prefix" routes will be routes for all other languages
 Route::group(array('prefix' => $locale), function() {
-    //my routes here
 	
 	Route::get('webcams','PagesController@webcamsShow');
 	Route::get('newsletter','PagesController@newsletter');
@@ -51,7 +49,11 @@ Route::group(array('prefix' => $locale), function() {
 	Route::get(Lang::get('routes.contact'),'PagesController@contact');
 	Route::get(Lang::get('routes.cookies-policy'),'PagesController@policyShow');
 	Route::get(Lang::get('routes.gds'),'PagesController@gdsShow');
+	Route::get(Lang::get('routes.bestDeal'),'PagesController@bestDealShow');
+	Route::get(Lang::get('routes.whyBook'),'PagesController@whyBookShow');
+	Route::get(Lang::get('routes.hotelPolicies'),'PagesController@hotelPoliciesShow');
 	Route::get(Lang::get('routes.webcams'),'PagesController@webcamsShow');
 	Route::get('newsletter/bonnier/st-maarten-deal','PagesController@newsletterBonnier');
+
 
 });

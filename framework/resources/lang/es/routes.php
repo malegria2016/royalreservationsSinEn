@@ -18,5 +18,8 @@ return [
 	'packages'=>'paquetes',
 	'cookies-policy'=>'politica-de-uso-de-cookies',
 	'gds'=>'gds/promos2016',
-	'webcams'=>'webcams'
+	'webcams'=>'webcams',
+	'bestDeal'=>'mejor-precio-garantizado',
+	'whyBook'=>'reservar-con-nosotros-tu-mejor-opcion',
+	'hotelPolicies'=>'politicas-del-hotel'
 ];

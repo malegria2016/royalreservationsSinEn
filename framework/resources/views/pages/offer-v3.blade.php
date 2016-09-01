@@ -1,6 +1,5 @@
 @extends('layouts.default')
 
-
 @section('title', 'St Maarten Deal')
 
 @section('metadescription','Book your next Caribbean vacations and discover  St Maarten Island.')
@@ -27,7 +26,7 @@
     		@foreach($all_offers as $key=>$offers)
     			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 offer marginb50">
 					<a href="{{url(App::getLocale()=='en'?Lang::get('routes.offers').'/'.$offers->identifier:'/es/'.Lang::get('routes.offers').'/'.$offers->identifier)}}">
-					<img class="img-responsive marco" src="{{ asset('img/medium/'.$offers->identifier.'-'.		App::getLocale().'.jpg') }}" alt="{{$offers->contents[0]->alt}}">
+					<img class="img-responsive marco" src="{{ asset('img/medium/'.$offers->identifier.'-'.App::getLocale().'.jpg') }}" alt="{{$offers->contents[0]->alt}}">
 					</a>
 					<a href="{{url(App::getLocale()=='en'?Lang::get('routes.offers').'/'.$offers->identifier:'/es/'.Lang::get('routes.offers').'/'.$offers->identifier)}}">
 						<label>{{$offers->contents[0]->headline}}</label>
@@ -49,7 +48,7 @@
 @if($end_day >= $hoy)
 <div class="row"> 
   <section> 
-    <form class="booking" action="https://bookings.ihotelier.com/bookings.jsp" method="POST" target="_blank" onsubmit="return validateBooking();">  
+    <form class="booking" action="https://bookings.ihotelier.com/bookings.jsp" method="POST" target="_blank">  
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bookesp marginb15"> 
         <select class="form-control" id="hotelid" name="hotelid" onchange="obtenerRatePlan();"> 
           <option selected="" readonly="" value="0">Select Resort</option>  
@@ -102,11 +101,10 @@
       </div> 
       <div class="clearfix"></div> 
       <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-12 col-xs-12 bookesp"> 
-        <button type="submit" class="btn btn-success form-control col-lg-1 btnTemporal btn-oferta" id="btn-booking">Get This Offer</button> 
+        <button type="submit" class="btn btn-success form-control col-lg-1 btnTemporal" id="btn-booking">Get This Offer</button> 
       </div> 
       <div class="clear"></div> 
     </form> 
-    <div class="alert alert-danger" role="alert" id="error-booking" style="display: none">Please select a Resort!!</div> 
     <div class="alert alert-danger" role="alert" id="error-date" style="display: none">Please verify your travel window</div> 
     
     <input type="hidden" name="tag_adult" id="tag_adult" value="Adults (+18)"> 

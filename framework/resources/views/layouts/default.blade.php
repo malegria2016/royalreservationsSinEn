@@ -24,6 +24,9 @@
 		<meta property="og:site_name" content="Royal Reservations" />
 		<meta property="fb:app_id" content="1419780141570768" />
 
+		<!-- Pinterest Tag -->
+		<meta name="p:domain_verify" content="7282384a2a65a29c20cbe64a13b1c3a0"/>
+
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -35,14 +38,19 @@
 
 	<body>
 
-
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/ui.totop.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.floating-social-share.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/flexslider.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+
+		<link rel="preload" href="{{ asset('css/font-awesome.min.css') }}" as="style" onload="this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}"></noscript>
+
+		<link rel="preload" href="{{ asset('css/jquery.floating-social-share.css') }}" as="style" onload="this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="{{ asset('css/jquery.floating-social-share.css') }}"></noscript>
+
+		<link rel="preload" href="{{ asset('css/flexslider.css') }}" as="style" onload="this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="{{ asset('css/flexslider.css') }}"></noscript>
+
 		<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
 
@@ -60,14 +68,14 @@
 
 		@include('includes.footer')
 
-		
 		<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/jquery.ui.totop.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/easing.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/jquery.floating-social-share.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/jquery.floating-social-share.min.js')}}"></script>
+		<script type="text/javascript" src="{{ asset('js/easing.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/jquery.ui.totop.min.js')}}"></script>
 		
 		@yield('javascript')
 		<!-- Google Tag Manager -->

@@ -1,55 +1,48 @@
+{{--*/ $dateInDefault= date("m/d/Y",strtotime("+25 day")); $dateOutDefault=date("m/d/Y",strtotime("+30 day")); /*--}}
+
 <section>
-	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="return validateBooking();">
+	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="POST" target="_blank">
 		@if(isset($rate_access_code))
 			<input type="hidden" name="identifier" value="{{$rate_access_code}}">
 		@endif
 		<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 bookesp">
+			<span class="lbForm">@lang('messages.select_resort')</span>
 			<select class="form-control" id="hotelid" name="hotelid">
-				<option selected readonly value="0">@lang('messages.select_resort')</option>
+				<optgroup label="@lang('messages.all-inclusive')">
 				@foreach($resorts_routes_mex as $resort_route)
 					@if($resort_route->ihotelier_id != 86175 && $resort_route->ihotelier_id != 86182)
-						<option value="{{$resort_route->ihotelier_id}}">{{$resort_route->name}}</option>
+						<option value="{{$resort_route->ihotelier_id}}" data-subtext="{{$resort_route->area}}">{{$resort_route->name}}</option>
 					@endif
 				@endforeach
-				
-				<!--
-				** Se comenta ya que no hay AI en el caribe **
-				<optgroup label="@lang('messages.mexico')">
-					@foreach($resorts_routes_mex as $resort_route)
-						<option value="{{$resort_route->ihotelier_id}}">{{$resort_route->name}}</option>
-					@endforeach
 				</optgroup>
-				<optgroup label="@lang('messages.caribbean')">
-					@foreach($resorts_routes_car as $resort_route)
-						<option value="{{$resort_route->ihotelier_id}}">{{$resort_route->name}}</option>
-					@endforeach
-				</optgroup>
-				-->
 			</select>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 bookesp">
+			<span class="lbForm">@lang('messages.arrival')</span>
 			<div class="input-group espCalendario">
-				<input type="text" class="form-control calendario" id="datein" name="datein" placeholder="@lang('messages.arrival')"  readonly>
+				<input type="text" class="form-control calendario" id="datein" name="datein" value="{{ $dateInDefault }}"  readonly>
 			</div>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 bookesp">
+			<span class="lbForm">@lang('messages.departure')</span>
 			<div class="input-group espCalendario">
-				<input type="text" class="form-control calendario" id="dateout" name="dateout" placeholder="@lang('messages.departure')"  readonly>
+				<input type="text" class="form-control calendario" id="dateout" name="dateout" value="{{ $dateOutDefault }}"  readonly>
 			</div>
 		</div>
 		<div class="col-lg-1 col-md-2 col-sm-4 col-xs-4 bookesp2">
+			<span id="spAdult" class="lbForm">@lang('messages.adults')</span>
 			<select name="adults" class="form-control" id="select-adults">
-				<option selected readonly value="0">@lang('messages.adults')</option>
 				<option value="1">1</option>
-				<option value="2">2</option>
+				<option value="2" selected>2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
 				<option value="5">5</option>
 			</select>
 		</div>
 		<div class="col-lg-1 col-md-2 col-sm-4 col-xs-4 bookesp2a">
+			<span id="spTeen" class="lbForm">@lang('messages.teen')</span>
 			<select name="children" class="form-control" id="select-teens">
-				<option selected readonly value="0">@lang('messages.teen')</option>
+				<option value="0" selected>0</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -58,8 +51,9 @@
 			</select>
 		</div>
 		<div class="col-lg-1 col-md-2 col-sm-4 col-xs-4 bookesp3" >
+			<span id="spChildren" class="lbForm">@lang('messages.children')</span>
 			<select name="children2" class="form-control" id="select-childrens">
-				<option selected readonly value="0">@lang('messages.children')</option>
+				<option value="0" selected>0</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -68,11 +62,12 @@
 			</select>
 		</div>
 		<div class="col-lg-2 col-md-1 col-sm-12 col-xs-12 bookesp">
+			<span class="lbFormHide">.</span>
 			<button type="submit" class="btn btn-success form-control col-lg-1 btnTemporal" id="btn-booking">@lang('messages.book')</button>
 		</div>
 		<div class="clear"></div>
 	</form>
-	<div class="alert alert-danger" role="alert" id="error-booking" style="display:none;text-align:center;margin-bottom:0px;">@lang('messages.please_select')</div>
+
 	<input type="hidden" name="tag_adult" id="tag_adult" value="@lang('messages.adults')">
 	<input type="hidden" name="tag_adult2" id="tag_adult2" value="@lang('messages.adults2')">
 	<input type="hidden" name="tag_teen" id="tag_teen" value="@lang('messages.teen')">

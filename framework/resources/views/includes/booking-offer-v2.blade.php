@@ -1,5 +1,6 @@
+<h1>Book with us</h1>
 <section>
-	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']); return validateBooking();">
+	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
 		@if(isset($rate_access_code))
 			<input type="hidden" name="identifier" value="{{$rate_access_code}}">
 		@endif
@@ -61,7 +62,6 @@
 		</div>
 		<div class="clear"></div>
 	</form>
-	<div class="alert alert-danger" role="alert" id="error-booking" style="display: none">@lang('messages.please_select')</div>
 	<input type="hidden" name="tag_adult" id="tag_adult" value="@lang('messages.adults')">
 	<input type="hidden" name="tag_adult2" id="tag_adult2" value="@lang('messages.adults2')">
 	<input type="hidden" name="tag_teen" id="tag_teen" value="@lang('messages.teen')">

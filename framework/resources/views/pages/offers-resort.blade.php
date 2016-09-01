@@ -10,11 +10,6 @@
 @section('og_image', url('img/medium/'.$offers[0]->identifier.'-'.App::getLocale().'.jpg'))
 @section('og_description', $resort->contents[0]->offers_metadescription)
 
-
-@section('booking')
-@include('includes.booking')
-@stop
-
 {{--*/  $prefix='' /*--}}
 @if (App::getLocale() == 'en')
 	{{--*/ $prefix=''/*--}}

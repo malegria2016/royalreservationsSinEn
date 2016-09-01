@@ -28,7 +28,7 @@
 @stop
 
 @section('booking')
-@include('includes.booking')
+@include('includes.booking-destinations')
 @stop
 
 {{--*/  $prefix='' /*--}}
@@ -42,10 +42,6 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb50">
-			@if($destination->location == "Caribbean Islands")
-				<!-- IMAGEN DE TELEFONO DESHABILITADO -->
-				<!--<img class="img-responsive margint50 marginb50" src="{{asset('img/big/new-phone-number.jpg')}}" alt="europe">-->
-			@endif
 			<h1>{{$destination->name}}</h1>
 		</div>
 		<div class="clearfix"></div>

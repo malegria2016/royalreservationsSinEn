@@ -1,21 +1,12 @@
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/*
 Created on : 8/05/2015, 09:59:06 AM
 Author     : gcetina
 Edited	: 24/06/2015
 Edited	: ggarcia
 */
-body {
-	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-	font-size: 16px !important;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	color:#666;
-}
-h2, h3, h4, h5, h6 {	font-size: 24px;margin-top: 0px;margin-bottom: 40px;}
+body { font-size: 16px !important; color:#666;}
+h1 {font-family: 'Roboto Condensed', sans-serif !important; color: #0074d8;font-size: 3em !important;margin: 70px 0 50px;  border-bottom: 1px solid #d5d5d5 !important;padding: 0 0 20px; text-align: center;text-transform: uppercase;}
+h2, h3, h4, h5, h6 { font-size: 24px;margin-top: 0px;margin-bottom: 40px; font-family: 'Oswald', sans-serif;text-transform: uppercase;color:#454545;}
 .header-area {background: none repeat scroll 0 0 #003c72;}
 .header-area a {color: #FFF;}
 .user-menu ul {list-style: outside none none;margin: 0;padding: 0;}
@@ -79,8 +70,6 @@ small, .small {font-size: 80%;}
 p a {color: #0074d8;font-weight: bold;text-decoration:none;}
 p a:hover {color: #0074d8;text-decoration: underline;}
 .navbar-default {background-color: #00345E;}
-h1 {font-family: 'Roboto Condensed', sans-serif !important; color: #0074d8;font-size: 3em !important;margin: 70px 0 50px;  border-bottom: 1px solid #d5d5d5 !important;padding: 0 0 20px; text-align: center;text-transform: uppercase;}
-h2, h3, h4, h5 {font-family: 'Oswald', sans-serif;text-transform: uppercase;color:#454545;}
 .nav, footer {font-family: 'Roboto Condensed', sans-serif;}
 .txtBanner p {font-family: 'Oswald', sans-serif;}
 .offer label,
@@ -94,17 +83,32 @@ form > * {font-family: 'Oswald', sans-serif; font-weight: 300;}
 .navInfoSubmenu li a {color: white !important;font-weight: 300;}
 .navInfoSubmenu li a:hover {background: none;}
 .txtright {text-align: right !important;}
-.menuBook {
-	/* background:#ff6600 */
-	;font-weight: bold;
-}
-.menuBook:hover {background:#FF7119 !important;color:#FFE51E !important;}
+/*.menuBook {  background:#ff6600;  font-weight: bold;}
+.menuBook:hover {background:#FF7119 !important;color:#FFE51E !important;}*/
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {background-color: #0074d8;color: #fff;}
-.booking {background-color: #d5d5d5;color: #000;padding-bottom: 20px;padding-top: 20px;}
+.booking {background-color: #d5d5d5;padding-bottom: 15px;padding-top: 10px;}
 .btn {padding: 6px auto !important;border-radius: 0;}
 .btn-primary {color: #fff;background-color: #0074d8;border-color: #0074d8;width: 33%;margin: 2px 0;}
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus {background-color: #ff6600;border-color: #ff6600;}
-.form-control {padding: 6px;}
+.form-control {padding: 6px;border-radius: 0px;}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {background-color: white;opacity: 1;}
+
+li a.opt span.text{ color: #333; margin: 0px;}
+ul.dropdown-menu.inner li.selected a:focus,  li a.opt:hover span.text, li a.opt:focus span.text,ul.dropdown-menu.inner li.selected a span.text small.text-muted, ul.dropdown-menu.inner li a:hover span.text small.text-muted{ color: #fff;}
+ul.dropdown-menu.inner li.selected a:focus, li a.opt:hover span.text small.text-muted, li a.opt:focus span.text small.text-muted{ color: #fff;}
+button.btn.dropdown-toggle.btn-default span.filter-option.pull-left{background-color: white;opacity: 1;border-radius: 0px;}
+.btn-default, .btn-default:hover, .btn-default:focus, .btn-default:active, .open>.dropdown-toggle.btn-default {background-color: white;opacity: 1;border:none;}
+button.btn.dropdown-toggle.btn-default span.filter-option.pull-left{font-weight:normal; color:#666;font-size: 14px; font-family: 'Oswald', sans-serif; font-weight: 300;}
+ul.dropdown-menu.inner li{ margin: 0 0px;}
+ul.dropdown-menu.inner li.selected a:focus, li a.opt:hover,ul.dropdown-menu.inner li.selected a span.text, ul.dropdown-menu.inner li a:hover { border: none; background-color: #0074d8; color: #fff;}
+.dropdown-menu{padding: 0;  margin: 0px; border-radius: 0;}
+ul.dropdown-menu.inner li.selected{ background-color: #0074d8;}
+
+.lbForm{font-size:12px;color:#636363;} 
+.lbFormHide{font-size:12px;color:#d5d5d5;}
+.msgError{display:none;text-align:center;margin-bottom:0px;}
+
+
 .btn-success {background-color: #0074d8;border-color: #0074d8;}
 .btn-success:hover, .btn-success:active, .btn-success:focus {background-color: #ff6600;border-color: #ff6600;}
 .mayusculas {text-transform: uppercase;}
@@ -115,7 +119,6 @@ form > * {font-family: 'Oswald', sans-serif; font-weight: 300;}
 #h1_content {margin:0 0 40px;text-align: center;}
 #h2_content, #h3_content {text-align: justify;}
 .allInclusivecontent {text-align: justify;}
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {background-color: white;opacity: 1;}
 .marco {border: 4px solid white;box-shadow: 3px 3px 10px #d5d5d5, -3px -3px 10px #d5d5d5;}
 .marcosin {box-shadow:none;}
 footer {background: #00345E;margin-top:100px;}
@@ -174,7 +177,6 @@ footer .footerMensaje p {text-align: justify;}
 .btnHotel button {background: #0074D8;color: white;font-family: 'Oswald', sans-serif; font-weight: 300;}
 .btnHotel button:hover, .btnHotel button:focus {background: #ff6600;color:white;}
 .btn-lg, .btn-group-lg>.btn {padding: 10px 69px;}
-.form-control {border-radius: 0px;}
 .fondoVideoDestino {background: url(../img/general/fondoDestino.jpg) no-repeat;padding: 20px 10px;width: 100%;height: 363px;}
 .hotelesRecuadro {color: white;}
 .hotelesRecuadro h2 {color: white;}
@@ -204,9 +206,8 @@ footer .footerMensaje p {text-align: justify;}
 .btnTemporal:hover {background: #0074d8; border: #0074d8}
 .fa-star,
 .fa-star-half-o {color: #e2c004;}
-.btn-oferta{font-size: 1.4em; padding: 0;margin: 0;}
+/*.btn-oferta{font-size: 1.4em; padding: 0;margin: 0;}*/
 
-.newsletter{background: #EEC218;text-align: center;height: 30px;}
 .cl700{background: #d60000 none repeat scroll 0 0;color: #fff;font-weight: normal; border-radius: 4px;font-size: .7em; padding: 3px; margin-right: 5px;display: inline-block;vertical-align: text-top;}
 .cl701{vertical-align: text-top;}
 
@@ -249,3 +250,12 @@ and (max-width : 384px)  {
 	.fondoVideoDestino-xs {background: url(../img/general/fondoDestino-xs.jpg) no-repeat;padding: 20px 10px;width: 100%;height: 800px;}
 
 }
+
+/*
+|--------------------------------------------------------------------------
+| UItoTop jQuery Plugin 1.2 http://www.mattvarone.com/web-design/uitotop-jquery-plugin/
+|--------------------------------------------------------------------------
+*/
+#toTop { display:none; text-decoration:none;position:fixed;bottom:40px;right:10px;overflow:hidden;width:51px;height:51px;border:none;text-indent:100%;background:url(../img/up.png) no-repeat left top;}
+#toTopHover {background:url(../img/up.png) no-repeat left -51px;width:51px;height:51px;display:block;overflow:hidden;float:left;opacity: 0;-moz-opacity: 0;filter:alpha(opacity=0);}
+#toTop:active, #toTop:focus { outline:none;}

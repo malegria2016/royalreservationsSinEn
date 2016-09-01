@@ -39,7 +39,7 @@ and (max-width : 384px)  {
 @stop
 
 @section('booking')
-@include('includes.booking')
+@include('includes.booking-resort')
 @stop
 
 @section('container')
@@ -295,14 +295,14 @@ and (max-width : 384px)  {
 					$("#activity").show('slow');
 					$("body").animate({scrollTop: $("#activity").offset().top});
 				});
-			$("#btn-offer").click(function () {
+			/*$("#btn-offer").click(function () {
 					$("#overview").hide();
 					$("#room").hide();
 					$("#dining").hide();
 					$("#activity").hide();
 					$("body").animate({scrollTop: $("#offer").offset().top});
-				});
-			$('#select-hotel').on('change', function () {
+				});*/
+			/*$('#select-hotel').on('change', function () {
 					if (this.value === 'btn-overview') {
 						$("#room").hide();
 						$("#dining").hide();
@@ -334,7 +334,7 @@ and (max-width : 384px)  {
 						$("#activity").hide();
 						$("body").animate({scrollTop: $("#offer").offset().top});
 					}
-				});
+				});*/
 		});
 	function init_map() {
 		var var_location = new google.maps.LatLng({{$resort->coordinates}});

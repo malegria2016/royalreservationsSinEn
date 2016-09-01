@@ -10,9 +10,6 @@
 @section('og_image', $page->og_image)
 @section('og_description', $page->metadescription)
 
-@section('booking')
-@include('includes.booking')
-@stop
 
 {{--*/  $prefix='' /*--}}
 @if (App::getLocale() == 'en')
