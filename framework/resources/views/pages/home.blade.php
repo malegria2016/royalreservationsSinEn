@@ -134,14 +134,7 @@
 
 @stop
 @section('javascript')
-<script>
-
-	$(document).ready(function () {
-		setClassActive("li-home");
-	});
-	
-
-</script>
+<script> /*$(document).ready(function () { setClassActive("li-home"); });*/ </script>
 @stop
 @endif
 

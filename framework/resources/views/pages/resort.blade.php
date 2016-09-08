@@ -146,6 +146,7 @@ and (max-width : 384px)  {
 		@if($resort->website)
 			<a href="{{$resort->website}}" class="btn btn-primary marginb50 margint50" target="_blank" >@lang('messages.website')</a>
 		@endif
+
 	</div>
 	<!-- SECCION HOTEL ACCOMMODATIONS -->
 	<div id="room" class="row">
@@ -245,12 +246,12 @@ and (max-width : 384px)  {
 <script>
 	hideAll();
 	function hideAll() {
-		$("#room").hide();
-		$("#dining").hide();
-		$("#activity").hide();
+		$j("#room").hide();
+		$j("#dining").hide();
+		$j("#activity").hide();
 	}
-	$(document).ready(function () {
-		$('.flexslider').flexslider({
+	$j(document).ready(function () {
+		$j('.flexslider').flexslider({
 	    	animation: "fade",
 			controlsContainer: ".flex-container" ,
 			controlNav: true,
@@ -259,41 +260,41 @@ and (max-width : 384px)  {
 
 		setClassActive("li-resorts");
 		if ('{{$resort->location}}' == 'Caribbean Islands') {
-			$("#li-all-inc").hide();
+			$j("#li-all-inc").hide();
 		}
 		changeBooking({{$resort->ihotelier_id}});
-			$('#hotelid option').each(function() {
-					if($(this).val() == {{$resort->ihotelier_id}}) {
-						$(this).prop("selected", true);
+			$j('#hotelid option').each(function() {
+					if($j(this).val() == {{$resort->ihotelier_id}}) {
+						$j(this).prop("selected", true);
 					}
 				});
-			$("#btn-overview").click(function () {
-					$("#room").hide();
-					$("#dining").hide();
-					$("#activity").hide();
-					$("#overview").show('slow');
-					$("body").animate({scrollTop: $("#overview").offset().top});
+			$j("#btn-overview").click(function () {
+					$j("#room").hide();
+					$j("#dining").hide();
+					$j("#activity").hide();
+					$j("#overview").show('slow');
+					$j("body").animate({scrollTop: $j("#overview").offset().top});
 				});
-			$("#btn-room").click(function () {
-					$("#overview").hide();
-					$("#dining").hide();
-					$("#activity").hide();
-					$("#room").show('slow');
-					$("body").animate({scrollTop: $("#room").offset().top});
+			$j("#btn-room").click(function () {
+					$j("#overview").hide();
+					$j("#dining").hide();
+					$j("#activity").hide();
+					$j("#room").show('slow');
+					$j("body").animate({scrollTop: $j("#room").offset().top});
 				});
-			$("#btn-dining").click(function () {
-					$("#overview").hide();
-					$("#room").hide();
-					$("#activity").hide();
-					$("#dining").show('slow');
-					$("body").animate({scrollTop: $("#dining").offset().top});
+			$j("#btn-dining").click(function () {
+					$j("#overview").hide();
+					$j("#room").hide();
+					$j("#activity").hide();
+					$j("#dining").show('slow');
+					$j("body").animate({scrollTop: $j("#dining").offset().top});
 				});
-			$("#btn-activity").click(function () {
-					$("#overview").hide();
-					$("#room").hide();
-					$("#dining").hide();
-					$("#activity").show('slow');
-					$("body").animate({scrollTop: $("#activity").offset().top});
+			$j("#btn-activity").click(function () {
+					$j("#overview").hide();
+					$j("#room").hide();
+					$j("#dining").hide();
+					$j("#activity").show('slow');
+					$j("body").animate({scrollTop: $j("#activity").offset().top});
 				});
 			/*$("#btn-offer").click(function () {
 					$("#overview").hide();

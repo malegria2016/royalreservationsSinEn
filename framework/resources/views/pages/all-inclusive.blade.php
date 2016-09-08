@@ -133,11 +133,7 @@
 @stop
 
 @section('javascript')
-<script>
-	$(document).ready(function () {
-		setClassActive("li-all-inc");
-	});
-</script>
+<script> /*$(document).ready(function () { setClassActive("li-all-inc"); });*/ </script>
 @stop
 
 @endif

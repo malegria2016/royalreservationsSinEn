@@ -100,10 +100,10 @@
 
 @section('javascript')
 <script>
-	$(document).ready(function () {
-		setClassActive("li-destinations");
+	$j(document).ready(function () {
+		/*setClassActive("li-destinations");*/
 		if ('{{$destination->location}}' == 'Caribbean Islands') {
-			$("#li-all-inc").hide();
+			$j("#li-all-inc").hide();
 		}
 	});
 </script>
