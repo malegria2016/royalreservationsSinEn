@@ -120,30 +120,30 @@
 
 @section('javascript')
 <script>
-	$(document).ready(function () {
-			setClassActive("li-resorts");
-			$("#btn-all").click(function () {
-					$("#mex").show("slow");
-					$("#car").show("slow");
+	$j(document).ready(function () {
+			/*setClassActive("li-resorts");*/
+			$j("#btn-all").click(function () {
+					$j("#mex").show("slow");
+					$j("#car").show("slow");
 				});
-			$("#btn-mex").click(function () {
-					$("#mex").show("slow");
-					$("#car").hide("fast");
+			$j("#btn-mex").click(function () {
+					$j("#mex").show("slow");
+					$j("#car").hide("fast");
 				});
-			$("#btn-car").click(function () {
-					$("#mex").hide("fast");
-					$("#car").show("slow");
+			$j("#btn-car").click(function () {
+					$j("#mex").hide("fast");
+					$j("#car").show("slow");
 				});
-			$('#select-hotels').on('change', function() {
+			$j('#select-hotels').on('change', function() {
 					if(this.value === 'btn-all'){
-						$("#mex").show("slow");
-						$("#car").show("slow");
+						$j("#mex").show("slow");
+						$j("#car").show("slow");
 					}else if(this.value === "btn-mex"){
-						$("#mex").show("slow");
-						$("#car").hide("fast");
+						$j("#mex").show("slow");
+						$j("#car").hide("fast");
 					}else{
-						$("#mex").hide("fast");
-						$("#car").show("slow");
+						$j("#mex").hide("fast");
+						$j("#car").show("slow");
 					}
 				});
 		});

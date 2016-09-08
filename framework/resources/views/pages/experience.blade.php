@@ -153,11 +153,7 @@
 @stop
 
 @section('javascript')
-<script>
-	$(document).ready(function () {
-		setClassActive("li-experiences");
-	});
-</script>
+<script> /*$(document).ready(function () { setClassActive("li-experiences");});*/</script>
 @stop
 
 @endif

@@ -101,25 +101,25 @@
 
 @section('javascript')
 <script>
-	$(document).ready(function () {
-		setClassActive("li-offers");
+	$j(document).ready(function () {
+		/*setClassActive("li-offers");*/
 		if ('{{$destination->location}}' == 'Caribbean Islands') {
-			$("#li-all-inc").hide();
+			$j("#li-all-inc").hide();
 		}
-		$("#btn-destinations").click(function () {
-					var destinationIdentifier = $("#destinations").val();
+		$j("#btn-destinations").click(function () {
+					var destinationIdentifier = $j("#destinations").val();
 					var offersDestinationUrl = "{{url($prefix.Lang::get('routes.offers').'/'.Lang::get('routes.destinations'))}}"+"/"+ destinationIdentifier;
 					//console.log(offersDestinationUrl);
 					window.location.href = offersDestinationUrl;
 				});
-				$('#destinations option').each(function() {
+				$j('#destinations option').each(function() {
 					//console.log($(this).val());
-					if($(this).val() == "{{$destination->identifier}}") {
-						$(this).prop("selected", true);
+					if($j(this).val() == "{{$destination->identifier}}") {
+						$j(this).prop("selected", true);
 					}
 				});
-				$("#btn-resorts").click(function () {
-					var resortIdentifier = $("#resorts").val();
+				$j("#btn-resorts").click(function () {
+					var resortIdentifier = $j("#resorts").val();
 					var offersResortUrl = "{{url($prefix.Lang::get('routes.offers').'/'.Lang::get('routes.resorts'))}}"+"/"+ resortIdentifier;
 					window.location.href = offersResortUrl;
 				});

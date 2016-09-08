@@ -117,15 +117,15 @@
 
 @section('javascript')
 <script>
-	$(document).ready(function () {
-		setClassActive("li-offers");
-			$("#btn-resorts").click(function () {
-					var resortIdentifier = $("#resorts").val();
+	$j(document).ready(function () {
+		/*setClassActive("li-offers");*/
+			$j("#btn-resorts").click(function () {
+					var resortIdentifier = $j("#resorts").val();
 					var offersResortUrl = "{{url($prefix.Lang::get('routes.offers').'/'.Lang::get('routes.resorts'))}}"+"/"+ resortIdentifier;
 					window.location.href = offersResortUrl;
 				});
-			$("#btn-destinations").click(function () {
-					var destinationIdentifier = $("#destinations").val();
+			$j("#btn-destinations").click(function () {
+					var destinationIdentifier = $j("#destinations").val();
 					var offersDestinationUrl = "{{url($prefix.Lang::get('routes.offers').'/'.Lang::get('routes.destinations'))}}"+"/"+ destinationIdentifier;
 					//console.log(offersDestinationUrl);
 					window.location.href = offersDestinationUrl;

@@ -1,19 +1,7 @@
-var $j = jQuery.noConflict();
+$(document).ready(function () {
+    $().UItoTop({easingType: 'easeOutQuart'});
 
-$j(document).ready(function () {
-    $j().UItoTop({easingType: 'easeOutQuart'});
-    $j('#hotelid').selectpicker();
-
-    $j(window).onload=changeBooking($j("#hotelid").val());
-
-    /*var today = new Date();
-    var today15 = new Date(today.getFullYear(), today.getMonth(), today.getDate()+15, 0,0,0,0);
-    var today20 = new Date(today.getFullYear(), today.getMonth(), today.getDate()+20, 0,0,0,0);
-
-    $("#datein").datepicker("setValue", today15);
-    $("#dateout").datepicker("setValue", today20);
-*/
-
+    
     if(typeof(travel_window) != "undefined"){
       var temp = new Date();
       var hoy  = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), 0, 0, 0, 0);
@@ -46,12 +34,9 @@ $j(document).ready(function () {
         endDate1=hoy;
       }
     }*/
-
-
-    var checkin = $j('#datein').datepicker({
-
-        onRender: function (date) {                
-
+    
+    var checkin = $('#datein').datepicker({
+        onRender: function (date) {
           if(typeof(travel_window) == "undefined"){
             return date.valueOf() < now.valueOf() ? 'disabled' : '';
           }
@@ -151,7 +136,7 @@ $j(document).ready(function () {
         checkin.hide();
         $('#dateout')[0].focus();
     }).data('datepicker');
-    var checkout = $j('#dateout').datepicker({
+    var checkout = $('#dateout').datepicker({
         onRender: function (date) {
           //return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
 
@@ -259,32 +244,32 @@ $j(document).ready(function () {
         checkout.hide();
     }).data('datepicker');
 
-  $j("body").floatingSocialShare({
+	$("body").floatingSocialShare({
       buttons: ["facebook","twitter","google-plus"],
-      counter: false,
-      popup_width: 575,
+		  counter: false,
+		  popup_width: 575,
       popup_height: 350
     });
-    $j('#hotelid').bind('change', function() {
+    $('#hotelid').bind('change', function() {
       var value = this.value;
-      changeBooking(value);
-  });
-  /*$( "#btn-flight" ).click(function() {
+  		changeBooking(value);
+	});
+  $( "#btn-flight" ).click(function() {
     $("#bookingResort").hide();
     $("#bookingFlight").show();
-  });*/
-  /*$( "#btn-resort" ).click(function() {
-    $("#bookingFlight").hide();
-    $("#bookingResort").show();
-  });*/
+});
+$( "#btn-resort" ).click(function() {
+  $("#bookingFlight").hide();
+  $("#bookingResort").show();
+});
 
-$j("#cerrar").on( "click", function() {
+$("#cerrar").on( "click", function() {
   var e = new Date();
   e.setTime(e.getTime()+(10*24*60*60*1000));
   var expira = "expires="+e.toUTCString();
   document.cookie="minimizado=1;"+expira+";path=/";
 
-  $j('#cookie-law-info-bar').hide(1000);
+  $('#cookie-law-info-bar').hide(1000);
   document.getElementById("cookie-law-info-bar").style.display = "none";
 
 });
@@ -302,38 +287,33 @@ else{
 });
 
 function changeBooking(value){
-  var tag_adult = $j('#tag_adult').val();
-  var tag_adult2 = $j('#tag_adult2').val();
-  var tag_teen = $j('#tag_teen').val();
-  var tag_children = $j('#tag_children').val();
-  var tag_children2 = $j('#tag_children2').val();
+  var tag_adult = $('#tag_adult').val();
+  var tag_adult2 = $('#tag_adult2').val();
+  var tag_teen = $('#tag_teen').val();
+  var tag_children = $('#tag_children').val();
+  var tag_children2 = $('#tag_children2').val();
     if(value == "95939"){
-      $j("#select-childrens").val("0");
-      $j("#select-childrens").hide();
-      $j("#spChildren").hide();
-      $j("#spAdult").text(tag_adult2);
-      $j("#spTeen").text(tag_children);
-  } else if(value == "86175" || value == "86182"){
-      $j("#select-childrens").val("0");
-      $j("#select-childrens").hide();
-      $j("#spChildren").hide();
-      $j("#spAdult").text(tag_adult);
-      $j("#spTeen").text(tag_children2);
+      $("#select-childrens").val("0");
+      $("#select-childrens").hide();
+      $('#select-adults option:eq(0)').text(tag_adult2);
+      $('#select-teens option:eq(0)').text(tag_children);
+  }	else if(value == "86175" || value == "86182"){
+      $("#select-childrens").val("0");
+      $("#select-childrens").hide();
+      $('#select-adults option:eq(0)').text(tag_adult);
+      $('#select-teens option:eq(0)').text(tag_children2);
   }else{
-    $j("#select-childrens").val("0");
-    $j("#spAdult").text(tag_adult);
-    $j("#spTeen").text(tag_teen);
-    $j("#spChildren").text(tag_children);
-    $j("#select-childrens").show();
-    $j("#spChildren").show();
+    $("#select-childrens").val("0");
+    $('#select-adults option:eq(0)').text(tag_adult);
+    $('#select-teens option:eq(0)').text(tag_teen);
+    $('#select-childrens option:eq(0)').text(tag_children);
+    $("#select-childrens").show();
   }
-  searchIhotelierRatePlan();
-  searchIhotelierPackage();
 }
 
-function setClassActive(e) { $j("#" + e).addClass("active") }
+function setClassActive(e) { $("#" + e).addClass("active") }
 
-/*function validateBooking(){
+function validateBooking(){
   if($("#hotelid").val() == "0"){
     $("#error-booking").show("slow");
     return false;
@@ -341,41 +321,40 @@ function setClassActive(e) { $j("#" + e).addClass("active") }
     $("#error-booking").hide();
     return true;
   }
-}*/
+}
 
-function validateBookingSingle(){ 
-  /*if($("#hotelid").val() == "0"){
+function validateBookingSingle(){	
+  if($("#hotelid").val() == "0"){
     $("#error-booking").show("slow");
     return false;
-  }else*/
+  }else
 
-  /*if ($("#datein").val() == '' && $("#dateout").val() == ''){
+  if ($("#datein").val() == '' && $("#dateout").val() == ''){
     $("#error-minimum").show("slow");
     return false;
-  }*/
+  }
   
-  var DateIn  = new Date($j("#datein").val());
-  var DateOut = new Date($j("#dateout").val());
+  var DateIn  = new Date($("#datein").val());
+  var DateOut = new Date($("#dateout").val());
 
-  if(((DateOut - DateIn) /1000/60/60/24) < $j("#minimum").val() ){
-    $j("#error-minimum").show("slow");
+  if(((DateOut - DateIn) /1000/60/60/24) < $("#minimum").val() ){
+    $("#error-minimum").show("slow");
     return false;
 
-  }
-  /*
-  else{
+  }else{
     $("#error-booking").hide();
     $("#error-minimun").hide();
     return true;
-  }*/
+  }
 }
   
 function obtenerRatePlan(){
-  if($j("#hotelid").val() == "86179"){ $j("#RatePlanID").val("2025619"); }
-  if($j("#hotelid").val() == "86180"){ $j("#RatePlanID").val("2025588"); }
+  if($("#hotelid").val() == "86179"){ $("#RatePlanID").val("2025619"); }
+  if($("#hotelid").val() == "86180"){ $("#RatePlanID").val("2025588"); }
 }
 
-function searchIhotelierRatePlan(T){ var rate = $j('select option:selected').attr('id'); var minimum = $j('select option:selected').attr('name');$j("#RatePlanID").val(rate); $j("#minimum").val(minimum); }
+function searchIhotelierRatePlan(T){ var rate = T.options[T.selectedIndex].id; var minimum = T.options[T.selectedIndex].title; $("#RatePlanID").val(rate); $("#minimum").val(minimum);}
 
-function searchIhotelierPackage(T){ var rate = $j('select option:selected').attr('id'); var minimum = $j('select option:selected').attr('name');$j("#packageId").val(rate); $j("#minimum").val(minimum); }
-  
+function searchIhotelierPackage(T){ var rate = T.options[T.selectedIndex].id; var minimum = T.options[T.selectedIndex].title; $("#packageId").val(rate); $("#minimum").val(minimum);}
+
+
