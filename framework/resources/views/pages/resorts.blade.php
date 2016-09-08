@@ -66,9 +66,6 @@
 					@endif
 				</div>
 				<div class="short_description">{!! $resort->contents[0]->short_description !!}</div>
-				@if($resort->contents[0]->short_offer)
-				<div class="short_offer"><label class="xs-oferta">{{ $resort->contents[0]->short_offer }}</label></div>
-				@endif
 			</div>
 		</div>
 		@if(($key + 1) % 2 == 0)
@@ -105,9 +102,6 @@
 					@endif
 				</div>
 				<div class="short_description">{!! $resort->contents[0]->short_description !!}</div>
-				@if($resort->contents[0]->short_offer)
-				<div class="short_offer"><label class="xs-oferta">{{ $resort->contents[0]->short_offer }}</label></div>
-				@endif
 			</div>
 		</div>
 		@if(($key + 1) % 2 == 0)
@@ -151,5 +145,3 @@
 @stop
 
 @endif
-
-
