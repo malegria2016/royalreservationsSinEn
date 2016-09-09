@@ -70,15 +70,14 @@
 		@include('includes.redes-sociales')
 
 		<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-
 		<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/easing.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/jquery.ui.totop.min.js')}}"></script>
-		$.noConflict();
-		<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
-		$.noConflict();
+
+		
 
 		@yield('javascript')
 		<!-- Google Tag Manager -->
