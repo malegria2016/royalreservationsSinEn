@@ -68,8 +68,7 @@
 
 		@include('includes.footer')
 
-		<!--<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
@@ -80,16 +79,7 @@
 		$.noConflict();
 		<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
 		$.noConflict();
-		<!--
-		<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/jquery.ui.totop.min.js')}}"></script>
-		<script type="text/javascript" src="{{ asset('js/easing.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/jquery.floating-social-share.min.js')}}"></script>
-		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
-		-->
+
 		
 		@yield('javascript')
 		<!-- Google Tag Manager -->

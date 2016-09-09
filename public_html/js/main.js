@@ -333,15 +333,15 @@ function changeBooking(value){
 
 function setClassActive(e) { $j("#" + e).addClass("active") }
 
-/*function validateBooking(){
-  if($("#hotelid").val() == "0"){
-    $("#error-booking").show("slow");
+function validateBooking(){
+  if($j("#hotelid").val() == "0"){
+    $j("#error-booking").show("slow");
     return false;
   }else{
-    $("#error-booking").hide();
+    $j("#error-booking").hide();
     return true;
   }
-}*/
+}
 
 function validateBookingSingle(){ 
   /*if($("#hotelid").val() == "0"){
@@ -360,14 +360,11 @@ function validateBookingSingle(){
   if(((DateOut - DateIn) /1000/60/60/24) < $j("#minimum").val() ){
     $j("#error-minimum").show("slow");
     return false;
-
   }
-  /*
   else{
-    $("#error-booking").hide();
-    $("#error-minimun").hide();
+    $j("#error-minimun").hide("slow");
     return true;
-  }*/
+  }
 }
   
 function obtenerRatePlan(){
