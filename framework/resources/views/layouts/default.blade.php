@@ -68,19 +68,38 @@
 
 		@include('includes.footer')
 
+<<<<<<< HEAD
 		<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+=======
+		@include('includes.redes-sociales')
+
+		<!--<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+>>>>>>> origin/master
 		<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-		
-		<script type="text/javascript" src="{{ asset('js/jquery.floating-social-share.min.js')}}"></script>
 		<script type="text/javascript" src="{{ asset('js/easing.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/jquery.ui.totop.min.js')}}"></script>
 		$.noConflict();
 		<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
 		$.noConflict();
 
+<<<<<<< HEAD
 		
+=======
+		<!--
+		<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/jquery.ui.totop.min.js')}}"></script>
+		<script type="text/javascript" src="{{ asset('js/easing.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/jquery.floating-social-share.min.js')}}"></script>
+		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
+		-->
+
+>>>>>>> origin/master
 		@yield('javascript')
 		<!-- Google Tag Manager -->
 		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NLLFCQ"

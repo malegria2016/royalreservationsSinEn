@@ -139,9 +139,6 @@
 				</div>
 				<div id="short_description" class="short_description">{!! $resort->contents[0]->short_description !!}</div>
 			</div>
-			@if($resort->contents[0]->short_offer)
-			<div class="short_offer"><label>{{ $resort->contents[0]->short_offer }}</label></div>
-			@endif
 		</div>
 		@if(($key + 1) % 2 == 0)
 		<div class="clearfix"></div>
