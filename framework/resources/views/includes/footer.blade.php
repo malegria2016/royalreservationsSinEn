@@ -8,9 +8,9 @@
 			<!--Area de Política de uso de Cookies-->
 			<div id="cookie-law-info-bar" class="cookies-policy"><span>@lang('messages.cookie_tx')<button id="cerrar" class="margin15">@lang('messages.cookie_btn')</button><a href="{{url($prefix.Lang::get('routes.cookies-policy'))}}" target="_new">@lang('messages.cookie_link')</a>.</span>
 			</div>
-			
 
-		
+
+
 			<div class="footerNewsletter">
 				<div class="container">
 					<div class="col-md-10 espacioFooter">
@@ -23,11 +23,13 @@
 						</form>
 						-->
 					</div>
+					<!-- se suprime los botones de redes sociales en este espacio
 					<div class="col-md-2 espacioFooter">
 						<a href="https://www.facebook.com/RoyalReservations" target="_blank"><img src=" {{ asset('img/logo/facebook.jpg') }} " alt="Facebook"></a>
 						<a href="http://www.twitter.com/royalresorts" target="_blank"><img src=" {{ asset('img/logo/twitter.jpg') }} " alt="Twitter"></a>
 						<a href="http://www.youtube.com/RoyalChannelCancun" target="_blank"><img src=" {{ asset('img/logo/youtube.jpg') }} " alt="Youtube"></a>
 					</div>
+				-->
 				</div>
 			</div>
 			<div class="container footerMenu">

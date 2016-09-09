@@ -7,7 +7,7 @@
 
 *{ box-sizing: border-box; }
 #floatingSocialShare{ position: relative;}
-#floatingSocialShare a{position: relative;width: 48px;height: 48px;line-height: 24px;display:list-item;list-style-type: none;padding: 5px 0;text-align: center;color: #fff;}
+#floatingSocialShare a{position: relative;width: 60px;height: 48px;line-height: 24px;display:list-item;list-style-type: none;padding: 5px 0;text-align: center;color: #fff;}
 #floatingSocialShare a:focus, #floatingSocialShare a:hover {color: #fff;width:52px;opacity: 0.8;transition-duration: 0.3s;transition-property: right;transition-timing-function: ease-out;}
 #floatingSocialShare a, #floatingSocialShare a:visited, #floatingSocialShare a:focus, #floatingSocialShare a:active, #floatingSocialShare a:hover {outline: 0 none !important;}
 #floatingSocialShare i{line-height: inherit;font-size: 24px;text-align: center;}
@@ -20,6 +20,7 @@
 #floatingSocialShare .envelope{background-color: #726C6C;}
 #floatingSocialShare .pinterest{background-color: #c92228;}
 #floatingSocialShare .stumbleupon{background-color: #eb4924;}
+#floatingSocialShare .instagram{background-color: #9B159C;}
 #floatingSocialShare .shareCount{position: absolute;bottom: 0;right: 0;left: 0;margin: auto;color: #dddddd;font-size:  10px;}
 #floatingSocialShare .m-top5{margin-top: 5px;}
 
