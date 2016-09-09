@@ -18,16 +18,18 @@
 	{{--*/ $prefix='es/'/*--}}
 @endif
 
+<link rel="stylesheet" href="{{ asset('css/flipclock.css') }}">
+
 <div>
-	{{--*/ 
-		$hoy = date("Y-m-d H:i:s"); 
+	{{--*/
+		$hoy = date("Y-m-d H:i:s");
 		$ban = 9;
 
     	if(isset($travel_window)){
     		if($travel_window[0]['start_date']>$hoy){
     			$date= strtotime($travel_window[0]['start_date']);
     			$dateInDefault=  date('m/d/Y', $date);
-    			
+
     			$dateOutDefault=date('m/d/Y', strtotime('+5 day',$date));
     		}
     		else{
@@ -51,14 +53,14 @@
 </div>
 
 <div class="container">
-	
+
 	@if($offer->end_date < $hoy)
 
     <div class="row">
     	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margint50">
     		<h2>@lang('messages.offers_old_1')</h2>
     	</div>
-    	@if(count($all_offers) > 0) 
+    	@if(count($all_offers) > 0)
     		@foreach($all_offers as $key=>$offers)
     			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 offer marginb50">
 					<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offers->identifier)}}">
@@ -76,6 +78,9 @@
 
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class=" col-md-offset-3 col-lg-offset-3">
+				<div class="clock" style="margin:2em;"></div>
+			</div>			
 			<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
 		</div>
 	</div>
@@ -87,13 +92,13 @@
       <h1>{{$offer->contents[0]->headline}}</h1>
 		</div>
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			
+
 			@if($offer->end_date < $hoy)
 				<div class="offerInfo marginb50">
       				<span style="">@lang('messages.offers_old_2')</span>
       			</div>
       		@endif
-      				
+
 			<div id="overview">{!!$offer->contents[0]->overview !!}</div>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -143,6 +148,16 @@
 			<a href="{{url($prefix.Lang::get('routes.offers'))}}" class="btn btn-danger btn-lg">@lang('messages.back_offers')</a>
 		</div>
 	</div>
+
 </div>
 @stop
 @endif
+
+@section('javascript')
+	<script type="text/javascript"  src="{{ asset('js/flipclock.min.js')}}"></script>
+	<script type="text/javascript">
+		var clock = $j('.clock').FlipClock(36000, {
+			countdown: true
+		});
+	</script>
+@stop
