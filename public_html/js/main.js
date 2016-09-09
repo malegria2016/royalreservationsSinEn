@@ -149,6 +149,7 @@ $j(document).ready(function () {
             checkout.setValue(newDate);
         }
         checkin.hide();
+        validateBookingSingle();
         $('#dateout')[0].focus();
     }).data('datepicker');
     var checkout = $j('#dateout').datepicker({
@@ -257,14 +258,9 @@ $j(document).ready(function () {
         }
     }).on('changeDate', function (ev) {
         checkout.hide();
+        validateBookingSingle();
     }).data('datepicker');
 
-  $j("body").floatingSocialShare({
-      buttons: ["facebook","twitter","google-plus"],
-      counter: false,
-      popup_width: 575,
-      popup_height: 350
-    });
     $j('#hotelid').bind('change', function() {
       var value = this.value;
       changeBooking(value);
@@ -362,7 +358,7 @@ function validateBookingSingle(){
     return false;
   }
   else{
-    $j("#error-minimun").hide("slow");
+    $j("#error-minimum").hide("slow");
     return true;
   }
 }
