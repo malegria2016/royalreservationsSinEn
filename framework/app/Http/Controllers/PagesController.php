@@ -207,19 +207,20 @@ class PagesController extends Controller{
 			}
 			$package = Package::active()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
 		->orderBy('priority','desc')->first();
-		if ($resort->location == "Mexican Caribbean") {
-			if ($resort->identifier == 'grand-residences') {
-				View::share('phones_customer',$this->phones_customer_residences);
+			if ($resort->location == "Mexican Caribbean") {
+				if ($resort->identifier == 'grand-residences') {
+					View::share('phones_customer',$this->phones_customer_residences);
+				}else {
+					View::share('phones_customer',$this->phones_customer);
+				}
+				View::share('phones_mex',$this->phones_mex);
+				View::share('phone_skype',$this->phone_skype_mex);
 			}else {
 				View::share('phones_customer',$this->phones_customer);
+				View::share('phones_car',$this->phones_car);
+				View::share('phone_skype',$this->phone_skype_car);
 			}
-			View::share('phones_mex',$this->phones_mex);
-			View::share('phone_skype',$this->phone_skype_mex);
-		}else {
-			View::share('phones_customer',$this->phones_customer);
-			View::share('phones_car',$this->phones_car);
-			View::share('phone_skype',$this->phone_skype_car);
-		}
+
 			//return dd($resort);
 			return view('pages.resort', compact('resort','offers','package') );
 		}else{

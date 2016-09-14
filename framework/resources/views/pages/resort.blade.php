@@ -121,7 +121,6 @@ and (max-width : 384px)  {
 			  </ul>
 			</div>
 		</div>
-	
 
 		@endif
 
@@ -238,8 +237,6 @@ and (max-width : 384px)  {
 </div>
 @stop
 
-
-
 @section('javascript')
 <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="{{ asset('js/jquery.flexslider.js') }}"></script>
@@ -262,12 +259,8 @@ and (max-width : 384px)  {
 		if ('{{$resort->location}}' == 'Caribbean Islands') {
 			$j("#li-all-inc").hide();
 		}
+
 		changeBooking({{$resort->ihotelier_id}});
-			$j('#hotelid option').each(function() {
-					if($j(this).val() == {{$resort->ihotelier_id}}) {
-						$j(this).prop("selected", true);
-					}
-				});
 			$j("#btn-overview").click(function () {
 					$j("#room").hide();
 					$j("#dining").hide();
@@ -296,46 +289,6 @@ and (max-width : 384px)  {
 					$j("#activity").show('slow');
 					$j("body").animate({scrollTop: $j("#activity").offset().top});
 				});
-			/*$("#btn-offer").click(function () {
-					$("#overview").hide();
-					$("#room").hide();
-					$("#dining").hide();
-					$("#activity").hide();
-					$("body").animate({scrollTop: $("#offer").offset().top});
-				});*/
-			/*$('#select-hotel').on('change', function () {
-					if (this.value === 'btn-overview') {
-						$("#room").hide();
-						$("#dining").hide();
-						$("#activity").hide();
-						$("#overview").show('slow');
-						$("body").animate({scrollTop: $("#overview").offset().top});
-					} else if (this.value === "btn-room") {
-						$("#overview").hide();
-						$("#dining").hide();
-						$("#activity").hide();
-						$("#room").show('slow');
-						$("body").animate({scrollTop: $("#room").offset().top});
-					} else if (this.value === 'btn-dining') {
-						$("#overview").hide();
-						$("#room").hide();
-						$("#activity").hide();
-						$("#dining").show('slow');
-						$("body").animate({scrollTop: $("#dining").offset().top});
-					} else if (this.value === 'btn-activity') {
-						$("#overview").hide();
-						$("#room").hide();
-						$("#dining").hide();
-						$("#activity").show('slow');
-						$("body").animate({scrollTop: $("#activity").offset().top});
-					} else if (this.value === 'btn-offer') {
-						$("#overview").hide();
-						$("#room").hide();
-						$("#dining").hide();
-						$("#activity").hide();
-						$("body").animate({scrollTop: $("#offer").offset().top});
-					}
-				});*/
 		});
 	function init_map() {
 		var var_location = new google.maps.LatLng({{$resort->coordinates}});
@@ -362,34 +315,6 @@ and (max-width : 384px)  {
 
 	google.maps.event.addDomListener(window, 'load', init_map);
 </script>
-<!--<script type="application/ld+json">
-{
-   "@context":"http://schema.org/",
-   "@type":"Hotel",
-   "name":"{{$resort->name}}",
-   "description":"{{$resort->contents[0]->metadescription}}",
-   "location":{
-      "@type":"PostalAddress",
-      "streetAddress":"{{$resort->contents[0]->address}}",
-      "addressCountry":"{{$resort->location}}"
-   },
-   "geo":{
-      "@type":"GeoCoordinates",
-      "latitude":"{{$latLng[0]}}",
-      "longitude":"{{$latLng[1]}}"
-   },
-   "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "{{$resort->rating}}",
-    "reviewCount": "{{$resort->review_count}}"
-  },
-   "image":{
-      "@type":"ImageObject",
-      "contentUrl":"{{url('img/medium/'.$resort->identifier.'-1.jpg')}}"
-   }
-}
-</script>-->
 @stop
-
 
 @endif

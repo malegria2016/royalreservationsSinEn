@@ -1,11 +1,29 @@
 {{--*/ $dateInDefault= date("m/d/Y",strtotime("+25 day")); $dateOutDefault=date("m/d/Y",strtotime("+30 day")); /*--}}
-
 <section>
 	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="POST" target="_blank">
 		<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 bookesp">
 			<span class="lbForm">@lang('messages.select_resort')</span>
 			<select class="form-control" id="hotelid" name="hotelid">
-				<option value="{{$resort->ihotelier_id}}" data-subtext="{{$resort->area}}">{{$resort->name}}</option>
+				<option selected readonly value="0">@lang('messages.select_resort')</option>
+				<optgroup label="@lang('messages.mexico')">
+					@foreach($resorts_routes_mex as $resort_route)
+						@if($resort->ihotelier_id==$resort_route->ihotelier_id)
+							<option value="{{$resort_route->ihotelier_id}}" data-subtext="{{$resort_route->area}}" selected="">{{$resort_route->name}}</option>
+						@else
+							<option value="{{$resort_route->ihotelier_id}}" data-subtext="{{$resort_route->area}}">{{$resort_route->name}}</option>
+						@endif
+						
+					@endforeach
+				</optgroup>
+				<optgroup label="@lang('messages.caribbean')">
+					@foreach($resorts_routes_car as $resort_route)
+						@if($resort->ihotelier_id==$resort_route->ihotelier_id)
+							<option value="{{$resort_route->ihotelier_id}}" data-subtext="{{$resort_route->area}}" selected="">{{$resort_route->name}}</option>
+						@else
+							<option value="{{$resort_route->ihotelier_id}}" data-subtext="{{$resort_route->area}}">{{$resort_route->name}}</option>
+						@endif
+					@endforeach
+				</optgroup>
 			</select>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 bookesp">

@@ -7,7 +7,7 @@
 
 *{ box-sizing: border-box; }
 #floatingSocialShare{ position: relative;}
-#floatingSocialShare a{position: relative;width: 60px;height: 48px;line-height: 24px;display:list-item;list-style-type: none;padding: 5px 0;text-align: center;color: #fff;}
+#floatingSocialShare a{position: relative;width: 40px;height: 48px;line-height: 24px;display:list-item;list-style-type: none;padding: 5px 0;text-align: center;color: #fff;}
 #floatingSocialShare a:focus, #floatingSocialShare a:hover {color: #fff;width:52px;opacity: 0.8;transition-duration: 0.3s;transition-property: right;transition-timing-function: ease-out;}
 #floatingSocialShare a, #floatingSocialShare a:visited, #floatingSocialShare a:focus, #floatingSocialShare a:active, #floatingSocialShare a:hover {outline: 0 none !important;}
 #floatingSocialShare i{line-height: inherit;font-size: 24px;text-align: center;}
@@ -28,6 +28,6 @@
     #floatingSocialShare{margin-top: 50px;}
     #floatingSocialShare .top-left{top: auto;bottom: 0;width: 100%;z-index: 999;}
     #floatingSocialShare .top-right{top: auto;bottom: 0;width: 100%;z-index: 999;}
-    #floatingSocialShare a{position: relative;float: left;display:list-item;list-style-type: none;}
+    #floatingSocialShare a{position: relative;float: left;display:list-item;list-style-type: none;width: 16%;}
     #floatingSocialShare a:focus, #floatingSocialShare a:hover {-moz-transition-property: none;-webkit-transition-property: none;-o-transition-property: none;transition-property: none;}
 }

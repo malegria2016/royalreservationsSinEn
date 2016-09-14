@@ -38,15 +38,14 @@
 
 	<body>
 
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}">
+
+		<!--<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}">-->
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/all.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
-		<link rel="preload" href="{{ asset('css/font-awesome.min.css') }}" as="style" onload="this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}"></noscript>
-
-		<link rel="preload" href="{{ asset('css/jquery.floating-social-share.css') }}" as="style" onload="this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="{{ asset('css/jquery.floating-social-share.css') }}"></noscript>
+		<!--<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/jquery.floating-social-share.css') }}">-->
 
 		<link rel="preload" href="{{ asset('css/flexslider.css') }}" as="style" onload="this.rel='stylesheet'">
 		<noscript><link rel="stylesheet" href="{{ asset('css/flexslider.css') }}"></noscript>
@@ -66,18 +65,20 @@
 			@yield('container')
 		</section>
 
-		@include('includes.footer')
 		@include('includes.redes-sociales')
+		@include('includes.footer')
+		
 
-		<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+		<!--<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/easing.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/jquery.ui.totop.min.js')}}"></script>
+		<script type="text/javascript" src="{{ asset('js/jquery.ui.totop.min.js')}}"></script>-->
 
-		
+		<script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 
 		@yield('javascript')
 		<!-- Google Tag Manager -->
