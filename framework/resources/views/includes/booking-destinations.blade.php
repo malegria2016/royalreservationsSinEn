@@ -1,7 +1,7 @@
 {{--*/ $dateInDefault= date("m/d/Y",strtotime("+25 day")); $dateOutDefault=date("m/d/Y",strtotime("+30 day")); /*--}}
 
 <section>
-	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="POST" target="_blank">
+	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
 		<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 bookesp">
 			<span class="lbForm">@lang('messages.select_resort')</span>
 			<select class="form-control" id="hotelid" name="hotelid">

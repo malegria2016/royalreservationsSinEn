@@ -1,7 +1,7 @@
 {{--*/ $dateInDefault= date("m/d/Y",strtotime("+25 day")); $dateOutDefault=date("m/d/Y",strtotime("+30 day")); /*--}}
 
 <section>
-	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="POST" target="_blank" onsubmit="return validateBooking();">
+	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="return validateBooking();">
 		@if(isset($rate_access_code))
 			<input type="hidden" name="identifier" value="{{$rate_access_code}}">
 		@endif
