@@ -85,5 +85,8 @@ return [
 	'review_gr_title3'=>'Agradecimientos',
 	'review_gr_body3'=>'Mis más sinceras felicitaciones a este gran hotel y sin duda al personal que proporciona un servicio de primera. El servicio es lo que encanta de este lugar. Claro que las instalaciones son de una excelente calidad pero ese plus que buscamos los viajeros está en el servicio, y sin duda lo encontrarán aquí.',
 	'review_gr_name3'=>'Esteffany E.',
-	'review_gr_date3'=>'17 de abril 2016'
+	'review_gr_date3'=>'17 de abril 2016',
+	'best_deal'=>'Mejor Oferta Garantizada',
+	'why_book_with_us'=>'Porqué Reservar con Nosotros',
+	'hotel_policies'=>'Políticas del Hotel'
 ];

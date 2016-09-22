@@ -28,8 +28,7 @@
 						<a href="https://www.facebook.com/RoyalReservations" target="_blank"><img src=" {{ asset('img/logo/facebook.jpg') }} " alt="Facebook"></a>
 						<a href="http://www.twitter.com/royalresorts" target="_blank"><img src=" {{ asset('img/logo/twitter.jpg') }} " alt="Twitter"></a>
 						<a href="http://www.youtube.com/RoyalChannelCancun" target="_blank"><img src=" {{ asset('img/logo/youtube.jpg') }} " alt="Youtube"></a>
-					</div>
-				-->
+					</div>-->
 				</div>
 			</div>
 			<div class="container footerMenu">
@@ -93,7 +92,9 @@
 							<li class="encabezadoFooter">@lang('messages.contact')</li>
 							<li><a href="{{url($prefix.Lang::get('routes.contact'))}}">@lang('messages.about_us')</a></li>
 							<li><a href="{{url($prefix.Lang::get('routes.contact'))}}">@lang('messages.legal_notice')</a></li>
-							<li><a href="{{url($prefix.Lang::get('routes.contact'))}}">@lang('messages.privacy_policy')</a></li>
+							<li><a href="{{url($prefix.Lang::get('routes.bestDeal'))}}">@lang('messages.best_deal')</a></li>
+							<li><a href="{{url($prefix.Lang::get('routes.whyBook'))}}">@lang('messages.why_book_with_us')</a></li>
+							<li><a href="{{url($prefix.Lang::get('routes.hotelPolicies'))}}">@lang('messages.hotel_policies')</a></li>
 						</ul>
 					</div>
 				</div>

@@ -1,3 +1,9 @@
+{{--*/
+$contenido="";
+$title="";
+$metadescription="";
+/*--}}
+
 @if (App::getLocale() == 'en')
   {{--*/ 
         $title="Booking with us is your best option!";

@@ -88,5 +88,8 @@ return [
 	'review_gr_title3'=>'5 Star Everything!',
 	'review_gr_body3'=>'We have been fortunate to stay at the Grand Residences three times and each time just keeps getting better. . You not only feel welcome from the moment you arrive but every single person gives you the impression that their whole existence is to make your stay the most pleasurable experience ever.',
 	'review_gr_name3'=>'APhillips2011',
-	'review_gr_date3'=>'July 21st, 2016'
+	'review_gr_date3'=>'July 21st, 2016',
+	'best_deal'=>'Best Deal Guaranteed',
+	'why_book_with_us'=>'Why Book with Us',
+	'hotel_policies'=>'Hotel Policies'
 ];
