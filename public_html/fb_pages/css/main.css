@@ -101,7 +101,7 @@ form > * {font-family: 'Oswald', sans-serif; font-weight: 300;}
 .menuBook:hover {background:#FF7119 !important;color:#FFE51E !important;}
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {background-color: #0074d8;color: #fff;}
 .booking {background-color: #d5d5d5;color: #000;padding-bottom: 20px;padding-top: 20px;}
-.btn {padding: 6px auto !important;border-radius: 0;}
+.btn {padding: 6px auto !important;border-radius: 0;width: 100%}
 .btn-primary {color: #fff;background-color: #0074d8;border-color: #0074d8;width: 33%;margin: 2px 0;}
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus {background-color: #ff6600;border-color: #ff6600;}
 .form-control {padding: 6px;}
@@ -225,6 +225,7 @@ footer .footerMensaje p {text-align: justify;}
 a.btnOfferResort i.fa.fa-tag.fac { padding-right: 4px; }
 
 .btnajuste{width: 100%;}
+.btn-danger:focus, .btn-danger:active{background: #0074d8 !important}
 
 @media (max-width:767px) {
 	.booking{color: #000;padding-top: 20px;padding-bottom: 20px !important;background-color: #d5d5d5;}

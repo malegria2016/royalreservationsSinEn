@@ -33,14 +33,14 @@
 		<link media="all" type="text/css" rel="stylesheet" href="https://royalreservations.com/css/font-awesome.min.css">
 		<link media="all" type="text/css" rel="stylesheet" href="https://royalreservations.com/css/jquery.floating-social-share.css">
 		<link media="all" type="text/css" rel="stylesheet" href="https://royalreservations.com/css/flexslider.css">
-		<link media="all" type="text/css" rel="stylesheet" href="css/main.css">
+		<link media="all" type="text/css" rel="stylesheet" href="https://royalreservations.com/fb_pages/css/main.css">
 		<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
 
 		<header>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 navbar-header"><h2>OUR RESORTS</h2></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 navbar-header margint50"><h2>OUR RESORTS</h2></div>
                 </div>
             </div>
         </header>
@@ -51,144 +51,148 @@
                         <div id="dining" class="row" style="display: block;">
                             <div class="clearfix"></div>
 
-                            <!--PRIMER RENGLON CON 3 HOTELES-->
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <img class="img-responsive marco" src="https://royalreservations.com/img/small/RS-hacienda-sisal.jpg" alt="#">
-                                <div class="marcoInferior marginb50 hotelDiningTitulo">
+                            <!--TERCE RENGLON PARA 2 HOTELES-->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
+                                <img class="img-responsive marco" src="https://royalreservations.com/fb_pages/img/trc.jpg" alt="junior suite in Cancun Resort">
+                                <div class="marcoInferior hotelRooms">
                                     <strong>The Royal Cancun</strong>
-                                    <div class="dining_description">
+                                    <div class="accommodation_description">
                                         <p>A cozy and nice family hotel preferred by loyal guests for its impeccable services, delicious Italian restaurant, kind staff and kid-friendly amenities and beach.</p>
                                     </div>
                                     <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
-                                        <input name="hotelid" type="hidden" value="86169">
-                                        <input name="themeid" type="hidden" value="10060">
-                                        <button type="submit" class="btn btn-danger pull-right">BOOK NOW!</button>
+                                        <input name="hotelid" type="hidden" value="73601">
+                                        <input name="themeid" type="hidden" value="9957">
+                                        <button type="submit" class="btn btn-danger">BOOK NOW!</button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <img class="img-responsive marco" src="https://royalreservations.com/img/small/RS-la-veranda.jpg" alt="#">
-                                <div class="marcoInferior marginb50 hotelDiningTitulo">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
+                                <img class="img-responsive marco" src="https://royalreservations.com/fb_pages/img/rh.jpg" alt="junior suite in Cancun Resort">
+                                <div class="marcoInferior hotelRooms">
+                                    <strong>The Royal Haciendas</strong>
+                                    <div class="accommodation_description">
+                                        <p>Experience the elegance of Old Mexico and enjoy spacious fully equipped villas, in Playa del Carmen paradise offering a sweet relaxing indulgence.</p>
+                                    </div>
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                        <input name="hotelid" type="hidden" value="86184">
+                                        <input name="themeid" type="hidden" value="10066">
+                                        <button type="submit" class="btn btn-danger">BOOK NOW!</button>
+                                    </form>
+                                </div>
+                            </div>                           
+                            <div class="clearfix"></div>
+
+                            <!--TERCE RENGLON PARA 2 HOTELES-->
+                            
+                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
+                                <img class="img-responsive marco" src="https://royalreservations.com/fb_pages/img/rs.jpg" alt="junior suite in Cancun Resort">
+                                <div class="marcoInferior hotelRooms">
                                     <strong>The Royal Sands</strong>
-                                    <div class="dining_description">
+                                    <div class="accommodation_description">
                                         <p>A fine resort to live a relaxing experience in one of the best beaches. Unwind on the beach or by the pool, work out at the Fitness Center, play tennis or relax at the world class Spa.</p>
                                     </div>
                                     <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
                                         <input name="hotelid" type="hidden" value="86169">
                                         <input name="themeid" type="hidden" value="10060">
-                                        <button type="submit" class="btn btn-danger pull-right">BOOK NOW!</button>
+                                        <button type="submit" class="btn btn-danger">BOOK NOW!</button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <img class="img-responsive marco" src="https://royalreservations.com/img/small/RS-char-hut.jpg" alt="#">
-                                <div class="marcoInferior marginb50 hotelDiningTitulo">
-                                    <strong>The Royal Haciendas</strong>
-                                    <div class="dining_description">
-                                        <p>Experience the elegance of Old Mexico and enjoy spacious fully equipped villas, in Playa del Carmen paradise offering a sweet relaxing indulgence.</p>
-                                    </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
-                                        <input name="hotelid" type="hidden" value="86169">
-                                        <input name="themeid" type="hidden" value="10060">
-                                        <button type="submit" class="btn btn-danger pull-right">BOOK NOW!</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-
-                            <!--SEGUNDO RENGLON PARA 1 HOTEL [GR]-->
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 marginb50 margint50">
-                                <img class="img-responsive marco" src="https://royalreservations.com/img/big/online-exclusive-cancun-deal-en.jpg" alt="#">
-                                <div class="marcoInferior hotelDiningTitulo">
-                                    <strong>Grand Residences Riviera Cancun</strong>
-                                    <div class="dining_descriptionGR">
-                                        <p>The crown of our family was Ranked #1 in Puerto Morelos, Riviera Maya by Tripadvisor, with 103 beautifully appointed Junior Suites and Master Suites offering signature hospitality and services in an exclusive pristine hideaway.</p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
-                                        <input name="hotelid" type="hidden" value="86169">
-                                        <input name="themeid" type="hidden" value="10060">
-                                        <button type="submit" class="btn btn-danger pull-right">BOOK NOW!</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-
-                            <!--TERCE RENGLON PARA 2 HOTELES-->
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
-                                <img class="img-responsive marco" src="https://royalreservations.com/img/medium/RS-junior-suite-ov.jpg" alt="junior suite in Cancun Resort">
+                                <img class="img-responsive marco" src="https://royalreservations.com/fb_pages/img/ri.jpg" alt="junior suite in Cancun Resort">
                                 <div class="marcoInferior hotelRooms">
                                     <strong>The Royal Islander</strong>
                                     <div class="accommodation_description">
                                         <p>Family oriented tranquil getaway in paradise offering direct access to its twin resort The Royal Caribbean, offering five-star services and spacious villas for your comfort and peace.</p>
                                     </div>
                                     <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
-                                        <input name="hotelid" type="hidden" value="86169">
-                                        <input name="themeid" type="hidden" value="10060">
-                                        <button type="submit" class="btn btn-danger pull-right">BOOK NOW!</button>
+                                        <input name="hotelid" type="hidden" value="86182">
+                                        <input name="themeid" type="hidden" value="14939">
+                                        <button type="submit" class="btn btn-danger">BOOK NOW!</button>
                                     </form>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
+
+                            <!--TERCE RENGLON PARA 2 HOTELES-->                            
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
-                                <img class="img-responsive marco" src="https://royalreservations.com/img/medium/RS-junior-suite-ov.jpg" alt="junior suite in Cancun Resort">
+                                <img class="img-responsive marco" src="https://royalreservations.com/fb_pages/img/rc.jpg" alt="junior suite in Cancun Resort">
                                 <div class="marcoInferior hotelRooms">
                                     <strong>The Royal Caribbean</strong>
                                     <div class="accommodation_description">
                                         <p>Family oriented tranquil getaway in paradise offering direct access to its twin resort The Royal Islander, offering five-star services and spacious villas for your comfort and peace.</p>
                                     </div>
                                     <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
-                                        <input name="hotelid" type="hidden" value="86169">
-                                        <input name="themeid" type="hidden" value="10060">
-                                        <button type="submit" class="btn btn-danger pull-right">BOOK NOW!</button>
+                                        <input name="hotelid" type="hidden" value="86175">
+                                        <input name="themeid" type="hidden" value="10053">
+                                        <button type="submit" class="btn btn-danger">BOOK NOW!</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
+                                <img class="img-responsive marco" src="https://royalreservations.com/fb_pages/img/gr.jpg" alt="junior suite in Cancun Resort">
+                                <div class="marcoInferior hotelRooms">
+                                    <strong>Grand Residences Riviera Cancun</strong>
+                                    <div class="accommodation_description">
+                                        <p>The crown of our family was Ranked #1 in Puerto Morelos, Riviera Maya by Tripadvisor, with 103 beautifully appointed Junior Suites and Master Suites offering signature hospitality and services in an exclusive pristine hideaway.</p>
+                                    </div>
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                        <input name="hotelid" type="hidden" value="95939">
+                                        <input name="themeid" type="hidden" value="11419">
+                                        <button type="submit" class="btn btn-danger">BOOK NOW!</button>
                                     </form>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
 
-                            <!--CUARTO RENGLON CON 3 HOTELES-->
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <img class="img-responsive marco" src="https://royalreservations.com/img/small/RS-sands-express.jpg" alt="express food to go in The Royal Sands">
-                                <div class="marcoInferior marginb50 hotelDiningTitulo">
+                            <!--TERCE RENGLON PARA 2 HOTELES-->                            
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
+                                <img class="img-responsive marco" src="https://royalreservations.com/fb_pages/img/sbr.jpg" alt="junior suite in Cancun Resort">
+                                <div class="marcoInferior hotelRooms">
                                     <strong>Simpson Bay Resort & Marina</strong>
-                                    <div class="dining_description">
+                                    <div class="accommodation_description">
                                         <p>Experience the best of two countries in one: Dutch St. Maarten and French Saint Martin, in a sheltered beach with fine services and amenities.</p>
                                     </div>
                                     <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
-                                        <input name="hotelid" type="hidden" value="86169">
-                                        <input name="themeid" type="hidden" value="10060">
-                                        <button type="submit" class="btn btn-danger pull-right">BOOK NOW!</button>
+                                        <input name="hotelid" type="hidden" value="86179">
+                                        <input name="themeid" type="hidden" value="9882">
+                                        <button type="submit" class="btn btn-danger">BOOK NOW!</button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <img class="img-responsive marco" src="https://royalreservations.com/img/small/RS-bartolos-pizza.jpg" alt="Bartolo's pizza in The Royal Sands Resort">
-                                <div class="marcoInferior marginb50 hotelDiningTitulo">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
+                                <img class="img-responsive marco" src="https://royalreservations.com/fb_pages/img/tvs.jpg" alt="junior suite in Cancun Resort">
+                                <div class="marcoInferior hotelRooms">
                                     <strong>The Villas at Simpson Bay Resort & Marina</strong>
-                                    <div class="dining_description">
+                                    <div class="accommodation_description">
                                         <p>2014 Winner for the Certificate of Excellence by Tripadvisor honoring its excellence for hospitality. You have five star amenities on the front row for spectacular Caribbean sunsets.</p>
                                     </div>
                                     <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
-                                        <input name="hotelid" type="hidden" value="86169">
-                                        <input name="themeid" type="hidden" value="10060">
-                                        <button type="submit" class="btn btn-danger pull-right">BOOK NOW!</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <img class="img-responsive marco" src="https://royalreservations.com/img/small/RS-sidelines.jpg" alt="sports bar and karaoke with pool tables in Cancun Resort">
-                                <div class="marcoInferior marginb50 hotelDiningTitulo">
-                                    <strong>The Royal Sea Aquarium</strong>
-                                    <div class="dining_description">
-                                        <p>A singular but beautiful hotel in the heart of Curacao over a platform on Caribbean waters, attracts travelers thirsting for peace and nature. Enjoy fine beaches and a rich cultural heritage.</p>
-                                    </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
-                                        <input name="hotelid" type="hidden" value="86169">
-                                        <input name="themeid" type="hidden" value="10060">
-                                        <button type="submit" class="btn btn-danger pull-right">BOOK NOW!</button>
+                                        <input name="hotelid" type="hidden" value="86180">
+                                        <input name="themeid" type="hidden" value="10344">
+                                        <button type="submit" class="btn btn-danger">BOOK NOW!</button>
                                     </form>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
+
+                            <!--TERCE RENGLON PARA 2 HOTELES-->                            
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
+                                <img class="img-responsive marco" src="https://royalreservations.com/fb_pages/img/rsa.jpg" alt="junior suite in Cancun Resort">
+                                <div class="marcoInferior hotelRooms">
+                                    <strong>The Royal Sea Aquarium</strong>
+                                    <div class="accommodation_description">
+                                        <p>A singular but beautiful hotel in the heart of Curacao over a platform on Caribbean waters, attracts travelers thirsting for peace and nature. Enjoy fine beaches and a rich cultural heritage.</p>
+                                    </div>
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                        <input name="hotelid" type="hidden" value="86181">
+                                        <input name="themeid" type="hidden" value="10345">
+                                        <button type="submit" class="btn btn-danger">BOOK NOW!</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
                         </div>
                 </section>
         <script src="https://royalreservations.com/js/jquery.js"></script>
