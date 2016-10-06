@@ -37,7 +37,7 @@ return [
 	'please_select'=>'Please select a Resort!!',
 	'error_minimum'=>'The minimum number of nights selected does not apply to this promotion',
 	'overview'=>'Overview',
-	'accommodations'=>'Accomodations',
+	'accommodations'=>'Accommodations',
 	'dining'=>'Dining',
 	'activities'=>'Activities',
 	'you_are'=>'You are in section:',
