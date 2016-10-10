@@ -15,7 +15,9 @@
 					<div class="header-right">
 						<ul class="list-unstyled list-inline navInfo">
 							<li><a href="{{url(App::getLocale()=='en'?'webcams':'es/webcams')}}"><i class="fa fa-video-camera" aria-hidden="true"></i> Webcams</a></li>
-							<li><a href="http://server.iad.liveperson.net/hc/59361898/?cmd=file&amp;file=visitorWantsToChat&amp;site=59361898&amp;byhref=1&SESSIONVAR!skill=Mexican%20Team" target="chat59361898" onclick="window.open('https://royalreservations.com/online-help.asp','chat59361898','width=472,height=520');return false;" style="background:none;"><i class="fa fa-weixin"></i> Chat</a></li>
+							
+							<li><a href="#" onclick="window.open('https://webchat.visitroyalresorts.com','','width=1250,height=780');return false;" ><i class="fa fa-weixin"></i> Chat</a></li>
+							
 							<!-- CODIGO SKYPE
 							<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script> -->
 							<li><a href="{{$phone_skype}}"><i class="fa fa-skype"></i> Skype</a></li>
