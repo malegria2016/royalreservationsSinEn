@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $().UItoTop({easingType: 'easeOutQuart'});
+    $('#hotelid').selectpicker();
 
     
     if(typeof(travel_window) != "undefined"){
@@ -244,12 +245,7 @@ $(document).ready(function () {
         checkout.hide();
     }).data('datepicker');
 
-	$("body").floatingSocialShare({
-      buttons: ["facebook","twitter","google-plus"],
-		  counter: false,
-		  popup_width: 575,
-      popup_height: 350
-    });
+
     $('#hotelid').bind('change', function() {
       var value = this.value;
   		changeBooking(value);
@@ -275,13 +271,7 @@ $("#cerrar").on( "click", function() {
 });
 
 
-var allcookies = document.cookie;
-if (allcookies.search(/minimizado/)!=-1){
-  document.getElementById("cookie-law-info-bar").style.display = "none";
-}
-else{
-  document.getElementById("cookie-law-info-bar").style.display = "block";
-}
+
 
 
 });

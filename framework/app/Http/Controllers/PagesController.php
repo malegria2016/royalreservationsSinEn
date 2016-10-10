@@ -671,5 +671,24 @@ class PagesController extends Controller{
 		return View("pages.hotel-policies");
 
 	}
+	public function resortShowAccommodations(){
+		View::share('phones_customer',$this->phones_customer);
+		View::share('phone_skype',$this->phone_skype_mex);
+		return View("pages.hotel-policies");
+
+	}
+	public function resortShowDining(){
+		View::share('phones_customer',$this->phones_customer);
+		View::share('phone_skype',$this->phone_skype_mex);
+		return View("pages.hotel-policies");
+
+	}
+	public function resortShowActivities(){
+		View::share('phones_customer',$this->phones_customer);
+		View::share('phone_skype',$this->phone_skype_mex);
+		return View("pages.hotel-policies");
+
+	}
+
 
 }
