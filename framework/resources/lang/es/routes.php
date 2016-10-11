@@ -11,6 +11,9 @@ return [
 	|
 	*/
 	'resorts' => 'resorts',
+	'dining'=>'restaurantes',
+	'accommodations'=>'habitaciones',
+	'activities'=>'actividades',
 	'destinations'     => 'destinos',
 	'experiences' => 'experiencias',
 	'all-inclusive'=>'todo-incluido',

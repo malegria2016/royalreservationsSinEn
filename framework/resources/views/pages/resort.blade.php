@@ -45,22 +45,16 @@ and (max-width : 384px)  {
 @section('container')
 <div class="container">
 	<div class="row margint30">
-		<div class="col-lg-12 col-md-12 col-sm-12 hidden-xs btnHotel">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btnHotel">
 			<a href="{{url(App::getLocale()=='en'?Lang::get('routes.offers').'/resorts/'.$resort->identifier:'/es/'.Lang::get('routes.offers').'/resorts/'.$resort->identifier)}}" class="btnOfferResort"><i class="fa fa-tag fac"></i> @lang('messages.offers')</a>
-			<button id="btn-overview" type="button" class="btn btn-resorts btn-lg"><i class="fa fa-bookmark fac"></i> @lang('messages.overview')</button>
-			<button id="btn-room" type="button" class="btn btn-resorts btn-lg"><i class="fa fa-bed fac"></i> @lang('messages.accommodations')</button>
-			<button id="btn-dining" type="button" class="btn btn-resorts btn-lg"><i class="fa fa-cutlery fac"></i> @lang('messages.dining')</button>
-			<button id="btn-activity" type="button" class="btn btn-resorts btn-lg"><i class="fa fa-suitcase fac"></i> @lang('messages.activities')</button>
-		</div>
-		<div class="col-lg-12 col-md-12 col-sm-12 visible-xs mt50">
-			<p class="location">@lang('messages.you_are')</p>
-			<select id="select-hotel" class="form-control visible-xs  xs-selector">
-				<option value="btn-overview">@lang('messages.overview')</option>
-				<option value="btn-room" >@lang('messages.accommodations')</option>
-				<option value="btn-dining">@lang('messages.dining')</option>
-				<option value="btn-activity">@lang('messages.activities')</option>
-				<option value="btn-offer">@lang('messages.offers')</option>
-			</select>
+
+			<a href="#" class="btnOfferResort menuBook"><i class="fa fa-bookmark fac"></i> @lang('messages.overview')</a>
+
+			<a href="{{url(App::getLocale()=='en'?'resorts/'.$resort->identifier.'/'.Lang::get('routes.accommodations'):'/es/resorts/'.$resort->identifier.'/'.Lang::get('routes.accommodations'))}}" class="btnOfferResort"><i class="fa fa-bed fac"></i> @lang('messages.accommodations')</a>
+
+			<a href="{{url(App::getLocale()=='en'?'resorts/'.$resort->identifier.'/'.Lang::get('routes.dining'):'/es/resorts/'.$resort->identifier.'/'.Lang::get('routes.dining'))}}" class="btnOfferResort"><i class="fa fa-cutlery fac"></i> @lang('messages.dining')</a>
+
+			<a href="{{url(App::getLocale()=='en'?'resorts/'.$resort->identifier.'/'.Lang::get('routes.activities'):'/es/resorts/'.$resort->identifier.'/'.Lang::get('routes.activities'))}}" class="btnOfferResort"><i class="fa fa-suitcase fac"></i> @lang('messages.activities')</a>
 		</div>
 	</div>
 	<!-- SECCION HOTEL OVERVIEW -->
@@ -147,92 +141,6 @@ and (max-width : 384px)  {
 		@endif
 
 	</div>
-	<!-- SECCION HOTEL ACCOMMODATIONS -->
-	<div id="room" class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margint50 text-center">{!! $resort->contents[0]->accommodation !!}</div>
-		<div class="clearfix"></div>
-		<div class="marginb50"></div>
-		@if(count($accommodations = $resort->accommodations)> 0)
-		@foreach($accommodations as $key=>$accomodation)
-		@if(count($accomodation->contents) > 0)
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
-			<img class="img-responsive marco" src="{{asset('img/medium/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}">
-			<div class="marcoInferior hotelRooms">
-				<strong>{!! $accomodation->contents[0]->name !!}</strong>
-				<div class="accommodation_description">{!!$accomodation->contents[0]->short_description  !!}</div>
-				@if($resort->plan == 'EP')
-				<span class="pull-left price">${{$accomodation->price}} USD <small>@lang('messages.starting_room')</small></span>
-				@else
-					@if($resort->id===6)
-						<span class="pull-left price">${{$accomodation->price}} USD <small>@lang('messages.starting_night')</small></span>
-					@else
-						<span class="pull-left price">${{$accomodation->price}} USD <small>@lang('messages.starting_person')</small></span>
-					@endif
-				@endif
-					<form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
-					<input name="hotelid" type="hidden" value="{{$resort->ihotelier_id}}" />
-					<input name="themeid" type="hidden" value="{{$resort->ihotelier_theme}}" />
-					@if($accomodation->ihotelier_id)
-					<input name="roomtypeid" type="hidden" value="{{$accomodation->ihotelier_id}}" />
-					@endif
-					<button type="submit" class="btn btn-danger pull-right">@lang('messages.search')</button>
-				</form>
-			</div>
-		</div>
-		@if(($key + 1) % 2 == 0)
-		<div class="clearfix"></div>
-		@endif
-		@endif
-		@endforeach
-		@endif
-
-		@if($resort->id===6)
-			<p class="txtright">@lang('messages.starting_policy')</p>
-		@endif
-	</div>
-	<!-- SECCION HOTEL DINING -->
-	<div id="dining" class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margint50 text-center hotelDining">{!! $resort->contents[0]->dining !!}</div>
-		<div class="clearfix"></div>
-		@if(count($dinings = $resort->dinings)> 0)
-		@foreach($dinings as $key=>$dining)
-		@if(count($dining->contents) > 0)
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-			<img class="img-responsive marco" src="{{asset('img/small/'.$dining->identifier.'.jpg')}}" alt="{{$dining->contents[0]->alt}}">
-			<div class="marcoInferior marginb50 hotelDiningTitulo">
-				<strong>{!! $dining->name !!}</strong>
-				<div class="dining_description">{!! $dining->contents[0]->short_description !!}</div>
-			</div>
-		</div>
-		@if(($key + 1) % 3 == 0)
-		<div class="clearfix"></div>
-		@endif
-		@endif
-		@endforeach
-		@endif
-	</div>
-	<!-- SECCION HOTEL ACTIVITIES -->
-	<div id="activity" class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margint50 text-center hotelActivities">{!! $resort->contents[0]->activity !!}</div>
-		<div class="clearfix"></div>
-		@if(count($activities = $resort->activities)> 0)
-		@foreach($activities as $key=>$activity)
-		@if(count($activity->contents) > 0)
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-			<img class="img-responsive marco" src="{{asset('img/small/'.$activity->identifier.'.jpg')}}" alt="{{$activity->contents[0]->alt}}">
-			<div class="marcoInferior marginb50 hotelDiningTitulo">
-				<strong>{!! $activity->contents[0]->name !!}</strong>
-				<div class="activity_description">{!! $activity->contents[0]->short_description !!}</div>
-			</div>
-		</div>
-		@if(($key + 1) % 3 == 0)
-		<div class="clearfix"></div>
-		@endif
-		@endif
-		@endforeach
-		@endif
-
-	</div>
 
 </div>
 @stop
@@ -241,12 +149,7 @@ and (max-width : 384px)  {
 <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="{{ asset('js/jquery.flexslider.js') }}"></script>
 <script>
-	hideAll();
-	function hideAll() {
-		$j("#room").hide();
-		$j("#dining").hide();
-		$j("#activity").hide();
-	}
+	
 	$j(document).ready(function () {
 		$j('.flexslider').flexslider({
 	    	animation: "fade",
@@ -255,41 +158,7 @@ and (max-width : 384px)  {
 			directionNav: false
     	});
 
-		setClassActive("li-resorts");
-		if ('{{$resort->location}}' == 'Caribbean Islands') {
-			$j("#li-all-inc").hide();
-		}
-
-		changeBooking({{$resort->ihotelier_id}});
-			$j("#btn-overview").click(function () {
-					$j("#room").hide();
-					$j("#dining").hide();
-					$j("#activity").hide();
-					$j("#overview").show('slow');
-					$j("body").animate({scrollTop: $j("#overview").offset().top});
-				});
-			$j("#btn-room").click(function () {
-					$j("#overview").hide();
-					$j("#dining").hide();
-					$j("#activity").hide();
-					$j("#room").show('slow');
-					$j("body").animate({scrollTop: $j("#room").offset().top});
-				});
-			$j("#btn-dining").click(function () {
-					$j("#overview").hide();
-					$j("#room").hide();
-					$j("#activity").hide();
-					$j("#dining").show('slow');
-					$j("body").animate({scrollTop: $j("#dining").offset().top});
-				});
-			$j("#btn-activity").click(function () {
-					$j("#overview").hide();
-					$j("#room").hide();
-					$j("#dining").hide();
-					$j("#activity").show('slow');
-					$j("body").animate({scrollTop: $j("#activity").offset().top});
-				});
-		});
+	});
 	function init_map() {
 		var var_location = new google.maps.LatLng({{$resort->coordinates}});
 

@@ -35,9 +35,9 @@ Route::group(array('prefix' => $locale), function() {
 	Route::get('newsletter','PagesController@newsletter');
 	Route::get('resorts','PagesController@resorts');
 	Route::get('resorts/{resort}','PagesController@resortShow');
-	Route::get('resorts/{resort}/accommodations','PagesController@resortShowAccommodations');
-	Route::get('resorts/{resort}/dining','PagesController@resortShowDining');
-	Route::get('resorts/{resort}/activities','PagesController@resortShowActivities');
+	Route::get('resorts/{resort}/'.Lang::get('routes.accommodations'),'PagesController@resortShowAccommodations');
+	Route::get('resorts/{resort}/'.Lang::get('routes.dining'),'PagesController@resortShowDining');
+	Route::get('resorts/{resort}/'.Lang::get('routes.activities'),'PagesController@resortShowActivities');
 
 	Route::get(Lang::get('routes.destinations'),'PagesController@destinations');
 	Route::get(Lang::get('routes.destinations').'/{destination}','PagesController@destinationShow');

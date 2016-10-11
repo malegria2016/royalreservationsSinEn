@@ -11,6 +11,9 @@ return [
 	|
 	*/
 	'resorts' => 'resorts',
+	'dining'=>'dining',
+	'accommodations'=>'accommodations',
+	'activities'=>'activities',
 	'destinations' => 'destinations',
 	'experiences' => 'experiences',
 	'all-inclusive'=>'all-inclusive',
