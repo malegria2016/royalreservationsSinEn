@@ -220,12 +220,12 @@ footer .footerMensaje p {text-align: justify;}
 .offerInfo{background-color: #999; padding: 10px 0; text-align: center; color: #fff; font-size: 16px; font-weight: bold;}
 .cookies-policy{ display:none; text-align: center; width: 100%; color: rgb(0, 0, 0); font-family: Helvetica, sans-serif; font-size: 12px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(68, 68, 68); position: fixed; bottom: 0px; background-color: rgb(204, 204, 204); z-index: 100; padding: 15px;}
 .pointer{ cursor: pointer; }
-.btnOfferResort{ padding: 1% 5% 1% 5%; background-color: #0074D8; color: white; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 18px;text-decoration: none;display: inline-flex;}   
+.btnOfferResort{ padding: 1% 6% 1% 6%; background-color: #0074D8; margin: 5px 0; color: white; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 18px;text-decoration: none;display: inline-flex;}   
 .btnOfferResort:hover { background-color: #ff6600; color: #fff; text-decoration: none; }
 a.btnOfferResort i { padding-right: 4px; padding-top: 4px; }
 
 @media (max-width:767px) {
-	.btnOfferResort{ width: 48%; padding: 1% 4% 1% 4%;  margin: 5px 0; }   
+	.btnOfferResort{ width: 48%; padding: 1% 4% 1% 4%;  margin: 3px 0; }   
 	.navbar-brand>img {display: block;margin: 5px;width: 180px;}
 	.footerMenu {padding: 50px 15px 80px;}
 	.navbar-brand {float: left;padding: 12px 15px;font-size: 18px;line-height: 20px;height: 70px;}

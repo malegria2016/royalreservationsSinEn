@@ -577,15 +577,16 @@ class PagesController extends Controller{
 
 	public function policyShow(){
 		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
-		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)
+		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','100')
                ->get();		
                
-        if( count($policies)==0){
+        /*if( count($policies)==0){
 			$policies = App\Resort_policy::resort($this->resortId)->where('lang_id', '=', $this->lang_id)
                ->get();	
-		}
+		}*/
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
+
 		return View("pages.privacy-policy", compact('policies'));
 	}
 
@@ -626,11 +627,15 @@ class PagesController extends Controller{
 	}
 
 	public function webcamsShow(){
+		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
 		$resorts = App\Resort::whereNotIn('id', [6,7,8,9])->get();
+		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','104')
+               ->get();	
 
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
-		return View("pages.webcams", compact('resorts'));
+
+		return View("pages.webcams", compact('resorts','policies'));
 	}
 
 	public function newsletterBonnier(){
@@ -654,21 +659,35 @@ class PagesController extends Controller{
 		return View("pages.offer-v3", compact('all_offers'));
 	}
 	public function bestDealShow(){
+		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
+		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','101')
+               ->get();		
+               
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
-		return View("pages.best-deal");
 
-	}
+		return View("pages.best-deal", compact('policies'));
+
+	}	
 	public function whyBookShow(){
+		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
+		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','102')
+               ->get();		
+               
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
-		return View("pages.why-book");
 
+		return View("pages.why-book", compact('policies'));
 	}
 	public function hotelPoliciesShow(){
+		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
+		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','103')
+               ->get();		
+               
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
-		return View("pages.hotel-policies");
+
+		return View("pages.hotel-policies", compact('policies'));
 
 	}
 	public function resortShowAccommodations($resort){

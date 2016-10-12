@@ -1,12 +1,10 @@
 @extends('layouts.default')
-@section('title', Lang::get('messages.contact_title'))
+@section('title', $policies[0]['title'])
+@section('metadescription',$policies[0]['metadescription'])
 
-@section('metadescription',Lang::get('messages.contact_meta'))
-@section('keywords', '')
-
-@section('og_title', '')
-@section('og_image', '')
-@section('og_description', '')
+@section('og_title', $policies[0]['title'])
+@section('og_image', 'https://royalreservations.com/img/big/404.jpg')
+@section('og_description', $policies[0]['metadescription'])
 
 
 
