@@ -99,7 +99,7 @@ class PagesController extends Controller{
 					$q->where('lang_id', $this->lang_id);
 				})
 			->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
-			->where('mobile_only',0)->orderBy('priority','desc')->take(3)->get();
+			->where('mobile_only',0)->where('main',1)->orderBy('priority','desc')->take(3)->get();
 		}
 
 		/*$resort = Resort::active()->main()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
@@ -138,7 +138,7 @@ class PagesController extends Controller{
 					$q->where('lang_id', $this->lang_id);
 				})
 			->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
-			->where('mobile_only',0)->orderBy('priority','desc')->take(3)->get();
+			->where('mobile_only',0)->where('main',1)->orderBy('priority','desc')->take(3)->get();
 		}
 
 		/*$resort = Resort::active()->main()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
@@ -360,7 +360,7 @@ class PagesController extends Controller{
 					$q->where('lang_id', $this->lang_id);
 				})
 			->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
-			->where('mobile_only',0)->orderBy('priority','desc')->get();
+			->where('mobile_only',0)->where('main',1)->orderBy('priority','desc')->get();
 		}
 		$packages = Package::active()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
 		->orderBy('priority','desc')->get();

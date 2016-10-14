@@ -41,14 +41,22 @@
     		$dateInDefault= date("m/d/Y",strtotime("+25 day"));
     		$dateOutDefault=date("m/d/Y",strtotime("+30 day"));
     	}
+    	$ban_promo=1;
+    	if($offer->id==69 || $offer->id==70){
+    		if(date("Y-m-d") < '2016-10-23'){
+    			$ban_promo=0;
+    		}
+    	}
+
 
 	/*--}}
 
-
 	@if($offer->end_date >= $hoy)
+		@if($ban_promo !=0)
   		<div>
     		@include('includes.booking-single-offer',['rate_access_code'=>($offer->rate_access_code != '' ? $offer->rate_access_code : null),'offers_resorts'=>$offer_resort2, 'ihotelier_type'=>($offer->ihotelier_type != '' ? $offer->ihotelier_type : null)])
   		</div>
+  		@endif
 	@endif
 </div>
 
@@ -78,10 +86,21 @@
 
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<div class=" col-md-offset-3 col-lg-offset-3">
-				<div class="clock" style="margin:2em;"></div>
-			</div>			
+			@if($offer->id==69 || $offer->id==70)
+				{{--*/  
+					
+
+				/*--}}
+				@if((date("H:i:s") > '15:00:00') && (date("H:i:s") < '23:59:58') || (date("H:i:s") > '00:00:01') && (date("H:i:s") < '11:59:58'))
+				<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'-noche.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'-noche.jpg')}}" alt="{{$offer->contents[0]->alt}}">
+				<!--<div id="clockdiv"><div><span class="hours"></span><div class="smalltext">Hours</div></div><div><span class="minutes"></span><div class="smalltext">Minutes</div></div><div><span class="seconds"></span><div class="smalltext">Seconds</div></div></div>-->
+
+				@else
+				<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'-noche.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
+				@endif
+			@else
 			<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
+			@endif
 		</div>
 	</div>
 
@@ -106,6 +125,10 @@
 		</div>
 	</div>
 </div>
+
+@if($offer->id==69 || $offer->id==70)
+
+@else
 <div class="container">
 	<div class="row">
 		@foreach($resorts as $key=>$resort)
@@ -150,14 +173,59 @@
 	</div>
 
 </div>
+
+
+@endif
+
+
 @stop
 @endif
 
 @section('javascript')
-	<script type="text/javascript"  src="{{ asset('js/flipclock.min.js')}}"></script>
-	<script type="text/javascript">
-		var clock = $j('.clock').FlipClock(36000, {
-			countdown: true
-		});
-	</script>
+<script>
+
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  //var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  //var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    //daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date(2016, 10,20, 13,59,59,59);
+
+initializeClock('clockdiv', deadline);
+
+</script>
 @stop
