@@ -14,31 +14,44 @@
 <style>
 #clockdiv{
 	font-family: sans-serif;
-	color: #fff;
+	color: #000;
 	display: inline-block;
 	font-weight: 70;
 	text-align: center;
-	font-size: 25px;
-	margin: 10px 0 0 0;
+	font-size: 100px;
+	margin: 40px 0 0 0%;
+    width: 100%;
 }
 
 #clockdiv > div{
 	padding: 10px;
-	background: #00BF96;
 	display: inline-block;
-	margin: 0 5px;
 }
 
 #clockdiv div > span{
 	padding: 15px;
-	background: #00816A;
-	display: inline-block;
+	background: #7aaf39;
+	border: 10px solid #8dc53e;
+	border-radius: 50%;
+	color: white;
+	font-weight: bolder;
 }
 
 .smalltext{
-	padding-top: 5px;
+	padding-bottom: 25px;
 	font-size: 16px;
+	font-family: 'Oswald', sans-serif;
 }
+@media screen and (max-width: 480px) {
+	#clockdiv {
+		font-size: 30px;
+	}
+
+	#clockdiv div > span {
+		border: 5px solid #8dc53e;
+	}
+}
+
 </style>
 
 @endsection
@@ -89,7 +102,7 @@
     			$banner="-noche";
     		}
     		else{
-    			if(date("H:i:s") > '00:01:00' && date("H:i:s") < '11:59:00'){
+    			if(date("H:i:s") > '9:01:00' && date("H:i:s") < '11:00:00'){
     				$ban_promo=1;
     				$banner="-noche";
     			}
@@ -142,9 +155,25 @@
 				
 				{{--*/  /*--}}
 
-				@if((date("H:i:s") > '13:00:00' && date("H:i:s") < '23:59:00') || (date("H:i:s") > '00:01:00' && date("H:i:s") < '11:59:00'))
+				@if((date("H:i:s") > '13:00:00' && date("H:i:s") < '23:59:00') || (date("H:i:s") > '00:01:00' && date("H:i:s") < '18:59:00'))
 				
-				<div id="clockdiv"><div><span class="hours"></span><div class="smalltext">Hours</div></div><div><span class="minutes"></span><div class="smalltext">Minutes</div></div><div><span class="seconds"></span><div class="smalltext">Seconds</div></div></div>
+				<div id="clockdiv">
+					<div>
+						<div class="smalltext">Hours</div>
+						<span class="hours"></span>						
+					</div>
+					<span>:</span>
+					<div>
+						<div class="smalltext">Minutes</div>
+						<span class="minutes"></span>						
+					</div>
+					<span>:</span>
+					<div>
+						<div class="smalltext">Seconds</div>
+						<span class="seconds"></span>
+						
+					</div>
+				</div>
 
 				<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
 
