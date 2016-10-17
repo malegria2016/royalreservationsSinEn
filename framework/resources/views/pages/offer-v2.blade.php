@@ -18,7 +18,7 @@
 	display: inline-block;
 	font-weight: 70;
 	text-align: center;
-	font-size: 100px;
+	font-size: 80px;
 	margin: 40px 0 0 0%;
     width: 100%;
 }
@@ -31,7 +31,7 @@
 #clockdiv div > span{
 	padding: 15px;
 	background: #7aaf39;
-	border: 10px solid #8dc53e;
+	border: 8px solid #8dc53e;
 	border-radius: 50%;
 	color: white;
 	font-weight: bolder;
