@@ -58,5 +58,8 @@ Route::group(array('prefix' => $locale), function() {
 	Route::get(Lang::get('routes.webcams'),'PagesController@webcamsShow');
 	Route::get('newsletter/bonnier/st-maarten-deal','PagesController@newsletterBonnier');
 
+	Route::get('test/{offer}','PagesController@test');
+
+
 
 });

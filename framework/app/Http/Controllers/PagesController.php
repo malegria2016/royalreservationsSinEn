@@ -784,4 +784,80 @@ class PagesController extends Controller{
 	}
 
 
+	public function test($offer){
+		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
+
+		if(Agent::isMobile()){
+			$offer = Offer::active()->identifier($offer)
+			->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+			->first();
+		}else{
+			$offer = Offer::active()->identifier($offer)
+			->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+			->where('mobile_only',0)->first();
+		}
+		if($offer){
+			$travel_window = App\OfferTravelWindow::where('offer_id',$offer->id)->orderBy('start_date','asc')->get();
+			
+			//$travel_window_json = json_encode($travel_window);  //echo 	$travel_window_json;
+
+			//return dd($travel_window_json);
+
+			$resorts = Resort::active()->whereHas('offers', function($q) use ($offer){
+					$q->where('id', $offer->id);
+				})->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])->get();
+			//return dd($resorts->toArray());
+
+			$offer_resort = App\OfferResort::where('offer_id',$offer->id)->get();
+			//return dd($offer_resort);
+
+			$i=0; 
+
+			foreach ($resorts as $key => $value) {
+				//offer_resort2 almacena los datos necesarios en un solo vector para llevar al formulario.
+				for($k=0; $k<count($offer_resort); $k++){
+					if($value->id==$offer_resort[$k]['resort_id']){
+						$offer_resort2[$i]['ihotelier_rate_id']=$offer_resort[$k]['ihotelier_rate_id'];
+						$offer_resort2[$i]['minimum']=$offer_resort[$k]['minimum'];
+						$offer_resort2[$i]['id']=$value->id;
+						$offer_resort2[$i]['name']=$value->name;
+						$offer_resort2[$i]['ihotelier_id']=$value->ihotelier_id;
+						$offer_resort2[$i]['area']=$value->area;
+					}
+				}
+
+				if($value->location == 'Mexican Caribbean'){
+					View::share('phones_mex',$this->phones_mex);
+					View::share('phone_skype',$this->phone_skype_mex);
+				}else if ($value->location == 'Caribbean Islands') {
+					View::share('phones_car',$this->phones_car);
+					View::share('phone_skype',$this->phone_skype_car);
+				}
+
+				$i++;
+			}
+
+			//return dd($offer);
+
+			$all_offers = Offer::active()->range()->whereHas('resorts', function($q) use ($resorts){
+						$q->where('id', $resorts[0]->id);
+						})
+						->whereHas('contents', function($q){
+								$q->where('lang_id', $this->lang_id);
+							})
+						->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+						->where('mobile_only',0)->orderBy('priority','desc')->get();
+						//return dd($all_offers->toArray());
+
+			
+
+			View::share('phones_customer',$this->phones_customer);
+
+			return View('pages.offerTest', compact('offer','resorts','all_offers','offer_resort2','travel_window'));
+		}else{
+			abort(404);
+		}
+	}
+
+
 }

@@ -81,22 +81,16 @@
     		$dateOutDefault=date("m/d/Y",strtotime("+30 day"));
     	}
     	$ban_promo=1;
-    	$banner="-dia";
+    	$banner="-dia1";
 
     	if($offer->id==69 || $offer->id==70){
-    		if(date("H:i:s") > '13:00:00' && date("H:i:s") < '23:59:00'){
+    		if(date("H:i:s") > '01:00:00' && date("H:i:s") < '10:59:00'){
     			$ban_promo=1;
-    			$banner="-noche";
+    			$banner="-noche1";
     		}
     		else{
-    			if(date("H:i:s") > '00:01:00' && date("H:i:s") < '11:59:00'){
-    				$ban_promo=1;
-    				$banner="-noche";
-    			}
-    			else{
-    				$ban_promo=0;
-    				$banner="-dia";
-    			}
+    			$ban_promo=0;
+    			$banner="-dia1";
     		}
     	}
 
@@ -142,7 +136,7 @@
 				
 				{{--*/  /*--}}
 
-				@if((date("H:i:s") > '13:00:00' && date("H:i:s") < '23:59:00') || (date("H:i:s") > '00:01:00' && date("H:i:s") < '11:59:00'))
+				@if(date("H:i:s") > '01:00:00' && date("H:i:s") < '10:59:00')
 				
 				<div id="clockdiv"><div><span class="hours"></span><div class="smalltext">Hours</div></div><div><span class="minutes"></span><div class="smalltext">Minutes</div></div><div><span class="seconds"></span><div class="smalltext">Seconds</div></div></div>
 
@@ -275,7 +269,7 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date(2016, 10,20, 04,00,00,00);
+var deadline = new Date(2016, 10,20, 11,00,00,00);
 
 initializeClock('clockdiv', deadline);
 
