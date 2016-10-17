@@ -60,6 +60,7 @@
 <link rel="stylesheet" href="{{ asset('css/flipclock.css') }}">
 
 <div>
+<!--nota-->
 	{{--*/
 		$hoy = date("Y-m-d H:i:s");
 		$ban = 9;
