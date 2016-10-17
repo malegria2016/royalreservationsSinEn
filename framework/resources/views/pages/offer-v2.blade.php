@@ -9,6 +9,42 @@
 @section('og_image', asset('img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg'))
 @section('og_description', $offer->contents[0]->metadescription)
 
+
+@section('style')
+<style>
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 70;
+	text-align: center;
+	font-size: 25px;
+	margin: 10px 0 0 0;
+}
+
+#clockdiv > div{
+	padding: 10px;
+	background: #00BF96;
+	display: inline-block;
+	margin: 0 5px;
+}
+
+#clockdiv div > span{
+	padding: 15px;
+	background: #00816A;
+	display: inline-block;
+}
+
+.smalltext{
+	padding-top: 5px;
+	font-size: 16px;
+}
+</style>
+
+@endsection
+
+
+
 @section('container')
 
 {{--*/  $prefix='' /*--}}
@@ -17,6 +53,9 @@
 @elseif (App::getLocale() == 'es')
 	{{--*/ $prefix='es/'/*--}}
 @endif
+
+
+
 
 <link rel="stylesheet" href="{{ asset('css/flipclock.css') }}">
 
@@ -42,9 +81,20 @@
     		$dateOutDefault=date("m/d/Y",strtotime("+30 day"));
     	}
     	$ban_promo=1;
+    	$banner="-dia";
+
     	if($offer->id==69 || $offer->id==70){
-    		if(date("Y-m-d") < '2016-10-23'){
-    			$ban_promo=0;
+    			$ban_promo=1;
+    			$banner="-noche";
+    		}
+    		else{
+    				$ban_promo=1;
+    				$banner="-noche";
+    			}
+    			else{
+    				$ban_promo=0;
+    				$banner="-dia";
+    			}
     		}
     	}
 
@@ -87,16 +137,16 @@
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			@if($offer->id==69 || $offer->id==70)
-				{{--*/  
-					
+				
+				{{--*/  /*--}}
 
-				/*--}}
-				@if((date("H:i:s") > '15:00:00') && (date("H:i:s") < '23:59:58') || (date("H:i:s") > '00:00:01') && (date("H:i:s") < '11:59:58'))
-				<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'-noche.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'-noche.jpg')}}" alt="{{$offer->contents[0]->alt}}">
-				<!--<div id="clockdiv"><div><span class="hours"></span><div class="smalltext">Hours</div></div><div><span class="minutes"></span><div class="smalltext">Minutes</div></div><div><span class="seconds"></span><div class="smalltext">Seconds</div></div></div>-->
+				
+				<div id="clockdiv"><div><span class="hours"></span><div class="smalltext">Hours</div></div><div><span class="minutes"></span><div class="smalltext">Minutes</div></div><div><span class="seconds"></span><div class="smalltext">Seconds</div></div></div>
+
+				<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
 
 				@else
-				<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'-noche.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
+				<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
 				@endif
 			@else
 			<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
@@ -104,7 +154,7 @@
 		</div>
 	</div>
 
-  <script>  var travel_window = {!!  json_encode($travel_window->toArray()) !!};</script>
+    <script>  var travel_window = {!!  json_encode($travel_window->toArray()) !!};</script>
 
 	<div class="row marginb50">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -192,7 +242,6 @@ function getTimeRemaining(endtime) {
   //var days = Math.floor(t / (1000 * 60 * 60 * 24));
   return {
     'total': t,
-    
     'hours': hours,
     'minutes': minutes,
     'seconds': seconds
@@ -223,7 +272,7 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date(2016, 10,20, 13,59,59,59);
+var deadline = new Date(2016, 10,20, 04,00,00,00);
 
 initializeClock('clockdiv', deadline);
 
