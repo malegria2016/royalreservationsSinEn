@@ -12,6 +12,10 @@
 
 @section('style')
 <style>
+.margint50 {
+    margin-top: 30px !important;
+}
+
 #clockdiv{
 	font-family: sans-serif;
 	color: #000;
@@ -19,7 +23,7 @@
 	font-weight: 70;
 	text-align: center;
 	font-size: 80px;
-	margin: 40px 0 0 0%;
+	margin: 10px 0 0 0%;
     width: 100%;
 }
 
