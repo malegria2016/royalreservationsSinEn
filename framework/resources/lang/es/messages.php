@@ -88,5 +88,6 @@ return [
 	'review_gr_date3'=>'17 de abril 2016',
 	'best_deal'=>'Mejor Oferta Garantizada',
 	'why_book_with_us'=>'Porqué Reservar con Nosotros',
-	'hotel_policies'=>'Políticas del Hotel'
+	'hotel_policies'=>'Políticas del Hotel',
+	'viewsrender' => 'vista 3D '
 ];

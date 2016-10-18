@@ -22,7 +22,7 @@
 	display: inline-block;
 	font-weight: 70;
 	text-align: center;
-	font-size: 80px;
+	font-size: 60px;
 	margin: 10px 0 0 0%;
     width: 100%;
 }
