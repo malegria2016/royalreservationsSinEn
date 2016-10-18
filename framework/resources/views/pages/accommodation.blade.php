@@ -10,6 +10,16 @@
 @section('og_image', url('img/medium/'.$resort->identifier.'-1.jpg'))
 @section('og_description', $resort->contents[0]->metadescription)
 
+@section('style')
+	<style type="text/css">
+		@media (min-width: 768px)
+			.modal-dialog {
+			    width: 1024px !important;
+			    margin: 30px auto;
+			}
+	</style>	
+@endsection
+
 @section('container')
 <div class="container">
 	<div class="row margint30">
@@ -34,10 +44,14 @@
 		@foreach($accommodations as $key=>$accomodation)
 		@if(count($accomodation->contents) > 0)
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
-			<img class="img-responsive marco" src="{{asset('img/medium/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}">
+			<a href="#" data-toggle="modal" data-target="#myModal">
+				<img class="img-responsive marco" src="{{asset('img/medium/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}">
+			</a>
 			<div class="marcoInferior hotelRooms">
 				<strong>{!! $accomodation->contents[0]->name !!}</strong>
 				<div class="accommodation_description">{!!$accomodation->contents[0]->short_description  !!}</div>
+				<a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-camera-retro" aria-hidden="true"></i> @lang('messages.viewsrender')</a>
+				<br><br>
 				@if($resort->plan == 'EP')
 				<span class="pull-left price">${{$accomodation->price}} USD <small>@lang('messages.starting_room')</small></span>
 				@else
@@ -71,6 +85,32 @@
 	
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<img class="img-responsive" src="{{asset('img/rooms/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}">
+	</div>
+	<!--
+  
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  
+
+  -->
+</div>
+
 @stop
 
 @endif
+
