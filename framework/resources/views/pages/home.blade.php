@@ -15,7 +15,23 @@
 	<p><a href="#"><i class="fa fa-certificate iconbig"></i> @lang('messages.anuncio')</a></p>
 </div>
 
-{{--*/  $prefix='' /*--}}
+{{--*/  
+	$prefix=''; 
+
+		
+	$banner='';
+
+	if($offers[0]->id==69 || $offers[0]->id==70){
+		if(date("H:i:s") > '20:00:00' || date("H:i:s") < '05:59:00'){
+			$banner="-noche";
+		}
+		else{
+			$banner="-dia";
+		}
+	}
+
+
+/*--}}
 @if (App::getLocale() == 'en')
 	{{--*/ $prefix=''/*--}}
 @elseif (App::getLocale() == 'es')
@@ -30,7 +46,7 @@
 
 @include('includes.sliderHome',
 [
-'img1' => ((Agent::isMobile() && !Agent::isTablet()) ? 'img/home-medium/'.$offers[0]->identifier.'-'.App::getLocale().'.jpg':'img/home-big/'.$offers[0]->identifier.'-'.App::getLocale().'.jpg'),
+'img1' => ((Agent::isMobile() && !Agent::isTablet()) ? 'img/home-medium/'.$offers[0]->identifier.'-'.App::getLocale().'.jpg':'img/home-big/'.$offers[0]->identifier.'-'.App::getLocale().$banner.'.jpg'),
 'alt1'=> (count($offers[0]->contents) >0 ? $offers[0]->contents[0]->alt : 'N/A')
 ]
 )
@@ -47,10 +63,35 @@
 		</div>
 		@if(count($offers)>0)
 		@foreach($offers as $offer)
+			{{--*/  
+		
+			$banner="";
+
+			if($offer->id==69 || $offer->id==70){
+				if(date("H:i:s") > '20:00:00' || date("H:i:s") < '05:59:00'){
+					$banner="-noche";
+				}
+				else{
+					$banner="-dia";
+				}
+			}
+
+			/*--}}
+
 		@if(count($offer->contents)>0)
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 offer mb50">
 			<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offer->identifier)}}">
+				
+				@if($offer->id==69 || $offer->id==70)
+					
+					@if((date("H:i:s") > '20:00:00') && (date("H:i:s") < '05:59:00'))
+					<img class="img-responsive marco" src="{{ asset('img/small/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg') }}" alt="{{$offer->contents[0]->alt}}">
+					@else
+					<img class="img-responsive marco" src="{{ asset('img/small/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg') }}" alt="{{$offer->contents[0]->alt}}">
+					@endif
+				@else
 				<img class="img-responsive marco" src="{{ asset('img/small/'.$offer->identifier.'-'.App::getLocale().'.jpg') }}" alt="{{$offer->contents[0]->alt}}">
+				@endif
 			</a>
 			<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offer->identifier)}}">
 				<label class="pointer">{{$offer->contents[0]->headline}}</label>

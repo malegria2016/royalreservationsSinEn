@@ -84,7 +84,7 @@
     	$banner="-dia1";
 
     	if($offer->id==69 || $offer->id==70){
-    		if(date("H:i:s") > '01:00:00' && date("H:i:s") < '10:59:00'){
+    		if($et_time > '20:00:00' || $et_time < '05:59:00'){
     			$ban_promo=1;
     			$banner="-noche1";
     		}
@@ -107,7 +107,7 @@
 </div>
 
 <div class="container">
-
+{{ $et_time }}
 	@if($offer->end_date < $hoy)
 
     <div class="row">
@@ -136,7 +136,7 @@
 				
 				{{--*/  /*--}}
 
-				@if(date("H:i:s") > '01:00:00' && date("H:i:s") < '10:59:00')
+				@if($et_time < '20:00:00' || $et_time < '05:59:00')
 				
 				<div id="clockdiv"><div><span class="hours"></span><div class="smalltext">Hours</div></div><div><span class="minutes"></span><div class="smalltext">Minutes</div></div><div><span class="seconds"></span><div class="smalltext">Seconds</div></div></div>
 
@@ -269,7 +269,13 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date(2016, 10,20, 11,00,00,00);
+
+var deadline = new Date(2016, 11,31, 06,00,00,00);
+
+var offset = new Date().getTimezoneOffset();
+console.log(offset);
+console.log( deadline);
+
 
 initializeClock('clockdiv', deadline);
 

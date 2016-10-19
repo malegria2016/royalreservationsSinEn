@@ -4,10 +4,10 @@
 
     $bd=Db::getInstance();
 
-    $sql='SELECT name,identifier,offer_contents.facebook_description FROM offers JOIN offer_contents ON offers.id=offer_contents.offer_id WHERE offer_contents.lang_id=1 LIMIT 3';
+    $sql='SELECT name,identifier,offer_contents.facebook_description FROM offers JOIN offer_contents ON offers.id=offer_contents.offer_id WHERE offer_contents.lang_id=1 ORDER BY  LIMIT 3';
 
     echo $sql;
-    $resorts=$bd->ejecutar($sql);
+    $offers=$bd->ejecutar($sql);
 
     /*while ($resorts_vector=$bd->obtener_fila($resorts,0)){
        echo $resorts_vector['name'].'<br />';
@@ -69,9 +69,9 @@
                     <div class="container">
                         <div id="dining" class="row" style="display: block;">
                             <div class="clearfix"></div>
-                            <?php while ($resorts_vector=$bd->obtener_fila($resorts,0)){ ?>
+                            <?php while ($offers_vector=$bd->obtener_fila($offers,0)){ ?>
                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <img class="img-responsive marco" src="https://royalreservations.com/img/medium/en-<?php echo $resorts_vector['identifier'] ?>-1.jpg" alt="#">
+                                    <img class="img-responsive marco" src="https://royalreservations.com/img/medium/<?php echo $offers_vector['identifier'] ?>-en.jpg" alt="#">
                                     <div class="marcoInferior marginb50 hotelDiningTitulo">
                                         <strong><?php echo $resorts_vector['name'] ?></strong>
                                         <h4>Located on <?php echo $resorts_vector['area'] ?></h4>

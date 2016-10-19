@@ -37,6 +37,10 @@ class PagesController extends Controller{
 			$this->lang_id = 1;
 		}*/
 
+		date_default_timezone_set('America/New_York');
+		//date_default_timezone_set('Europe/Moscow');
+			
+
 		$resorts_routes_mex = Resort::mexico()->active()->select('identifier','name','ihotelier_id','area')->orderBy('id','desc')->get();
 		$resorts_routes_car = Resort::caribbean()->active()->select('identifier','name','ihotelier_id','area')->get();
 		$destinations_routes_mex = Destination::mexico()->active()->select('identifier','name')->get();
@@ -540,11 +544,13 @@ class PagesController extends Controller{
 						->where('mobile_only',0)->orderBy('priority','desc')->get();
 						//return dd($all_offers->toArray());
 
+			$et_time=date('H:i:s');
+
 			
 
 			View::share('phones_customer',$this->phones_customer);
 
-			return View('pages.offer-v2 ', compact('offer','resorts','all_offers','offer_resort2','travel_window'));
+			return View('pages.offer-v2 ', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time'));
 		}else{
 			abort(404);
 		}
@@ -853,7 +859,11 @@ class PagesController extends Controller{
 
 			View::share('phones_customer',$this->phones_customer);
 
-			return View('pages.offerTest', compact('offer','resorts','all_offers','offer_resort2','travel_window'));
+			date_default_timezone_set('America/New_York');
+			//date_default_timezone_set('Europe/Moscow');
+			$et_time=date('H:i:s');
+
+			return View('pages.offerTest', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time'));
 		}else{
 			abort(404);
 		}

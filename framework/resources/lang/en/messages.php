@@ -91,5 +91,6 @@ return [
 	'review_gr_date3'=>'July 21st, 2016',
 	'best_deal'=>'Best Deal Guaranteed',
 	'why_book_with_us'=>'Why Book with Us',
-	'hotel_policies'=>'Hotel Policies'
+	'hotel_policies'=>'Hotel Policies',
+	'viewsrender' => '3D view'
 ];

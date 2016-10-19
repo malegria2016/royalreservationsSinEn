@@ -11,38 +11,8 @@
 
 
 @section('style')
-<style>
-#clockdiv{
-	font-family: sans-serif;
-	color: #fff;
-	display: inline-block;
-	font-weight: 70;
-	text-align: center;
-	font-size: 25px;
-	margin: 10px 0 0 0;
-}
-
-#clockdiv > div{
-	padding: 10px;
-	background: #00BF96;
-	display: inline-block;
-	margin: 0 5px;
-}
-
-#clockdiv div > span{
-	padding: 15px;
-	background: #00816A;
-	display: inline-block;
-}
-
-.smalltext{
-	padding-top: 5px;
-	font-size: 16px;
-}
-</style>
-
+<link rel="stylesheet" href="{{ asset('css/reloj-contador.css') }}">
 @endsection
-
 
 
 @section('container')
@@ -54,10 +24,6 @@
 	{{--*/ $prefix='es/'/*--}}
 @endif
 
-
-
-
-<link rel="stylesheet" href="{{ asset('css/flipclock.css') }}">
 
 <div>
 <!--nota-->
@@ -85,19 +51,13 @@
     	$banner="-dia";
 
     	if($offer->id==69 || $offer->id==70){
-    		if(date("H:i:s") > '13:00:00' && date("H:i:s") < '23:59:00'){
+    		if($et_time > '17:50:00' || date($et_time) < '05:59:00'){
     			$ban_promo=1;
     			$banner="-noche";
     		}
     		else{
-    			if(date("H:i:s") > '00:01:00' && date("H:i:s") < '11:59:00'){
-    				$ban_promo=1;
-    				$banner="-noche";
-    			}
-    			else{
-    				$ban_promo=0;
-    				$banner="-dia";
-    			}
+    			$ban_promo=0;
+    			$banner="-dia";
     		}
     	}
 
@@ -140,12 +100,10 @@
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			@if($offer->id==69 || $offer->id==70)
-				
-				{{--*/  /*--}}
 
-				@if((date("H:i:s") > '13:00:00' && date("H:i:s") < '23:59:00') || (date("H:i:s") > '00:01:00' && date("H:i:s") < '11:59:00'))
+				@if($et_time > '18:00:00' || $et_time < '05:59:00')
 				
-				<div id="clockdiv"><div><span class="hours"></span><div class="smalltext">Hours</div></div><div><span class="minutes"></span><div class="smalltext">Minutes</div></div><div><span class="seconds"></span><div class="smalltext">Seconds</div></div></div>
+				<div id="clockdiv"><div><div class="smalltext">Hours</div><span class="hours"></span></div><span>:</span><div><div class="smalltext">Minutes</div><span class="minutes"></span></div><span>:</span><div><div class="smalltext">Seconds</div><span class="seconds"></span></div></div>
 
 				<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
 
@@ -243,7 +201,6 @@ function getTimeRemaining(endtime) {
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  //var days = Math.floor(t / (1000 * 60 * 60 * 24));
   return {
     'total': t,
     'hours': hours,
@@ -254,7 +211,6 @@ function getTimeRemaining(endtime) {
 
 function initializeClock(id, endtime) {
   var clock = document.getElementById(id);
-  //var daysSpan = clock.querySelector('.days');
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
@@ -262,7 +218,6 @@ function initializeClock(id, endtime) {
   function updateClock() {
     var t = getTimeRemaining(endtime);
 
-    //daysSpan.innerHTML = t.days;
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
@@ -276,7 +231,7 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date(2016, 10,20, 04,00,00,00);
+var deadline = new Date(2016,11,31, 06,00,00,00);
 
 initializeClock('clockdiv', deadline);
 

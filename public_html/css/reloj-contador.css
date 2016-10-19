@@ -1,0 +1,10 @@
+.margint50 { margin-top: 30px !important;}
+#clockdiv{ font-family: sans-serif; color: #000; display: inline-block; text-align: center; font-size: 60px; margin: 10px 0 0 0%; width: 100%;}
+#clockdiv > div{padding: 10px; display: inline-block;}
+#clockdiv div > span{padding: 15px;background: #7aaf39;border: 8px solid #8dc53e;border-radius: 50%;color: white;font-weight: bolder;}
+.smalltext{padding-bottom: 25px;font-size: 16px;font-family: 'Oswald', sans-serif;}
+@media screen and (max-width: 480px) {
+	#clockdiv { font-size: 30px;}
+	#clockdiv div > span { border: 5px solid #8dc53e;}
+}
+
