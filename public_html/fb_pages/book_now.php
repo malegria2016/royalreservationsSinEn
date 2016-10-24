@@ -30,10 +30,16 @@
 
 	<body>
 
-		<div class="panel panel-default margin40">
-  			<div class="panel-body">
+		<header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header-area marginb15b"><h3 class="center tx-white">BOOK NOW</h3></div>
+                </div>
+            </div>
+        </header>
 
-				<h1 class="h1fb">Book Now</h1>
+		<div class="margin40">
+
 				<p class="txfb">From exclusive and luxury resorts to family friendly hotels, Royal Reservations offers the experience by the Caribbean Sea you are dreaming of at the best price with special rates, promotions and packages.</p>
 
 
@@ -111,11 +117,10 @@
 				   	<input type="hidden" name="tag_children" id="tag_children" value="Children (0-12)"> 
 				   	<input type="hidden" name="tag_children2" id="tag_children2" value="Children (0-17)">
 
-				   	<img src="https://royalreservations.com/img/big/romance-6.jpg" width="100%"> 
+				   	<img src="https://royalreservations.com/img/big/romance-6.jpg" width="100%" class="marco"> 
 
 
   			
-  			</div>
 		</div>
 
 

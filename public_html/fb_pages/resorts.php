@@ -59,7 +59,7 @@
                                     <div class="accommodation_description">
                                         <p>A cozy and nice family hotel preferred by loyal guests for its impeccable services, delicious Italian restaurant, kind staff and kid-friendly amenities and beach.</p>
                                     </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
                                         <input name="hotelid" type="hidden" value="73601">
                                         <input name="themeid" type="hidden" value="9957">
                                         <button type="submit" class="btn btn-danger">BOOK NOW!</button>
@@ -73,7 +73,7 @@
                                     <div class="accommodation_description">
                                         <p>Experience the elegance of Old Mexico and enjoy spacious fully equipped villas, in Playa del Carmen paradise offering a sweet relaxing indulgence.</p>
                                     </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
                                         <input name="hotelid" type="hidden" value="86184">
                                         <input name="themeid" type="hidden" value="10066">
                                         <button type="submit" class="btn btn-danger">BOOK NOW!</button>
@@ -91,7 +91,7 @@
                                     <div class="accommodation_description">
                                         <p>A fine resort to live a relaxing experience in one of the best beaches. Unwind on the beach or by the pool, work out at the Fitness Center, play tennis or relax at the world class Spa.</p>
                                     </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
                                         <input name="hotelid" type="hidden" value="86169">
                                         <input name="themeid" type="hidden" value="10060">
                                         <button type="submit" class="btn btn-danger">BOOK NOW!</button>
@@ -105,7 +105,7 @@
                                     <div class="accommodation_description">
                                         <p>Family oriented tranquil getaway in paradise offering direct access to its twin resort The Royal Caribbean, offering five-star services and spacious villas for your comfort and peace.</p>
                                     </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
                                         <input name="hotelid" type="hidden" value="86182">
                                         <input name="themeid" type="hidden" value="14939">
                                         <button type="submit" class="btn btn-danger">BOOK NOW!</button>
@@ -122,7 +122,7 @@
                                     <div class="accommodation_description">
                                         <p>Family oriented tranquil getaway in paradise offering direct access to its twin resort The Royal Islander, offering five-star services and spacious villas for your comfort and peace.</p>
                                     </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
                                         <input name="hotelid" type="hidden" value="86175">
                                         <input name="themeid" type="hidden" value="10053">
                                         <button type="submit" class="btn btn-danger">BOOK NOW!</button>
@@ -136,7 +136,7 @@
                                     <div class="accommodation_description">
                                         <p>The crown of our family was Ranked #1 in Puerto Morelos, Riviera Maya by Tripadvisor, with 103 beautifully appointed Junior Suites and Master Suites offering signature hospitality and services in an exclusive pristine hideaway.</p>
                                     </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
                                         <input name="hotelid" type="hidden" value="95939">
                                         <input name="themeid" type="hidden" value="11419">
                                         <button type="submit" class="btn btn-danger">BOOK NOW!</button>
@@ -153,7 +153,7 @@
                                     <div class="accommodation_description">
                                         <p>Experience the best of two countries in one: Dutch St. Maarten and French Saint Martin, in a sheltered beach with fine services and amenities.</p>
                                     </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
                                         <input name="hotelid" type="hidden" value="86179">
                                         <input name="themeid" type="hidden" value="9882">
                                         <button type="submit" class="btn btn-danger">BOOK NOW!</button>
@@ -167,7 +167,7 @@
                                     <div class="accommodation_description">
                                         <p>2014 Winner for the Certificate of Excellence by Tripadvisor honoring its excellence for hospitality. You have five star amenities on the front row for spectacular Caribbean sunsets.</p>
                                     </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
                                         <input name="hotelid" type="hidden" value="86180">
                                         <input name="themeid" type="hidden" value="10344">
                                         <button type="submit" class="btn btn-danger">BOOK NOW!</button>
@@ -184,7 +184,7 @@
                                     <div class="accommodation_description">
                                         <p>A singular but beautiful hotel in the heart of Curacao over a platform on Caribbean waters, attracts travelers thirsting for peace and nature. Enjoy fine beaches and a rich cultural heritage.</p>
                                     </div>
-                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
+                                    <form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
                                         <input name="hotelid" type="hidden" value="86181">
                                         <input name="themeid" type="hidden" value="10345">
                                         <button type="submit" class="btn btn-danger">BOOK NOW!</button>

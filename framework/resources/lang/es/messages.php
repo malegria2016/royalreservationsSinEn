@@ -89,5 +89,5 @@ return [
 	'best_deal'=>'Mejor Oferta Garantizada',
 	'why_book_with_us'=>'Porqué Reservar con Nosotros',
 	'hotel_policies'=>'Políticas del Hotel',
-	'viewsrender' => 'vista 3D '
+	'viewsrender' => 'Distribución de habitación'
 ];

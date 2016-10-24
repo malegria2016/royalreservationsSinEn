@@ -12,11 +12,11 @@
 
 @section('style')
 	<style type="text/css">
-		@media (min-width: 768px)
+		/*@media (min-width: 768px)
 			.modal-dialog {
 			    width: 1024px !important;
 			    margin: 30px auto;
-			}
+			}*/
 	</style>	
 @endsection
 
@@ -44,14 +44,25 @@
 		@foreach($accommodations as $key=>$accomodation)
 		@if(count($accomodation->contents) > 0)
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 room marginb50">
-			<a href="#" data-toggle="modal" data-target="#myModal">
+			{{--*/  $render=0; /*--}}
+			@if($resort->id=='7' || $resort->id=='8' || $resort->id=='9')
+				{{--*/  $render=100; /*--}}
+				<a href="#" style="cursor: context-menu;"><img class="img-responsive marco" src="{{asset('img/medium/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}"></a>
+			@else
+				<a href="#" data-toggle="modal" data-target="#myModal{{$render!=100?$accomodation->id:''}}">
 				<img class="img-responsive marco" src="{{asset('img/medium/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}">
-			</a>
+				</a>
+
+			@endif
+
+			
 			<div class="marcoInferior hotelRooms">
-				<strong>{!! $accomodation->contents[0]->name !!}</strong>
+				<strong>{!! $accomodation->contents[0]->name !!} </strong>
 				<div class="accommodation_description">{!!$accomodation->contents[0]->short_description  !!}</div>
-				<a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-camera-retro" aria-hidden="true"></i> @lang('messages.viewsrender')</a>
+				@if($render!=100)
+				<a href="#" data-toggle="modal" data-target="#myModal{{$render!=100?$accomodation->id:''}}"><i class="fa fa-camera-retro" aria-hidden="true"></i> @lang('messages.viewsrender')</a>
 				<br><br>
+				@endif
 				@if($resort->plan == 'EP')
 				<span class="pull-left price">${{$accomodation->price}} USD <small>@lang('messages.starting_room')</small></span>
 				@else
@@ -71,6 +82,18 @@
 				</form>
 			</div>
 		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal{{$accomodation->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="title_modal"><strong>{!! $accomodation->contents[0]->name !!}</strong></div>
+				<div class="center">
+				<img  src="{{asset('img/rooms/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}" class="img-responsive" width="85%">
+				</div>
+			</div>
+		</div>
+
+
 		@if(($key + 1) % 2 == 0)
 		<div class="clearfix"></div>
 		@endif
@@ -85,30 +108,6 @@
 	
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
-		<img class="img-responsive" src="{{asset('img/rooms/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}">
-	</div>
-	<!--
-  
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  
-
-  -->
-</div>
 
 @stop
 

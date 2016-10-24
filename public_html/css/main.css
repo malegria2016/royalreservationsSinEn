@@ -222,6 +222,9 @@ footer .footerMensaje p {text-align: justify;}
 .pointer{ cursor: pointer; }
 .btnOfferResort{ padding: 1% 6% 1% 6%; background-color: #0074D8; margin: 5px 0; color: white; font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 18px;text-decoration: none;display: inline-flex;}   
 .btnOfferResort:hover { background-color: #ff6600; color: #fff; text-decoration: none; }
+.title_modal{background-color:  #0074d8; text-align: center; width: 85%; padding-top: 10px; color: #fff;font-family: "oswald", sans-serif;
+    text-transform: uppercase;}
+.center{ text-align: center; }
 a.btnOfferResort i { padding-right: 4px; padding-top: 4px; }
 
 @media (max-width:767px) {

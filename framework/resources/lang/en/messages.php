@@ -92,5 +92,5 @@ return [
 	'best_deal'=>'Best Deal Guaranteed',
 	'why_book_with_us'=>'Why Book with Us',
 	'hotel_policies'=>'Hotel Policies',
-	'viewsrender' => '3D view'
+	'viewsrender' => 'Plan floor'
 ];
