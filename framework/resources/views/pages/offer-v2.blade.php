@@ -49,8 +49,8 @@
     	$ban_promo=1;
     	$banner="-dia";
 
-    	if($offer->id==69 || $offer->id==70){
-    		if($et_time > '17:50:00' || date($et_time) < '05:59:00'){
+    	if($offer->id==69 || $offer->id==70 || $offer->id==73){
+    		if($et_time > '20:00:00' || date($et_time) < '05:59:00'){
     			$ban_promo=1;
     			$banner="-noche";
     		}
@@ -98,7 +98,7 @@
 
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			@if($offer->id==69 || $offer->id==70)
+			@if($offer->id==69 || $offer->id==70 || $offer->id==73)
 
 				@if($et_time > '18:00:00' || $et_time < '05:59:00')
 				
@@ -137,7 +137,7 @@
 	</div>
 </div>
 
-@if($offer->id==69 || $offer->id==70)
+@if($offer->id==69 || $offer->id==70 || $offer->id==73)
 
 @else
 <div class="container">
