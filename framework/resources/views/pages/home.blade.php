@@ -21,7 +21,7 @@
 		
 	$banner='';
 
-	if($offers[0]->id==69 || $offers[0]->id==70){
+	if($offers[0]->id==69 || $offers[0]->id==70 || $offers[0]->id==73){
 		if(date("H:i:s") > '20:00:00' || date("H:i:s") < '05:59:00'){
 			$banner="-noche";
 		}
@@ -46,7 +46,7 @@
 
 @include('includes.sliderHome',
 [
-'img1' => ((Agent::isMobile() && !Agent::isTablet()) ? 'img/home-medium/'.$offers[0]->identifier.'-'.App::getLocale().'.jpg':'img/home-big/'.$offers[0]->identifier.'-'.App::getLocale().$banner.'.jpg'),
+'img1' => ((Agent::isMobile() && !Agent::isTablet()) ? 'img/home-medium/'.$offers[0]->identifier.'-'.App::getLocale().$banner.'.jpg':'img/home-big/'.$offers[0]->identifier.'-'.App::getLocale().$banner.'.jpg'),
 'alt1'=> (count($offers[0]->contents) >0 ? $offers[0]->contents[0]->alt : 'N/A')
 ]
 )
@@ -67,7 +67,7 @@
 		
 			$banner="";
 
-			if($offer->id==69 || $offer->id==70){
+			if($offer->id==69 || $offer->id==70 || $offer->id==73){
 				if(date("H:i:s") > '20:00:00' || date("H:i:s") < '05:59:00'){
 					$banner="-noche";
 				}
@@ -82,7 +82,7 @@
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 offer mb50">
 			<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offer->identifier)}}">
 				
-				@if($offer->id==69 || $offer->id==70)
+				@if($offer->id==69 || $offer->id==70 || $offer->id==73)
 					
 					@if((date("H:i:s") > '20:00:00') && (date("H:i:s") < '05:59:00'))
 					<img class="img-responsive marco" src="{{ asset('img/small/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg') }}" alt="{{$offer->contents[0]->alt}}">

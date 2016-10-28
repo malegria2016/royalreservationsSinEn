@@ -75,7 +75,7 @@
 		   	$ban_promo=1;
 			$banner="-dia";
 
-			if($offer->id==69 || $offer->id==70){
+			if($offer->id==69 || $offer->id==70 || $offer->id==73){
 				if(date("H:i:s") > '20:00:00' || date("H:i:s") < '05:59:00'){
 					$ban_promo=1;
 					$banner="-noche";
@@ -91,7 +91,7 @@
 		@if(count($offer->contents) >0)
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 offer marginb50">
 			<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offer->identifier)}}">
-				@if($offer->id==69 || $offer->id==70)
+				@if($offer->id==69 || $offer->id==70 || $offer->id==73)
 					
 					@if((date("H:i:s") > '20:00:00') && (date("H:i:s") < '05:59:00'))
 					<img class="img-responsive marco" src="{{ asset('img/medium/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg') }}" alt="{{$offer->contents[0]->alt}}">

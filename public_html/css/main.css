@@ -190,6 +190,7 @@ footer .footerMensaje p {text-align: justify;}
 .hotelDining,.hotelActivities {margin-bottom: 50px;}
 .hotelDiningTitulo strong {text-transform: uppercase;color:#0074d8;font-family: 'oswald';}
 .dining_description, .activity_description {text-align: justify;margin-top: 15px;}
+.dining_description ul li{ list-style: initial; }
 .offersHotels {display: block;font-family: "Oswald",sans-serif;margin: 0px 0;}
 .offersPorcentage {font-size: 26px !important;}
 .offersHotels:hover {text-decoration: underline;color:#0074d8;}

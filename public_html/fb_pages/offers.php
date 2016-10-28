@@ -161,53 +161,53 @@
                 <div>
                     <div class="container">
                         <div class="row" style="display: block;">
-                                <!--Oferta 1-->
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <img class="img-responsive marco-c" src="https://royalreservations.com/img/medium/<?php echo $offers_store[0]['identifier'] ?>-en.jpg" alt="#">
-                                    <form onsubmit="searchIhotelierRatePlan1()" id="uno" class="booking-offers" action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
-                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                        <select class="form-control" id="hotelid" name="hotelid" onchange="searchIhotelierRatePlan1()">
-                                          <?php if(isset($vector1_mx)){ ?>
-                                                <optgroup label="Mexican Caribbean">
-                                                   <?php for($j=0;$j<count($vector1_mx);$j++){?>
-                                                            <option id="<?php echo $vector1_mx[$j]['ihotelier_rate_id'] ?>" value="<?php echo $vector1_mx[$j]['ihotelier_id'] ?>" data-subtext="<?php echo $vector1_mx[$j]['area'] ?>"><?php echo $vector1_mx[$j]['name'] ?></option>
-                                                   <?php } ?>
-                                                </optgroup>
-                                          <?php }?>
-                                          <?php if(isset($vector1_ca)){ ?>
-                                                <optgroup label="Caribbean Islands">
-                                                    <?php for($j=0;$j<count($vector1_ca);$j++){?>
-                                                            <option id="<?php echo $vector1_ca[$j]['ihotelier_rate_id'] ?>" value="<?php echo $vector1_ca[$j]['ihotelier_id'] ?>" data-subtext="<?php echo $vector1_ca[$j]['area'] ?>"><?php echo $vector1_ca[$j]['name'] ?></option>
-                                                   <?php } ?>
-                                                </optgroup>
-                                          <?php }?>
-                                        </select>
-                                        </div>
-                                        <?php if($offers_store[0]['ihotelier_type']==1){ ?>
-                                            <input type="hidden" name="RatePlanID" id="RatePlanID1" value="">
-                                        <?php } else{?>
-                                            <input type="hidden" name="packageId" id="packageId1" value="">
-                                        <?php } ?>
-                                        
-                                        <input type="hidden" name="adults" id="adults" value="2">
-                                        <input type="hidden" name="children" id="children" value="0">
-                                        <input type="hidden" name="children2" id="children2" value="0">
-                                        <input type="hidden" id="datein" name="datein" value="<?php echo $dateInDefault; ?>">
-                                        <input type="hidden" id="dateout" name="dateout" value="<?php echo $dateOutDefault; ?>">
+                            <!--Oferta 1-->
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <img class="img-responsive marco-c" src="https://royalreservations.com/img/medium/<?php echo $offers_store[0]['identifier'] ?>-en.jpg" alt="#">
+                                <form onsubmit="searchIhotelierRatePlan1()" id="uno" class="booking-offers" action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                    <select class="form-control" id="hotelid" name="hotelid" onchange="searchIhotelierRatePlan1()">
+                                      <?php if(isset($vector1_mx)){ ?>
+                                            <optgroup label="Mexican Caribbean">
+                                               <?php for($j=0;$j<count($vector1_mx);$j++){?>
+                                                    <option id="<?php echo $vector1_mx[$j]['ihotelier_rate_id'] ?>" value="<?php echo $vector1_mx[$j]['ihotelier_id'] ?>" data-subtext="<?php echo $vector1_mx[$j]['area'] ?>"><?php echo $vector1_mx[$j]['name'] ?></option>
+                                               <?php } ?>
+                                            </optgroup>
+                                      <?php }?>
+                                      <?php if(isset($vector1_ca)){ ?>
+                                            <optgroup label="Caribbean Islands">
+                                                <?php for($j=0;$j<count($vector1_ca);$j++){?>
+                                                    <option id="<?php echo $vector1_ca[$j]['ihotelier_rate_id'] ?>" value="<?php echo $vector1_ca[$j]['ihotelier_id'] ?>" data-subtext="<?php echo $vector1_ca[$j]['area'] ?>"><?php echo $vector1_ca[$j]['name'] ?></option>
+                                               <?php } ?>
+                                            </optgroup>
+                                      <?php }?>
+                                    </select>
+                                    </div>
+                                    <?php if($offers_store[0]['ihotelier_type']==1){ ?>
+                                        <input type="hidden" name="RatePlanID" id="RatePlanID1" value="">
+                                    <?php } else{?>
+                                        <input type="hidden" name="packageId" id="packageId1" value="">
+                                    <?php } ?>
+                                    
+                                    <input type="hidden" name="adults" id="adults" value="2">
+                                    <input type="hidden" name="children" id="children" value="0">
+                                    <input type="hidden" name="children2" id="children2" value="0">
+                                    <input type="hidden" id="datein" name="datein" value="<?php echo $dateInDefault; ?>">
+                                    <input type="hidden" id="dateout" name="dateout" value="<?php echo $dateOutDefault; ?>">
 
-                                        
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <button type="submit" class="btn book pull-right">BOOK NOW !</button>
-                                        </div>
-                                    </form>
-                                    <div class="clearfix"></div>
-                                    <div class="marcoInferior-c marginb50 hotelDiningTitulo">
-                                        <strong><?php echo $offers_store[0]['headline'] ?></strong>
-                                        <div class="dining_description">
-                                            <p><?php echo $offers_store[0]['facebook_description'] ?></p>
-                                        </div>
+                                    
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <button type="submit" class="btn book pull-right">BOOK NOW !</button>
+                                    </div>
+                                </form>
+                                <div class="clearfix"></div>
+                                <div class="marcoInferior-c marginb50 hotelDiningTitulo">
+                                    <div class="hotelRooms"><strong><?php echo $offers_store[0]['headline'] ?></strong></div>
+                                    <div class="dining_description">
+                                        <p><?php echo $offers_store[0]['facebook_description'] ?></p>
                                     </div>
                                 </div>
+                            </div>
 
                                 <!--Oferta 2-->
                                 <div id="dos" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -250,7 +250,7 @@
                                     </form>
                                     <div class="clearfix"></div>
                                     <div class="marcoInferior-c marginb50 hotelDiningTitulo">
-                                        <strong><?php echo $offers_store[1]['headline'] ?></strong>
+                                        <div class="hotelRooms"><strong><?php echo $offers_store[1]['headline'] ?></strong></div>
                                         <div class="dining_description">
                                             <p><?php echo $offers_store[1]['facebook_description'] ?></p>
                                         </div>
@@ -298,7 +298,7 @@
                                     </form>
                                     <div class="clearfix"></div>
                                     <div class="marcoInferior-c marginb50 hotelDiningTitulo">
-                                        <strong><?php echo $offers_store[2]['headline'] ?></strong>
+                                        <div class="hotelRooms"><strong><?php echo $offers_store[2]['headline'] ?></strong></div>
                                         <div class="dining_description">
                                             <p><?php echo $offers_store[2]['facebook_description'] ?></p>
                                         </div>

@@ -74,11 +74,11 @@
                 </tr>
                 <tr>
                     <td class="bm01">Booking Window:</td>
-                    <td>May 10, 2016 to June 30, 2016</td>
+                    <td>Nov 10 to Nov 30, 2016</td>
                 </tr>
                 <tr>
                     <td class="bm01">Travel Window:</td>
-                    <td>May 10, 2016 to December 20, 2017</td>
+                    <td>Nov 10, 2016 to Dec 20, 2017</td>
                 </tr>                
             </table>
             <br>
