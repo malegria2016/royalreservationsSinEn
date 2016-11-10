@@ -8,7 +8,6 @@ class Offer extends Model {
 	public function contents(){
 		return $this->hasMany('App\OfferContent');
 	}
-
 	public function scopeActive($query)
     {
         return $query->whereStatus(1);
@@ -23,8 +22,10 @@ class Offer extends Model {
 	public function scopeRange($query){
 		return $query->where('start_date', '<=',Carbon::now())->where('end_date',">", Carbon::now());
 	}
-
 	public function resorts(){
 		return $this->belongsToMany('App\Resort');
+	}
+	public function websites(){
+		return $this->belongsToMany('App\Website');
 	}
 }

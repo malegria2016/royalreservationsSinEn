@@ -15,23 +15,7 @@
 	<p><a href="#"><i class="fa fa-certificate iconbig"></i> @lang('messages.anuncio')</a></p>
 </div>
 
-{{--*/  
-	$prefix=''; 
-
-		
-	$banner='';
-
-	if($offers[0]->id==69 || $offers[0]->id==70 || $offers[0]->id==73){
-		if(date("H:i:s") > '20:00:00' || date("H:i:s") < '05:59:00'){
-			$banner="-noche";
-		}
-		else{
-			$banner="-dia";
-		}
-	}
-
-
-/*--}}
+{{--*/  $prefix=''; /*--}}
 @if (App::getLocale() == 'en')
 	{{--*/ $prefix=''/*--}}
 @elseif (App::getLocale() == 'es')
@@ -46,7 +30,7 @@
 
 @include('includes.sliderHome',
 [
-'img1' => ((Agent::isMobile() && !Agent::isTablet()) ? 'img/home-medium/'.$offers[0]->identifier.'-'.App::getLocale().$banner.'.jpg':'img/home-big/'.$offers[0]->identifier.'-'.App::getLocale().$banner.'.jpg'),
+'img1' => ((Agent::isMobile() && !Agent::isTablet()) ? 'img/home-medium/'.$offers[0]->identifier.'-'.App::getLocale().'.jpg':'img/home-big/'.$offers[0]->identifier.'-'.App::getLocale().'.jpg'),
 'alt1'=> (count($offers[0]->contents) >0 ? $offers[0]->contents[0]->alt : 'N/A')
 ]
 )
@@ -62,46 +46,19 @@
 			<div id="h1_content" class="marginb50">{!! $page->h1_content!!}</div>
 		</div>
 		@if(count($offers)>0)
-		@foreach($offers as $offer)
-			{{--*/  
-		
-			$banner="";
-
-			if($offer->id==69 || $offer->id==70 || $offer->id==73){
-				if(date("H:i:s") > '20:00:00' || date("H:i:s") < '05:59:00'){
-					$banner="-noche";
-				}
-				else{
-					$banner="-dia";
-				}
-			}
-
-			/*--}}
-
-		@if(count($offer->contents)>0)
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 offer mb50">
-			<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offer->identifier)}}">
-				
-				@if($offer->id==69 || $offer->id==70 || $offer->id==73)
-					
-					@if((date("H:i:s") > '20:00:00') && (date("H:i:s") < '05:59:00'))
-					<img class="img-responsive marco" src="{{ asset('img/small/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg') }}" alt="{{$offer->contents[0]->alt}}">
-					@else
-					<img class="img-responsive marco" src="{{ asset('img/small/'.$offer->identifier.'-'.App::getLocale().$banner.'.jpg') }}" alt="{{$offer->contents[0]->alt}}">
-					@endif
-				@else
-				<img class="img-responsive marco" src="{{ asset('img/small/'.$offer->identifier.'-'.App::getLocale().'.jpg') }}" alt="{{$offer->contents[0]->alt}}">
+			@foreach($offers as $offer)
+				@if(count($offer->contents)>0)
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 offer mb50">
+					<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offer->identifier)}}">
+						<img class="img-responsive marco" src="{{ asset('img/small/'.$offer->identifier.'-'.App::getLocale().'.jpg') }}" alt="{{$offer->contents[0]->alt}}">
+					</a>
+					<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offer->identifier)}}">
+						<label class="pointer">{{$offer->contents[0]->headline}}</label>
+					</a>
+				</div>
 				@endif
-			</a>
-			<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offer->identifier)}}">
-				<label class="pointer">{{$offer->contents[0]->headline}}</label>
-			</a>
-		</div>
+			@endforeach
 		@endif
-		@endforeach
-		@endif
-
-
 	</div>
 	<div class="img-responsive division-00"><img class="img-responsive" src="{{ asset('img/general/division-01.png') }}" alt="separator"></div>
 
@@ -157,7 +114,6 @@
 				<h3>{!! $page->h3 !!}</h3>
 				<div id="h3_content">{!! $page->h3_content !!}</div>
 			</div>
-			<!--<button type="button" class="btn btn-primary">Primary</button>-->
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<a href="{{url($prefix.Lang::get('routes.experiences'))}}">
@@ -167,16 +123,13 @@
 				<h4>{!! $page->h4 !!}</h4>
 				<div id="h4_content">{!! $page->h4_content !!}</div>
 			</div>
-			<!--<button type="button" class="btn btn-primary">Primary</button>-->
 		</div>
 	</div>
 </div>
 
 
 @stop
-@section('javascript')
-<script> /*$(document).ready(function () { setClassActive("li-home"); });*/ </script>
-@stop
+
 @endif
 
 @stop

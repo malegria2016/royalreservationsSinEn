@@ -3,8 +3,11 @@
 #clockdiv > div{padding: 10px; display: inline-block;}
 #clockdiv div > span{padding: 15px;background: #7aaf39;border: 8px solid #8dc53e;border-radius: 50%;color: white;font-weight: bolder;}
 .smalltext{padding-bottom: 25px;font-size: 16px;font-family: 'Oswald', sans-serif;}
+#clockdiv .days{padding: 15px 30px;}
 @media screen and (max-width: 480px) {
-	#clockdiv { font-size: 30px;}
+	#clockdiv .days{padding: 15px 20px;}
+	#clockdiv { font-size: 20px;}
 	#clockdiv div > span { border: 5px solid #8dc53e;}
+	#clockdiv > div{padding: 2px;}
 }
 
