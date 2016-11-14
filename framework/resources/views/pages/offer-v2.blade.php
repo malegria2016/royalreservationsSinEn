@@ -164,6 +164,7 @@
 					@endif
 				</div>
 				<label class="offersPorcentage">@lang('messages.up_to') {{ $resort->discount }}% @lang('messages.off')</label>
+				<!-- SE ELIMINA BOTON DE REFERENCIA HACIA EL BOOKING
 				<div class="ofertaBook">
 					<form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
 						<input name="hotelid" type="hidden" value="{{$resort->ihotelier_id}}" />
@@ -171,6 +172,7 @@
 						<button type="submit" class="btn btn-danger pull-right">@lang('messages.book')</button>
 					</form>
 				</div>
+				-->
 			</div>
 		</div>
 		@if(($key + 1) % 3 == 0)
