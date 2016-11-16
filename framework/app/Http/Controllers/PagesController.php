@@ -710,6 +710,59 @@ class PagesController extends Controller{
 		
 	}
 
+	public function buenFinAI(){
+		if(App::getLocale()=='es'){ 
+			$this->lang_id=1; 
+			/* consulto las promos vigentes del hotel para mostrarlas como opciones si la promo está no vigente */
+			$all_offers = Offer::active()->range()
+						->whereHas('resorts', function($q){$q->whereIn('id',[1,4,5]);})
+						->with(['websites' => function($q) { $q->where('id', '11');}])
+						->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+						->where('mobile_only',0)->where('main',1)->orderBy('priority','desc')->get();
 
+			View::share('phones_customer',$this->phones_customer);
+			View::share('phone_skype',$this->phone_skype_mex);
+			return View("pages.offer-buenfin16-ai", compact('all_offers'));
+		}
+		else{
+			abort(404);	
+		} 
+	}
+	public function buenFinEP(){
+		if(App::getLocale()=='es'){ 
+			$this->lang_id=1; 
+			/* consulto las promos vigentes del hotel para mostrarlas como opciones si la promo está no vigente */
+			$all_offers = Offer::active()->range()
+						->whereHas('resorts', function($q){$q->whereIn('id',[2,3]);})
+						->with(['websites' => function($q) { $q->where('id', '11');}])
+						->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+						->where('mobile_only',0)->where('main',1)->orderBy('priority','desc')->get();
+
+			View::share('phones_customer',$this->phones_customer);
+			View::share('phone_skype',$this->phone_skype_mex);
+			return View("pages.offer-buenfin16-ep", compact('all_offers'));
+		}
+		else{
+			abort(404);	
+		}
+	}
+	public function buenFinGRM(){
+		if(App::getLocale()=='es'){ 
+			$this->lang_id=1; 
+			/* consulto las promos vigentes del hotel para mostrarlas como opciones si la promo está no vigente */
+			$all_offers = Offer::active()->range()
+						->whereHas('resorts', function($q){$q->whereIn('id',[6]);})
+						->with(['websites' => function($q) { $q->where('id', '11');}])
+						->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+						->where('mobile_only',0)->where('main',1)->orderBy('priority','desc')->get();
+
+			View::share('phones_customer',$this->phones_customer);
+			View::share('phone_skype',$this->phone_skype_mex);
+			return View("pages.offer-buenfin16-grm", compact('all_offers'));
+		} 
+		else{
+			abort(404);	
+		}
+	}
 
 }

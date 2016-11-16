@@ -56,6 +56,11 @@ Route::group(array('prefix' => $locale), function() {
 	Route::get(Lang::get('routes.whyBook'),'PagesController@whyBookShow');
 	Route::get(Lang::get('routes.hotelPolicies'),'PagesController@hotelPoliciesShow');
 	Route::get(Lang::get('routes.webcams'),'PagesController@webcamsShow');
+
 	Route::get('newsletter/bonnier/st-maarten-deal','PagesController@newsletterBonnier');
+	Route::get('promociones-especiales/buen-fin-hoteles-todo-incluido-2016','PagesController@buenFinAI');
+	Route::get('promociones-especiales/buen-fin-hoteles-2016','PagesController@buenFinEP');
+	Route::get('promociones-especiales/buen-fin-hoteles-de-lujo-2016','PagesController@buenFinGRM');
+
 
 });
