@@ -19,8 +19,8 @@
 	{{--*/ $prefix='es/'/*--}}
 @endif
 
+
 <div>
-<!--nota-->
 	{{--*/
 		$hoy = date("Y-m-d H:i:s");
 		$ban = 9;
@@ -29,6 +29,7 @@
     		if($travel_window[0]['start_date']>$hoy){
     			$date= strtotime($travel_window[0]['start_date']);
     			$dateInDefault=  date('m/d/Y', $date);
+
     			$dateOutDefault=date('m/d/Y', strtotime('+5 day',$date));
     		}
     		else{
@@ -76,7 +77,13 @@
 
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			@if($offer->id==69 || $offer->id==70 || $offer->id==73)
+				<div id="clockdiv"><div><div class="smalltext">Days</div><span class="days"></span></div><span>:</span><div><div class="smalltext">Hours</div><span class="hours"></span></div><span>:</span><div><div class="smalltext">Minutes</div><span class="minutes"></span></div><span>:</span><div><div class="smalltext">Seconds</div><span class="seconds"></span></div></div>
+
+				<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
+			@else
 			<img class="img-responsive margint50 marco" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}">
+			@endif
 		</div>
 	</div>
 
@@ -125,7 +132,6 @@
 					@endif
 				</div>
 				<label class="offersPorcentage">@lang('messages.up_to') {{ $resort->discount }}% @lang('messages.off')</label>
-				<!-- SE ELIMINA BOTON DE REFERENCIA HACIA EL BOOKING
 				<div class="ofertaBook">
 					<form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
 						<input name="hotelid" type="hidden" value="{{$resort->ihotelier_id}}" />
@@ -133,7 +139,6 @@
 						<button type="submit" class="btn btn-danger pull-right">@lang('messages.book')</button>
 					</form>
 				</div>
-				-->
 			</div>
 		</div>
 		@if(($key + 1) % 3 == 0)
@@ -152,3 +157,51 @@
 
 @stop
 @endif
+
+@section('javascript')
+<script>
+
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor( t/(1000*60*60*24) );
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date(2016,09,31, 06,00,00,00);
+
+initializeClock('clockdiv', deadline);
+
+</script>
+@stop
