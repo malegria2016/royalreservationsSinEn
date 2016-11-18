@@ -20,7 +20,6 @@
 @endif
 
 <div>
-<!--nota-->
 	{{--*/
 		$hoy = date("Y-m-d H:i:s");
 		$ban = 9;
@@ -44,7 +43,7 @@
 	/*--}}
 
 	@if($offer->end_date >= $hoy)
-  		<div>
+  		<div id="booking">
     		@include('includes.booking-single-offer',['rate_access_code'=>($offer->rate_access_code != '' ? $offer->rate_access_code : null),'offers_resorts'=>$offer_resort2, 'ihotelier_type'=>($offer->ihotelier_type != '' ? $offer->ihotelier_type : null)])
   		</div>
 	@endif
@@ -62,7 +61,7 @@
     		@foreach($all_offers as $key=>$offers)
     			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 offer marginb50">
 					<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offers->identifier)}}">
-					<img class="img-responsive marco" src="{{ asset('img/medium/'.$offers->identifier.'-'.App::getLocale().'.jpg') }}" alt="{{$offers->contents[0]->alt}}">
+					<img class="img-responsive marco" src="{{ asset('img/medium/'.$offers->identifier.'-'.App::getLocale().'.jpg') }}" alt="{{$offers->contents[0]->alt}}" title="{{$offers->contents[0]->alt}}">
 					</a>
 					<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offers->identifier)}}">
 						<label class="pointer">{{$offers->contents[0]->headline}}</label>
@@ -106,7 +105,7 @@
 	<div class="row">
 		@foreach($resorts as $key=>$resort)
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 resort-small">
-			<a href="{{url($prefix.Lang::get('routes.resorts').'/'.$resort->identifier)}}"><img class="img-responsive marco" src="{{asset('img/small/'.$resort->identifier.'-1.jpg')}}" alt="{{$resort->contents[0]->alt1}}"></a>
+			<a href="{{url($prefix.Lang::get('routes.resorts').'/'.$resort->identifier)}}"><img class="img-responsive marco" src="{{asset('img/small/'.$resort->identifier.'-1.jpg')}}" alt="{{$resort->contents[0]->alt1}}" title="{{$resort->contents[0]->alt1}}"></a>
 			@if($resort->plan == 'All Inclusive')
 			<div class="resort-all"></div>
 			@elseif($resort->plan == 'All Inclusive/Room Only')
@@ -149,6 +148,26 @@
 
 </div>
 
-
 @stop
+
+
+@section('javascript')
+<script>
+	/*
+	var headerHeight = $j('header').height();
+	var headerWidth = $j('header').width();
+	$j(window).scroll(function() {
+	  if(headerWidth>768){
+		if( $j(this).scrollTop() > headerHeight) {
+		  $j('#booking').addClass('fixed-form');
+		} else {
+		  $j('#booking').removeClass('fixed-form');
+		}
+	  }
+	});
+	*/
+</script>
+@stop
+
+
 @endif

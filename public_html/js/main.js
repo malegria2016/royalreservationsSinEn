@@ -4,6 +4,20 @@ $j(document).ready(function () {
     $j().UItoTop({easingType: 'easeOutQuart'});
     $j('#hotelid').selectpicker();
 
+    //scroll
+    var headerHeight = $j('header').height();
+    var headerWidth = $j('header').width();
+    $j(window).scroll(function() {
+      if(headerWidth>768){
+      if( $j(this).scrollTop() > headerHeight) {
+        $j('#booking').addClass('fixed-form');
+      } else {
+        $j('#booking').removeClass('fixed-form');
+      }
+      }
+    });
+
+
     $j(window).onload=changeBooking($j("#hotelid").val());
 
     /*var today = new Date();

@@ -228,6 +228,9 @@ footer .footerMensaje p {text-align: justify;}
 .center{ text-align: center; }
 a.btnOfferResort i { padding-right: 4px; padding-top: 4px; }
 
+.fixed-form { position: fixed; width: 100%;top: 0;z-index: 20;}
+
+
 @media (max-width:767px) {
 	.btnOfferResort{ width: 48%; padding: 1% 4% 1% 4%;  margin: 3px 0; }   
 	.navbar-brand>img {display: block;margin: 5px;width: 180px;}
