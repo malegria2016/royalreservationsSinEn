@@ -14,6 +14,8 @@ use App\Destination;
 use App\Experience;
 use App\Package;
 use Carbon\Carbon;
+use App\GeneralPageContents;
+use App\GeneralPageWebsite;
 
 use DB;
 
@@ -763,6 +765,20 @@ class PagesController extends Controller{
 		else{
 			abort(404);	
 		}
+	}
+	public function generalPages($page){
+		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
+		$page = GeneralPageContents::active()->identifier($page)->first();
+		if($page){
+			View::share('phones_customer',$this->phones_customer);
+			View::share('phones_mex',$this->phones_mex);
+			View::share('phone_skype',$this->phone_skype_mex);
+			return View('pages.general-page',compact('page'));
+		}
+		else{
+			abort(404);
+		}
+		
 	}
 
 }
