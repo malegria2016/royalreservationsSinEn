@@ -92,5 +92,7 @@ return [
 	'best_deal'=>'Best Deal Guaranteed',
 	'why_book_with_us'=>'Why Book with Us',
 	'hotel_policies'=>'Hotel Policies',
-	'viewsrender' => 'Plan floor'
+	'viewsrender' => 'Plan floor',
+	'maintenance'=>'We apologize for the inconvenience.
+        Our reservation system is currently undergoing maintenance from 8pm to 12 am (Central Time). Please come back later and feel free to navigate in our website anytime.'
 ];

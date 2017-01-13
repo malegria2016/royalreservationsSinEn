@@ -2,7 +2,7 @@
 
 <div id="booking">
 <section>
-	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank">
+	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="return validateBooking();">
 		<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 bookesp">
 			<span class="lbForm">@lang('messages.select_resort')</span>
 			<select class="form-control" id="hotelid" name="hotelid">

@@ -35,7 +35,7 @@ class PagesController extends Controller{
 		$this->company_id = 1;
 		$this->website_id = 11;
 
-		//date_default_timezone_set('America/New_York');
+		date_default_timezone_set('America/Mexico_City');
 
 		$resorts_routes_mex = Resort::mexico()->active()->select('identifier','name','ihotelier_id','area')->orderBy('id','desc')->get();
 		$resorts_routes_car = Resort::caribbean()->active()->select('identifier','name','ihotelier_id','area')->get();
@@ -77,7 +77,6 @@ class PagesController extends Controller{
 		View::share('experiences_routes_en',$experiences_routes_en);
 		View::share('experiences_routes_es',$experiences_routes_es);
 	}
-
 	public function home(){
 		App::setLocale('en');
 		$this->lang_id=1;
@@ -88,7 +87,6 @@ class PagesController extends Controller{
 		if($page){
 			$page = $page->contents->first();
 		}
-		
 		if(Agent::isMobile()){
 			$offers = Offer::active()->range()
 				->whereHas('websites', function($q){ $q->where('id', $this->website_id);})
@@ -264,7 +262,6 @@ class PagesController extends Controller{
 			//return dd($experiences);
 			return View('pages.experiences', compact('page','experiences'));
 		}
-
 	}
 
 	public function experienceShow($experience){
@@ -356,7 +353,6 @@ class PagesController extends Controller{
 			foreach($resorts as $resort){
 				array_push($resorts_id, $resort->id);
 			}
-		
 			if(Agent::isMobile()){
 				$offers = Offer::active()->range()
 					->whereHas('resorts', function($q) use ($resorts_id){$q->whereIn('id', $resorts_id);})
@@ -415,7 +411,6 @@ class PagesController extends Controller{
 					->where('mobile_only',0)->where('main', '1')->orderBy('priority','desc')
 					->get();
 			}
-			
 			if ($resort->location == "Mexican Caribbean") {
 				View::share('phones_mex',$this->phones_mex);
 				View::share('phone_skype',$this->phone_skype_mex);
@@ -454,7 +449,6 @@ class PagesController extends Controller{
 				->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
 				->where('mobile_only',0)->where('main', '1')->first();	
 		}
-
 		if($offer){
 			$travel_window = App\OfferTravelWindow::where('offer_id',$offer->id)->orderBy('start_date','asc')->get();
 
@@ -466,7 +460,6 @@ class PagesController extends Controller{
 			//return dd($offer_resort);
 
 			$i=0; 
-
 			foreach ($resorts as $key => $value) {
 				//offer_resort2 almacena los datos necesarios en un solo vector para llevar al formulario.
 				for($k=0; $k<count($offer_resort); $k++){
@@ -479,7 +472,6 @@ class PagesController extends Controller{
 						$offer_resort2[$i]['area']=$value->area;
 					}
 				}
-
 				if($value->location == 'Mexican Caribbean'){
 					View::share('phones_mex',$this->phones_mex);
 					View::share('phone_skype',$this->phone_skype_mex);
@@ -487,7 +479,6 @@ class PagesController extends Controller{
 					View::share('phones_car',$this->phones_car);
 					View::share('phone_skype',$this->phone_skype_car);
 				}
-
 				$i++;
 			}
 
@@ -524,13 +515,11 @@ class PagesController extends Controller{
 			abort(404);
 		}
 	}
-
 	public function contact(){
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
 		return View("pages.contact");
 	}
-
 	public function policyShow(){
 		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
 		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','100')->get();		     
@@ -539,7 +528,6 @@ class PagesController extends Controller{
 
 		return View("pages.privacy-policy", compact('policies'));
 	}
-
 	public function newsletter(){
 		/*$offers= DB::table('offers')
 				->join('offer_resort','offers.id','=','offer_resort.offer_id')
@@ -574,7 +562,6 @@ class PagesController extends Controller{
 		//return dd($resortGds->toArray());
 		return View("pages.gds-promos2016", compact('resortGds', 'rateplan'));
 	}
-
 	public function webcamsShow(){
 		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
 		$resorts = App\Resort::whereNotIn('id', [6,7,8,9])->get();
@@ -600,8 +587,7 @@ class PagesController extends Controller{
 	}
 	public function bestDealShow(){
 		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
-		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','101')
-               ->get();		
+		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','101')->get();		
                
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
@@ -609,8 +595,7 @@ class PagesController extends Controller{
 	}	
 	public function whyBookShow(){
 		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
-		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','102')
-               ->get();		
+		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','102')->get();		
                
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
@@ -619,8 +604,7 @@ class PagesController extends Controller{
 	}
 	public function hotelPoliciesShow(){
 		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
-		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','103')
-               ->get();		
+		$policies = App\Resort_policy::general()->where('lang_id', '=', $this->lang_id)->where('resort_id','103')->get();		
                
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phone_skype',$this->phone_skype_mex);
@@ -648,13 +632,10 @@ class PagesController extends Controller{
 				View::share('phones_car',$this->phones_car);
 				View::share('phone_skype',$this->phone_skype_car);
 			}
-
 			return view('pages.accommodation', compact('resort') );
-			
 		}else{
 			abort(404);
 		}
-
 	}
 	public function resortShowDining($resort){
 		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
@@ -711,7 +692,6 @@ class PagesController extends Controller{
 		}
 		
 	}
-
 	public function buenFinAI(){
 		if(App::getLocale()=='es'){ 
 			$this->lang_id=1; 
@@ -778,7 +758,20 @@ class PagesController extends Controller{
 		else{
 			abort(404);
 		}
-		
+	}
+
+	public function test($page){
+		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
+		$page = GeneralPageContents::active()->identifier($page)->first();
+		if($page){
+			View::share('phones_customer',$this->phones_customer);
+			View::share('phones_mex',$this->phones_mex);
+			View::share('phone_skype',$this->phone_skype_mex);
+			return View('pages.general-page',compact('page'));
+		}
+		else{
+			abort(404);
+		}
 	}
 
 }

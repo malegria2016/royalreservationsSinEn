@@ -89,5 +89,6 @@ return [
 	'best_deal'=>'Mejor Oferta Garantizada',
 	'why_book_with_us'=>'Porqué Reservar con Nosotros',
 	'hotel_policies'=>'Políticas del Hotel',
-	'viewsrender' => 'Distribución de habitación'
+	'viewsrender' => 'Distribución de habitación',
+	'maintenance'=>'Lamentamos las molestias pero nuestro sistema de reservaciones se encuentra en mantenimiento desde las 8pm hasta las 12am (Hora Central). Por favor regrese más tarde y navegue libremente en nuestro sitio en cualquier momento.'
 ];

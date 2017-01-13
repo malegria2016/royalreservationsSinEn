@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -63,6 +62,5 @@ Route::group(array('prefix' => $locale), function() {
 	Route::get('promociones-especiales/buen-fin-hoteles-todo-incluido-2016','PagesController@buenFinAI');
 	Route::get('promociones-especiales/buen-fin-hoteles-2016','PagesController@buenFinEP');
 	Route::get('promociones-especiales/buen-fin-hoteles-de-lujo-2016','PagesController@buenFinGRM');
-
 
 });

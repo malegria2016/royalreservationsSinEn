@@ -164,7 +164,7 @@ $j(document).ready(function () {
         }
         checkin.hide();
         validateBookingSingle();
-        $('#dateout')[0].focus();
+        $j('#dateout')[0].focus();
     }).data('datepicker');
     var checkout = $j('#dateout').datepicker({
         onRender: function (date) {
@@ -296,9 +296,7 @@ $j("#cerrar").on( "click", function() {
 
   $j('#cookie-law-info-bar').hide(1000);
   document.getElementById("cookie-law-info-bar").style.display = "none";
-
 });
-
 
 var allcookies = document.cookie;
 if (allcookies.search(/minimizado/)!=-1){
@@ -307,7 +305,6 @@ if (allcookies.search(/minimizado/)!=-1){
 else{
   document.getElementById("cookie-law-info-bar").style.display = "block";
 }
-
 
 });
 
@@ -344,6 +341,15 @@ function changeBooking(value){
 function setClassActive(e) { $j("#" + e).addClass("active") }
 
 function validateBooking(){
+  /*var f_hoy = new Date();
+  var f_mantto1 = new Date(2016,11,3, 20,00,00,00);
+  var f_mantto2 = new Date(2016,11,3, 23,59,00,00);
+  
+  if((f_hoy>= f_mantto1) && (f_hoy<=f_mantto2)){
+    $j('#mantenimiento').modal('show');
+    return false;
+  }*/
+
   if($j("#hotelid").val() == "0"){
     $j("#error-booking").show("slow");
     return false;
@@ -361,6 +367,15 @@ function validateBookingSingle(){
 
   /*if ($("#datein").val() == '' && $("#dateout").val() == ''){
     $("#error-minimum").show("slow");
+    return false;
+  }*/
+
+  /*var f_hoy = new Date();
+  var f_mantto1 = new Date(2016,11,3, 20,00,00,00);
+  var f_mantto2 = new Date(2016,11,3, 23,59,00,00);
+  
+  if((f_hoy>= f_mantto1) && (f_hoy<=f_mantto2)){
+    $j('#mantenimiento').modal('show');
     return false;
   }*/
   
