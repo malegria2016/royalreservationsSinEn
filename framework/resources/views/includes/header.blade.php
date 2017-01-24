@@ -16,7 +16,7 @@
 						<ul class="list-unstyled list-inline navInfo">
 							<li><a href="{{url(App::getLocale()=='en'?'webcams':'es/webcams')}}"><i class="fa fa-video-camera" aria-hidden="true"></i> Webcams</a></li>
 							
-							<li><a href="#" onclick="window.open('https://webchat.visitroyalresorts.com','','width=1250,height=780');return false;" ><i class="fa fa-weixin"></i> Chat</a></li>
+							<li><a href="#" onclick="window.open('https://webchat.visitroyalresorts.com','','width=450,height=680');return false;" ><i class="fa fa-weixin"></i> Chat</a></li>
 							
 							<!-- CODIGO SKYPE
 							<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script> -->
