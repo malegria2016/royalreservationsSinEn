@@ -43,7 +43,7 @@ return [
 	'you_are'=>'You are in section:',
 	'website'=>'Official Website',
 	'starting_room'=>'starting at/per room',
-	'starting_person'=>'starting at/per person',
+	'starting_person'=>'starting at/double occuppancy',
 	'starting_night'=>'starting at/per night *',
 	'starting_policy'=>'*Rates quoted in USD dollars, per night based on double occupancy.',
 	'search'=>'Search Availability',

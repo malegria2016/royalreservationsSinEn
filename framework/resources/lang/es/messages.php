@@ -43,7 +43,7 @@ return [
 	'you_are'=>'Se encuentra en la sección:',
 	'website'=>'Sitio Web Oficial',
 	'starting_room'=>'desde/por habitación',
-	'starting_person'=>'desde/por persona',
+	'starting_person'=>'desde/ocupación doble',
 	'starting_night'=>'desde/por noche *',
 	'starting_policy'=>'*Tarifas cotizadas en dólares, por noche en ocupación doble.',
 	'search'=>'Buscar Disponibilidad',
