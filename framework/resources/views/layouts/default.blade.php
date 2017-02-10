@@ -205,5 +205,37 @@
 		/></noscript>
 		<!-- End Facebook Pixel Code -->
 
+		<script type="text/javascript">
+		    adroll_adv_id = "4TFE4LNYMRBF3JG6NS4QLS";
+		    adroll_pix_id = "GWVJV3PU6NCJHNN6Z4GUAZ";
+		    /* OPTIONAL: provide email to improve user identification */
+		    /* adroll_email = "username@example.com"; */
+		    (function () {
+		        var _onload = function(){
+		            if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+		            if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+		            var scr = document.createElement("script");
+		            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+		            scr.setAttribute('async', 'true');
+		            scr.type = "text/javascript";
+		            scr.src = host + "/j/roundtrip.js";
+		            ((document.getElementsByTagName('head') || [null])[0] ||
+		                document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+		        };
+		        if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+		        else {window.attachEvent('onload', _onload)}
+		    }());
+		</script>
+
+		<!--TripAdvisor Activity name for this tag: TA_Caribbean_Islands_Travel_Royal Resorts_Transaction_8.26.14 -->
+		<script type='text/javascript'>
+		var axel = Math.random()+"";
+		var a = axel * 10000000000000;
+		document.write('<img src="https://pubads.g.doubleclick.net/activity;xsp=359171;qty=1;cost=[revenue];ord=[order id]?" width=1 height=1 border=0/>');
+		</script>
+		<noscript>
+		<img src="https://pubads.g.doubleclick.net/activity;xsp=359171;qty=1;cost=[revenue];ord=[order id]?" width=1 height=1 border=0/>
+		</noscript><!--TripAdvisor Fin -->
+
 	</body>
 </html>
