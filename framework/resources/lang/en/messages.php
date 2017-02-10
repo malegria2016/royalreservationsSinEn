@@ -45,7 +45,7 @@ return [
 	'starting_room'=>'starting at/per room',
 	'starting_person'=>'starting at/per person',
 	'starting_night'=>'starting at/per night *',
-	'starting_policy'=>'*Rates quoted in USD dolars, per night based on double occupancy.',
+	'starting_policy'=>'*Rates quoted in USD dollars, per night based on double occupancy.',
 	'search'=>'Search Availability',
 	'more_offers'=>'More Offers',
 	'all_inc_resorts'=>'ALL INCLUSIVE RESORTS',
