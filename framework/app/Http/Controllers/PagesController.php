@@ -47,13 +47,14 @@ class PagesController extends Controller{
 		$this->phones_mex = [
 			"Toll Free US"=>"1-888-963-7650",
 			"INTERNATIONAL"=>"1-954-736-5841",
-			"Lada MX"=>"01-800-888-7744"
+			"Lada MX"=>"01-800-888-7744",
+			"Argentina"=>"0-800-222-4419",
+			"Colombia"=>"01-800-710-2067"
 			];
 		$this->phones_car = [
 			"Toll Free US"=>"1-888-228-7930",
 			"INTERNATIONAL"=>"1-954-736-5863",
-			"France Toll Free"=>"0805-080751",
-			"Germany Toll Free"=>"0800-182-6469",
+			"France Toll Free"=>"0-805-080751",
 			"Netherlands Toll Free"=>"0-800-022-2348",
 			"UK Toll Free"=>"0-800-048-8533"
 		];
