@@ -617,6 +617,7 @@ class PagesController extends Controller{
 		$resort = Resort::identifier($resort)->active()
 		->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
 		->with(['accommodations.contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
+		->with(['accommodations'=>function($query){$query->orderBy('price','asc');}])
 		->first();
 
 		if($resort){
@@ -633,6 +634,7 @@ class PagesController extends Controller{
 				View::share('phones_car',$this->phones_car);
 				View::share('phone_skype',$this->phone_skype_car);
 			}
+			//return dd($resort);
 			return view('pages.accommodation', compact('resort') );
 		}else{
 			abort(404);
