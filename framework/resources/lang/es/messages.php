@@ -31,7 +31,7 @@ return [
 	'departure'=>'Salida',
 	'adults'=>'Adultos (+18)',
 	'adults2'=>'Adultos (+13)',
-	'teen'=>'Adolescentes (13-17)',
+	'teen'=>'Jóvenes (13-17)',
 	'children'=>'Niños (0-12)',
 	'children2'=>'Niños (0-17)',
 	'please_select'=>'Por favor seleccionar un Resort!!',
