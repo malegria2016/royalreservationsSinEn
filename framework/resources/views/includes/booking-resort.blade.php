@@ -4,7 +4,7 @@
 	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="return validateBooking();">
 		<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 bookesp">
 			<span class="lbForm">@lang('messages.select_resort')</span>
-			<select class="form-control" id="hotelid" name="hotelid">
+			<select class="form-control" id="hotelid" name="hotelid" onchange="changeBooking(this.value);">
 				<optgroup label="@lang('messages.mexico')">
 					@foreach($resorts_routes_mex as $resort_route)
 						@if($resort->ihotelier_id==$resort_route->ihotelier_id)

@@ -31,109 +31,12 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		@yield('style')
-
-		<!-- Google Tag Manager The Royal Cancun All Suites Resort-->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-55S6TV3');</script><!-- End Google Tag Manager -->
-		<!-- Google Tag Manager The Royal Caribbean All Suites Resort-->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-56V8CMQ');</script><!-- End Google Tag Manager -->
-		<!-- Google Tag Manager The Royal Islander All Suites Resort-->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-T2FF4RG');</script><!-- End Google Tag Manager -->
-		<!-- Google Tag Manager The Royal Sands Resort & Spa All Inclusive -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-TS9W4GP');</script><!-- End Google Tag Manager -->
-		<!-- Google Tag Manager The Royal Haciendas All Suites Resort & Spa -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-MSFR4BB');</script><!-- End Google Tag Manager -->
-		<!-- Google Tag Manager Grand Residences Riviera Cancun Resort -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-PH2WD66');</script><!-- End Google Tag Manager -->
-		<!-- Google Tag Manager Simpson Bay Resort & Marina -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-KBK2QQM');</script><!-- End Google Tag Manager -->
-		<!-- Google Tag Manager The Villas at Simpson Bay Resort & Marina -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-NLJLFZ5');</script><!-- End Google Tag Manager -->
-		<!-- Google Tag Manager The Royal Sea Aquarium Resort -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-T78JDTV');</script><!-- End Google Tag Manager -->
+		@yield('style')	
 	</head>
 
 	<body>
-		<!-- Google Tag Manager (noscript) The Royal Cancun All Suites Resort -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55S6TV3"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-		<!-- Google Tag Manager (noscript) The Royal Caribbean All Suites Resort -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V8CMQ"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-		<!-- Google Tag Manager (noscript) The Royal Islander All Suites Resort -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2FF4RG"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-		<!-- Google Tag Manager (noscript) The Royal Sands Resort & Spa All Inclusive -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS9W4GP"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-		<!-- Google Tag Manager (noscript) The Royal Haciendas All Suites Resort & Spa -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSFR4BB"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-		<!-- Google Tag Manager (noscript) Grand Residences Riviera Cancun Resort -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PH2WD66"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-		<!-- Google Tag Manager (noscript) Simpson Bay Resort & Marina -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBK2QQM"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-		<!-- Google Tag Manager (noscript) The Villas at Simpson Bay Resort & Marina -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLJLFZ5"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-		<!-- Google Tag Manager (noscript) The Royal Sea Aquarium Resort -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78JDTV"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-		<!--<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}">-->
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/all.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-
-		<!--<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/jquery.floating-social-share.css') }}">-->
-
 		<link rel="preload" href="{{ asset('css/flexslider.css') }}" as="style" onload="this.rel='stylesheet'">
 		<noscript><link rel="stylesheet" href="{{ asset('css/flexslider.css') }}"></noscript>
 
@@ -155,20 +58,30 @@
 		@include('includes.redes-sociales')
 		@include('includes.footer')
 		
-
-		<!--<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/easing.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/jquery.ui.totop.min.js')}}"></script>-->
-
 		<script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 
 		@yield('javascript')
-		
+
+		<!-- Google Tag Manager The Royal Sands Resort & Spa All Inclusive -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-TS9W4GP');</script><!-- End Google Tag Manager -->
+
+		<!-- Google Tag Manager (noscript) The Royal Sands Resort & Spa All Inclusive --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS9W4GP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+		<!-- Google Tag Manager (noscript) The Royal Cancun All Suites Resort -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55S6TV3"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- Google Tag Manager (noscript) The Royal Caribbean All Suites Resort --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56V8CMQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- Google Tag Manager (noscript) The Royal Islander All Suites Resort --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2FF4RG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- Google Tag Manager (noscript) The Royal Haciendas All Suites Resort & Spa --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSFR4BB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- Google Tag Manager (noscript) Grand Residences Riviera Cancun Resort --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PH2WD66" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- Google Tag Manager (noscript) Simpson Bay Resort & Marina --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBK2QQM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- Google Tag Manager (noscript) The Villas at Simpson Bay Resort & Marina --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLJLFZ5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- Google Tag Manager (noscript) The Royal Sea Aquarium Resort --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78JDTV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 		<!-- MOUSE FLOW -->
 		<script type="text/javascript">
@@ -178,18 +91,14 @@
 		       mf.src = "//cdn.mouseflow.com/projects/daf21553-7c24-4bad-b65f-d4fbd3e394d9.js";
 		       document.getElementsByTagName("head")[0].appendChild(mf);
 		   })();
-		</script>
-		<!-- END MOUSE FLOW -->
-
+		</script><!-- END MOUSE FLOW -->
 		<!-- CRAZYEGG -->
 		<script type="text/javascript">
 			setTimeout(function(){var a=document.createElement("script");
 			var b=document.getElementsByTagName("script")[0];
 			a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0039/3605.js?"+Math.floor(new Date().getTime()/3600000);
 			a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
-		</script>
-		<!--END CRAZYEGG -->
-
+		</script><!--END CRAZYEGG -->
 		<!-- Facebook Pixel Code -->
 		<script>
 		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -202,8 +111,7 @@
 		fbq('track', "PageView");</script>
 		<noscript><img height="1" width="1" style="display:none"
 		src="https://www.facebook.com/tr?id=1547902258864923&ev=PageView&noscript=1"
-		/></noscript>
-		<!-- End Facebook Pixel Code -->
+		/></noscript><!-- End Facebook Pixel Code -->
 
 		<script type="text/javascript">
 		    adroll_adv_id = "4TFE4LNYMRBF3JG6NS4QLS";
@@ -229,13 +137,13 @@
 
 		<!--TripAdvisor Activity name for this tag: TA_Caribbean_Islands_Travel_Royal Resorts_Transaction_8.26.14 -->
 		<script type='text/javascript'>
-		var axel = Math.random()+"";
+		var axel = Math.random() + '';
 		var a = axel * 10000000000000;
-		document.write('<img src="https://pubads.g.doubleclick.net/activity;xsp=359171;qty=1;cost=[revenue];ord=[order id]?" width=1 height=1 border=0/>');
+		document.write('<img src="https://pubads.g.doubleclick.net/activity;dc_iu=/5349/DFPAudiencePixel;ord=' + a + ';dc_seg=456767929?" width=1 height=1 border=0/>');
 		</script>
 		<noscript>
-		<img src="https://pubads.g.doubleclick.net/activity;xsp=359171;qty=1;cost=[revenue];ord=[order id]?" width=1 height=1 border=0/>
-		</noscript><!--TripAdvisor Fin -->
+		<img src="https://pubads.g.doubleclick.net/activity;dc_iu=/5349/DFPAudiencePixel;ord=1;dc_seg=456767929?" width=1 height=1 border=0/>
+		</noscript><!-- End TripAdvisor-->
 
 	</body>
 </html>

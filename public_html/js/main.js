@@ -1,4 +1,5 @@
 var $j = jQuery.noConflict();
+var gr=0; var trc=0; var rc=0; var rh=0; var ri=0; var sb=0; var sa=0; var vsb=0;
 
 $j(document).ready(function () {
     $j().UItoTop({easingType: 'easeOutQuart'});
@@ -9,11 +10,11 @@ $j(document).ready(function () {
     var headerWidth = $j('header').width();
     $j(window).scroll(function() {
       if(headerWidth>768){
-      if( $j(this).scrollTop() > headerHeight) {
-        $j('#booking').addClass('fixed-form');
-      } else {
-        $j('#booking').removeClass('fixed-form');
-      }
+        if( $j(this).scrollTop() > headerHeight) {
+          $j('#booking').addClass('fixed-form');
+        } else {
+          $j('#booking').removeClass('fixed-form');
+        }
       }
     });
 
@@ -275,18 +276,13 @@ $j(document).ready(function () {
         validateBookingSingle();
     }).data('datepicker');
 
+    
     $j('#hotelid').bind('change', function() {
       var value = this.value;
       changeBooking(value);
-  });
-  /*$( "#btn-flight" ).click(function() {
-    $("#bookingResort").hide();
-    $("#bookingFlight").show();
-  });*/
-  /*$( "#btn-resort" ).click(function() {
-    $("#bookingFlight").hide();
-    $("#bookingResort").show();
-  });*/
+    });
+    
+
 
 $j("#cerrar").on( "click", function() {
   var e = new Date();
@@ -308,32 +304,137 @@ else{
 
 });
 
+function loadScript(url, callback){
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+    script.onreadystatechange = callback;
+    script.onload = callback;
+    head.appendChild(script);
+}function MiArchivoCargado(){/*archivo agregado*/}
+
 function changeBooking(value){
   var tag_adult = $j('#tag_adult').val();
   var tag_adult2 = $j('#tag_adult2').val();
   var tag_teen = $j('#tag_teen').val();
   var tag_children = $j('#tag_children').val();
   var tag_children2 = $j('#tag_children2').val();
-    if(value == "95939"){
-      $j("#select-childrens").val("0");
-      $j("#select-childrens").hide();
-      $j("#spChildren").hide();
-      $j("#spAdult").text(tag_adult2);
-      $j("#spTeen").text(tag_children);
-  } else if(value == "86175" || value == "86182"){
-      $j("#select-childrens").val("0");
-      $j("#select-childrens").hide();
-      $j("#spChildren").hide();
-      $j("#spAdult").text(tag_adult);
-      $j("#spTeen").text(tag_children2);
-  }else{
+
+  if(value == "95939"){
+    $j("#select-childrens").val("0");
+    $j("#select-childrens").hide();
+    $j("#spChildren").hide();
+    $j("#spAdult").text(tag_adult2);
+    $j("#spTeen").text(tag_children);
+
+    if(gr==0){
+      gr=1;
+      loadScript("https://royalreservations.com/js/gtm/grand-residences.js", MiArchivoCargado);
+    }
+
+  }
+  if(value == "86175"){
+    $j("#select-childrens").val("0");
+    $j("#select-childrens").hide();
+    $j("#spChildren").hide();
+    $j("#spAdult").text(tag_adult);
+    $j("#spTeen").text(tag_children2);
+
+    if(rc==0){
+      rc=1;
+      loadScript("https://royalreservations.com/js/gtm/the-royal-caribbean.js", MiArchivoCargado);
+    }
+  }
+  if(value == "86182"){
+    $j("#select-childrens").val("0");
+    $j("#select-childrens").hide();
+    $j("#spChildren").hide();
+    $j("#spAdult").text(tag_adult);
+    $j("#spTeen").text(tag_children2);
+
+    if(ri==0){
+      ri=1;
+      loadScript("https://royalreservations.com/js/gtm/the-royal-islander.js", MiArchivoCargado);
+    }
+  }
+  if(value=="73601"){
     $j("#select-childrens").val("0");
     $j("#spAdult").text(tag_adult);
     $j("#spTeen").text(tag_teen);
     $j("#spChildren").text(tag_children);
     $j("#select-childrens").show();
     $j("#spChildren").show();
+
+    if(trc==0){
+      trc=1;
+      loadScript("https://royalreservations.com/js/gtm/the-royal-cancun.js", MiArchivoCargado);
+    }
   }
+  if(value=="86169"){
+    $j("#select-childrens").val("0");
+    $j("#spAdult").text(tag_adult);
+    $j("#spTeen").text(tag_teen);
+    $j("#spChildren").text(tag_children);
+    $j("#select-childrens").show();
+    $j("#spChildren").show();
+
+  }
+
+  if(value=="86184"){
+      $j("#select-childrens").val("0");
+      $j("#spAdult").text(tag_adult);
+      $j("#spTeen").text(tag_teen);
+      $j("#spChildren").text(tag_children);
+      $j("#select-childrens").show();
+      $j("#spChildren").show();
+
+    if(rh==0){
+      rh=1;
+      loadScript("https://royalreservations.com/js/gtm/the-royal-haciendas.js", MiArchivoCargado);
+    }
+  }
+  if(value=="86179"){
+      $j("#select-childrens").val("0");
+      $j("#spAdult").text(tag_adult);
+      $j("#spTeen").text(tag_teen);
+      $j("#spChildren").text(tag_children);
+      $j("#select-childrens").show();
+      $j("#spChildren").show();
+
+      if(sb==0){
+        sb=1;
+        loadScript("https://royalreservations.com/js/gtm/simpson-bay.js", MiArchivoCargado);
+      }
+  }
+  if(value=="86180"){
+      $j("#select-childrens").val("0");
+      $j("#spAdult").text(tag_adult);
+      $j("#spTeen").text(tag_teen);
+      $j("#spChildren").text(tag_children);
+      $j("#select-childrens").show();
+      $j("#spChildren").show();
+
+    if(vsb==0){
+      vsb=1;
+      loadScript("https://royalreservations.com/js/gtm/the-villas.js", MiArchivoCargado);
+    }
+  }
+  if(value=="86181"){
+      $j("#select-childrens").val("0");
+      $j("#spAdult").text(tag_adult);
+      $j("#spTeen").text(tag_teen);
+      $j("#spChildren").text(tag_children);
+      $j("#select-childrens").show();
+      $j("#spChildren").show();
+      
+      if(sa==0){
+        sa=1;
+        loadScript("https://royalreservations.com/js/gtm/the-royal-sea.js", MiArchivoCargado);
+      }
+  }
+
+
   searchIhotelierRatePlan();
   searchIhotelierPackage();
 }
@@ -341,14 +442,14 @@ function changeBooking(value){
 function setClassActive(e) { $j("#" + e).addClass("active") }
 
 function validateBooking(){
-  var f_hoy = new Date();
+  /*var f_hoy = new Date();
   var f_mantto1 = new Date(2016,11,3, 20,00,00,00);
-  var f_mantto2 = new Date(2016,11,3, 23,59,00,00);
+  var f_mantto2 = new Date(2016,11,3, 23,59,00,00);*/
   
-  if((f_hoy>= f_mantto1) && (f_hoy<=f_mantto2)){
+  /*if((f_hoy>= f_mantto1) && (f_hoy<=f_mantto2)){
     $j('#mantenimiento').modal('show');
     return false;
-  }
+  }*/
 
   if($j("#hotelid").val() == "0"){
     $j("#error-booking").show("slow");
@@ -370,14 +471,14 @@ function validateBookingSingle(){
     return false;
   }*/
 
-  var f_hoy = new Date();
+  /*var f_hoy = new Date();
   var f_mantto1 = new Date(2016,11,3, 20,00,00,00);
   var f_mantto2 = new Date(2016,11,3, 23,59,00,00);
   
   if((f_hoy>= f_mantto1) && (f_hoy<=f_mantto2)){
     $j('#mantenimiento').modal('show');
     return false;
-  }
+  }*/
   
   var DateIn  = new Date($j("#datein").val());
   var DateOut = new Date($j("#dateout").val());
