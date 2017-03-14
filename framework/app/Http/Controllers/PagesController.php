@@ -763,18 +763,13 @@ class PagesController extends Controller{
 		}
 	}
 
-	public function test($page){
-		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
-		$page = GeneralPageContents::active()->identifier($page)->first();
-		if($page){
-			View::share('phones_customer',$this->phones_customer);
-			View::share('phones_mex',$this->phones_mex);
-			View::share('phone_skype',$this->phone_skype_mex);
-			return View('pages.general-page',compact('page'));
-		}
-		else{
-			abort(404);
-		}
+	public function travelTips(){
+		
+		View::share('phones_customer',$this->phones_customer);
+		View::share('phones_mex',$this->phones_mex);
+		View::share('phone_skype',$this->phone_skype_mex);
+		return View('emailblast.traveltips');
+		
 	}
 
 }

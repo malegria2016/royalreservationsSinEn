@@ -63,4 +63,6 @@ Route::group(array('prefix' => $locale), function() {
 	Route::get('promociones-especiales/buen-fin-hoteles-2016','PagesController@buenFinEP');
 	Route::get('promociones-especiales/buen-fin-hoteles-de-lujo-2016','PagesController@buenFinGRM');
 
+	Route::get('emailblast/2017/traveltips','PagesController@travelTips');
+
 });
