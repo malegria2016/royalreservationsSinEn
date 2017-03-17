@@ -67,9 +67,9 @@
 		<div class="col-md-8">
 			<h2 class="text-center"><span>Tip #</span> <span>2</span> Consider all your transportation needs</h2>
 			<ul>
-				<li>Call the concierge at your hotel and ask if it offers transfers service to and from the airport.</li>
+				<li>Call the concierge at your hotel and ask if they <strong>offer transfer services from and to the airport.</strong></li>
 				<li>Rent a vehicle if you will need to get around a lot once you have reached your destination.</li>
-				<li>If you are staying at an All Inclusive you may not leave your hotel so you may not need a rental car.</li>
+				<li>If you are staying at an <strong>All Inclusive</strong> you may not leave your hotel so you may not need a rental car.</li>
 			</ul>
 		</div>
 	</div>
@@ -81,8 +81,8 @@
 		<div class="col-md-8 recuadro">
 			<h2 class="text-center"><span>Tip #</span> <span>3</span> Planning your activities</h2>
 			<ul>
-				<li>Book adventure specials ahead of time and save up to 20%.</li>
-				<li>Check out for any bundle deal of hotel + activities and save.</li>
+				<li><strong>Book adventure specials</strong> ahead of time and <strong>save up to 20%.</strong></li>
+				<li>Check out for any <strong>bundle deal of hotel + activities</strong> and save.</li>
 				<li>Review your daily schedule and get the most of your activities.</li>
 			</ul>
 		</div>
