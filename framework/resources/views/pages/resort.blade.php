@@ -13,6 +13,7 @@
 @section('style')
 <style>
 .fondoVideoHotel {background: url({{asset('img/general/'.$resort->identifier.'-fondo.jpg')}}) no-repeat;padding: 20px 10px;width: 100%;height: 363px;}
+.resort_stars {padding-bottom: 60px;}
 @media screen
 and (max-width : 384px)  {
 	.fondoVideoHotel-xs {background: url({{asset('img/general/'.$resort->identifier.'-fondo-xs.jpg')}}) no-repeat;padding: 20px 10px;width: 100%;height: 500px;}
@@ -69,6 +70,10 @@ and (max-width : 384px)  {
 			<p>32° Cancun, Quintana Roo</p>
 			-->
 			<div class="resort_stars">
+				<a href="https://www.facebook.com/RoyalReservations" >
+					<img class="img-responsive marco" src="{{ asset('img/small/banner-facebook-contest.jpg') }}" alt="Facebook contest">
+				</a>
+				<!--
 				{{--*/ $stars = round( $resort->stars * 2, 0, PHP_ROUND_HALF_UP); $i=1 /*--}}
 				@while($i <= $stars - 1)
 					<i class="fa fa-star fa-lg"></i>
@@ -79,11 +84,12 @@ and (max-width : 384px)  {
 				@endif
 				<div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
      	Rating: <span itemprop="ratingValue"><b>{{$resort->stars}}</b></span> out of <span itemprop="bestRating"><b>5</b></span> based on <span itemprop="reviewCount"><b>{{$resort->review_count}}</b></span> reviews</div>
+     			-->
 			</div>
 
-			<!--IMPRIME TRIPADVISOR AWARDS-->
+			<!--IMPRIME TRIPADVISOR AWARDS
 			{!! $resort->contents[0]->tripadvisor_awards !!}
-
+			-->
 		</div>
 		
 		<div class="clearfix"></div>
