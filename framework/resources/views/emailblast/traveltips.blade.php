@@ -51,7 +51,7 @@
 			<img class="img-responsive" src="{{ asset('img/emailblast/tmb-1.gif') }}" alt="Tip#1-Get-The-best-deal-on-your-hotel">
 		</div>
 		<div class="col-md-8 recuadro">
-			<h2 class="text-center"><span>Tip #</span> <span>1</span> Get the best deal on your Hotel</h2>
+			<h2 class="text-center"><span>Tip #</span> <span>1</span> Get the lowest price with exclusive benefits</h2>
 			<ul>
 				<li><strong>Get in touch with the hotel directly.</strong> Take advantage of the best deal guarantee policy, resorts credits and discover all the special packages only available through the hotel´s web site or reservation center.</li>
 				<li><strong>Have a worry free vacation.</strong> No intermediaries means no awful surprises.</li>
@@ -65,9 +65,9 @@
 			<img class="img-responsive" src="{{ asset('img/emailblast/tmb-2.gif') }}" alt="Tip#2-Consider-all-your-transportation-needs">
 		</div>
 		<div class="col-md-8">
-			<h2 class="text-center"><span>Tip #</span> <span>2</span> Consider all your transportation needs</h2>
+			<h2 class="text-center"><span>Tip #</span> <span>2</span> Make arrangements in advance and relax</h2>
 			<ul>
-				<li>Call the concierge at your hotel and ask if they <strong>offer transfer services from and to the airport.</strong></li>
+				<li>Look for airport transportation deals.</li>
 				<li>Rent a vehicle if you will need to get around a lot once you have reached your destination.</li>
 				<li>If you are staying at an <strong>All Inclusive</strong> you may not leave your hotel so you may not need a rental car.</li>
 			</ul>
@@ -79,11 +79,11 @@
 			<img class="img-responsive" src="{{ asset('img/emailblast/tmb-3.gif') }}" alt="Tip#3-Planning-your-activities">
 		</div>
 		<div class="col-md-8 recuadro">
-			<h2 class="text-center"><span>Tip #</span> <span>3</span> Planning your activities</h2>
+			<h2 class="text-center"><span>Tip #</span> <span>3</span> Plan your activities and get the most of your vacations</h2>
 			<ul>
 				<li><strong>Book adventure specials</strong> ahead of time and <strong>save up to 20%.</strong></li>
 				<li>Check out for any <strong>bundle deal of hotel + activities</strong> and save.</li>
-				<li>Review your daily schedule and get the most of your activities.</li>
+				<li>Review your daily schedule and don´t miss the fun.</li>
 			</ul>
 		</div>
 	</div>	
