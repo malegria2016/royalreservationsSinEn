@@ -531,12 +531,12 @@ class PagesController extends Controller{
 
 			}// FIN convierte fechas a TX y por idioma del vector Travel Window
 
-			//$reviews=
-			
+			//$reviews=App\Review::where('offer_id',$offer->id)->get();
+
 			//return dd($tx_sd);
 
-			//return View('pages.offer-v2 ', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time'));
-			return View('pages.offer-new', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time','end_date','tx_tw'));
+			return View('pages.offer-v2 ', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time'));
+			//return View('pages.offer-new', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time','end_date','tx_tw'));
 		}else{
 			abort(404);
 		}
