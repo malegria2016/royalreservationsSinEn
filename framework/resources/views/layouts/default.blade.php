@@ -59,7 +59,7 @@
 		@include('includes.footer')
 		
 		<script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 
 		@yield('javascript')
 

@@ -335,11 +335,18 @@ function changeBooking(value){
 
   }
   if(value == "86175"){
-    $j("#select-childrens").val("0");
+    /*$j("#select-childrens").val("0");
     $j("#select-childrens").hide();
     $j("#spChildren").hide();
     $j("#spAdult").text(tag_adult);
-    $j("#spTeen").text(tag_children2);
+    $j("#spTeen").text(tag_children2);*/
+
+    $j("#select-childrens").val("0");
+    $j("#spAdult").text(tag_adult);
+    $j("#spTeen").text(tag_teen);
+    $j("#spChildren").text(tag_children);
+    $j("#select-childrens").show();
+    $j("#spChildren").show();
 
     if(rc==0){
       rc=1;
@@ -347,11 +354,18 @@ function changeBooking(value){
     }
   }
   if(value == "86182"){
-    $j("#select-childrens").val("0");
+    /*$j("#select-childrens").val("0");
     $j("#select-childrens").hide();
     $j("#spChildren").hide();
     $j("#spAdult").text(tag_adult);
-    $j("#spTeen").text(tag_children2);
+    $j("#spTeen").text(tag_children2);*/
+
+    $j("#select-childrens").val("0");
+    $j("#spAdult").text(tag_adult);
+    $j("#spTeen").text(tag_teen);
+    $j("#spChildren").text(tag_children);
+    $j("#select-childrens").show();
+    $j("#spChildren").show();
 
     if(ri==0){
       ri=1;
@@ -443,10 +457,10 @@ function setClassActive(e) { $j("#" + e).addClass("active") }
 
 function validateBooking(){
   /*var f_hoy = new Date();
-  var f_mantto1 = new Date(2016,11,3, 20,00,00,00);
-  var f_mantto2 = new Date(2016,11,3, 23,59,00,00);*/
+  var f_mantto1 = new Date(2017,03,01, 07,58,00,00);
+  var f_mantto2 = new Date(2017,03,01, 13,01,00,00);
   
-  /*if((f_hoy>= f_mantto1) && (f_hoy<=f_mantto2)){
+  if((f_hoy>= f_mantto1) && (f_hoy<=f_mantto2)){
     $j('#mantenimiento').modal('show');
     return false;
   }*/
@@ -472,8 +486,8 @@ function validateBookingSingle(){
   }*/
 
   /*var f_hoy = new Date();
-  var f_mantto1 = new Date(2016,11,3, 20,00,00,00);
-  var f_mantto2 = new Date(2016,11,3, 23,59,00,00);
+  var f_mantto1 = new Date(2017,03,01, 07,58,00,00);
+  var f_mantto2 = new Date(2017,03,01, 13,01,00,00);
   
   if((f_hoy>= f_mantto1) && (f_hoy<=f_mantto2)){
     $j('#mantenimiento').modal('show');
@@ -502,7 +516,7 @@ function searchIhotelierRatePlan(T){ var rate = $j('select option:selected').att
 
 function searchIhotelierPackage(T){ var rate = $j('select option:selected').attr('id'); var minimum = $j('select option:selected').attr('name');$j("#packageId").val(rate); $j("#minimum").val(minimum); }
   
-function validateBookingTest(){
+/*function validateBookingTest(){
   var f_hoy = new Date();
   var f_mantto1 = new Date(2016,11,02, 14,00,00,00);
   var f_mantto2 = new Date(2016,11,02, 21,59,00,00);
@@ -519,4 +533,4 @@ function validateBookingTest(){
     $j("#error-booking").hide();
     return true;
   }
-}  
+}*/

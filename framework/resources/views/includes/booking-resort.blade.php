@@ -88,3 +88,16 @@
 	<input type="hidden" name="tag_children2" id="tag_children2" value="@lang('messages.children2')">
 </section>
 </div>
+<div id="mantenimiento" class="modal fade" role="dialog"> 
+	<div class="modal-dialog"> 
+		<div class="modal-content"> 
+			<div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button></div> <div class="modal-body" style="padding: 8%;"> 
+				<center>
+				  <img src=" https://royalreservations.com/img/general/logo-royal-404.png " alt="Royal Reservations">
+				</center> 
+				<p style="text-align: justify; padding-top:10px;">@lang('messages.maintenance')</p> 
+			</div> 
+			<div class="modal-footer"> </div> 
+		</div> 
+	</div> 
+</div>

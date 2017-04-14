@@ -90,5 +90,5 @@ return [
 	'why_book_with_us'=>'Porqué Reservar con Nosotros',
 	'hotel_policies'=>'Políticas del Hotel',
 	'viewsrender' => 'Distribución de habitación',
-	'maintenance'=>'Lamentamos las molestias pero nuestro sistema de reservaciones se encuentra en mantenimiento desde las 8pm hasta las 12am (Hora Central). Por favor regrese más tarde y navegue libremente en nuestro sitio en cualquier momento.'
+	'maintenance'=>'Lamentamos las molestias pero nuestro sistema de reservaciones se encuentra en mantenimiento desde las 8am hasta las 12pm (Hora Central). Por favor regrese más tarde y navegue libremente en nuestro sitio en cualquier momento.'
 ];

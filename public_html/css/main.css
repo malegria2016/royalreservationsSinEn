@@ -230,6 +230,11 @@ a.btnOfferResort i { padding-right: 4px; padding-top: 4px; }
 
 .fixed-form { position: fixed; width: 100%;top: 0;z-index: 20;}
 
+#offer h1{ font-size: 20px !important; border-bottom: none !important; margin: 5px 0; text-align:left; padding-bottom: 5px;}
+#offer h2{ font-size: 18px !important; border-bottom: none !important; margin: 5px 0; text-align:left; padding-bottom: 5px;}
+#offer h3{ font-size: 16px !important; border-bottom: none !important; margin: 5px 0; text-align:left; padding-bottom: 5px;}
+#offer h4{ font-size: 14px !important; border-bottom: none !important; margin: 5px 0; text-align:left; padding-bottom: 5px;}
+
 
 @media (max-width:767px) {
 	.btnOfferResort{ width: 48%; padding: 1% 4% 1% 4%;  margin: 3px 0; }   
