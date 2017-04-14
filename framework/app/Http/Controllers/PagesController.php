@@ -494,11 +494,71 @@ class PagesController extends Controller{
 
 			View::share('phones_customer',$this->phones_customer);
 
-			return View('pages.offer-v2 ', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time'));
+			$end_date=$offer->end_date;
+			$tx_end_date_month = date("F", strtotime($end_date));
+			$tx_end_date_day  = date("d", strtotime($end_date));
+			$tx_end_date_year = date("Y", strtotime($end_date));
+
+			if(App::getLocale()=='en'){ $end_date= $tx_end_date_month.' '.$tx_end_date_day.', '.$tx_end_date_year; }
+			else{
+				$tx_end_date_month=$this->traducir_mes($tx_end_date_month);
+				$end_date= $tx_end_date_month.' '.$tx_end_date_day.', '.$tx_end_date_year;
+			}
+
+			//convierte fechas a TX y por idioma del vector Travel Window
+			$tx_tw[0]['start_date']=0;
+			$tx_tw[0]['end_date'] = 0;
+
+			for($i=0; $i<count($travel_window);$i++){
+				$tw_sd=$travel_window[$i]->start_date;
+				$tw_ed=$travel_window[$i]->end_date;
+
+				$tw_smonth = date("F", strtotime($tw_sd));	$tw_emonth = date("F", strtotime($tw_ed));
+				$tw_sday   = date("d", strtotime($tw_sd));	$tw_eday   = date("d", strtotime($tw_ed));
+				$tw_syear  = date("Y", strtotime($tw_sd));	$tw_eyear  = date("Y", strtotime($tw_ed));
+
+				if(App::getLocale()=='en'){ 
+					$tx_tw[$i]['start_date']= $tw_smonth.' '.$tw_sday.', '.$tw_syear;
+					$tx_tw[$i]['end_date']= $tw_emonth.' '.$tw_eday.', '.$tw_eyear; 
+				}
+				else{
+					$smonth=$this->traducir_mes($tw_smonth);
+					$emonth=$this->traducir_mes($tw_emonth);
+
+					$tx_tw[$i]['start_date']= $smonth.' '.$tw_sday.', '.$tw_syear;
+					$tx_tw[$i]['end_date']= $emonth.' '.$tw_eday.', '.$tw_eyear;
+				}
+
+			}// FIN convierte fechas a TX y por idioma del vector Travel Window
+
+			//$reviews=
+			
+			//return dd($tx_sd);
+
+			//return View('pages.offer-v2 ', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time'));
+			return View('pages.offer-new', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time','end_date','tx_tw'));
 		}else{
 			abort(404);
 		}
 	}
+	protected function traducir_mes($month){
+		switch ($month) {
+            case 'January': $mes="Enero"; break;
+            case 'February': $mes="Febrero"; break;
+            case 'March': $mes="Marzo"; break;
+            case 'April': $mes="Abril"; break;
+            case 'May': $mes="Mayo"; break;
+            case 'June': $mes="Junio"; break;
+            case 'July': $mes="Julio"; break;
+            case 'August': $mes="Agosto"; break;
+            case 'September': $mes="Septiembre"; break;
+            case 'October': $mes="Octubre"; break;
+            case 'November': $mes="Noviembre"; break;
+            case 'December': $mes="Diciembre"; break;
+            default:$mes="Enero"; break;
+    	}
+        return $mes;
+    }
 	public function packageShow($package){
 		if(App::getLocale()=='en'){ $this->lang_id=1; } else{ $this->lang_id=2; }
 		$package = Package::active()->identifier($package)
