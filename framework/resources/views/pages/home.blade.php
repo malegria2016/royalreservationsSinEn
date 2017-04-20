@@ -12,7 +12,7 @@
 
 @section('anuncio')
 <div class="anuncio">
-	<p><a href="#"><i class="fa fa-certificate iconbig"></i> @lang('messages.anuncio')</a></p>
+	<p><a href="https://royalreservations.com/best-deal-guaranteed"><i class="fa fa-certificate iconbig"></i> @lang('messages.anuncio')</a></p>
 </div>
 
 {{--*/  $prefix=''; /*--}}
