@@ -70,6 +70,23 @@
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-TS9W4GP');</script><!-- End Google Tag Manager -->
 
+		<!-- Google Code for Remarketing Tag -->
+		<script type="text/javascript">
+		/* <![CDATA[ */
+		var google_conversion_id = 945182544;
+		var google_custom_params = window.google_tag_params;
+		var google_remarketing_only = true;
+		/* ]]> */
+		</script>
+		<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+		</script>
+		<noscript>
+		<div style="display:inline;">
+		<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/945182544/?guid=ON&amp;script=0"/>
+		</div>
+		</noscript>
+		
+
 		<!-- Google Tag Manager (noscript) The Royal Sands Resort & Spa All Inclusive --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS9W4GP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 		<!-- Google Tag Manager (noscript) The Royal Cancun All Suites Resort -->

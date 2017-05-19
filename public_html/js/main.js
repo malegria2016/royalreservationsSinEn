@@ -335,18 +335,18 @@ function changeBooking(value){
 
   }
   if(value == "86175"){
-    /*$j("#select-childrens").val("0");
+    $j("#select-childrens").val("0");
     $j("#select-childrens").hide();
     $j("#spChildren").hide();
     $j("#spAdult").text(tag_adult);
-    $j("#spTeen").text(tag_children2);*/
+    $j("#spTeen").text(tag_children2);
 
-    $j("#select-childrens").val("0");
+    /*$j("#select-childrens").val("0");
     $j("#spAdult").text(tag_adult);
     $j("#spTeen").text(tag_teen);
     $j("#spChildren").text(tag_children);
     $j("#select-childrens").show();
-    $j("#spChildren").show();
+    $j("#spChildren").show();*/
 
     if(rc==0){
       rc=1;
@@ -354,18 +354,18 @@ function changeBooking(value){
     }
   }
   if(value == "86182"){
-    /*$j("#select-childrens").val("0");
+    $j("#select-childrens").val("0");
     $j("#select-childrens").hide();
     $j("#spChildren").hide();
     $j("#spAdult").text(tag_adult);
-    $j("#spTeen").text(tag_children2);*/
+    $j("#spTeen").text(tag_children2);
 
-    $j("#select-childrens").val("0");
+    /*$j("#select-childrens").val("0");
     $j("#spAdult").text(tag_adult);
     $j("#spTeen").text(tag_teen);
     $j("#spChildren").text(tag_children);
     $j("#select-childrens").show();
-    $j("#spChildren").show();
+    $j("#spChildren").show();*/
 
     if(ri==0){
       ri=1;

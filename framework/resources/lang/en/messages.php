@@ -94,5 +94,17 @@ return [
 	'hotel_policies'=>'Hotel Policies',
 	'viewsrender' => 'Plan floor',
 	'maintenance'=>'We apologize for the inconvenience.
-        Our reservation system is currently undergoing maintenance from 8am to 12 pm (Central Time). Please come back later and feel free to navigate in our website anytime.'
+        Our reservation system is currently undergoing maintenance from 8am to 12 pm (Central Time). Please come back later and feel free to navigate in our website anytime.',
+
+    'book_now'=>'Book Now',
+    'book_now_pay_later'=>'Book now and pay later',
+    'ai'=>'For All Inclusive Plan',
+    'ro'=>'For Room Only Plan',
+    'expiring'=>'Expiring on',
+    'terms'=>'Terms & Conditions',
+    'travel_window'=>'Travel Window',
+    'minimun'=>'nigth-stay minimum required',
+    'resorts_apply'=>'This offer applies for',
+    'reviews'=>'Reviews',
+
 ];
