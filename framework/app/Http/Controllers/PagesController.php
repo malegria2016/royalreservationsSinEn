@@ -473,7 +473,7 @@ class PagesController extends Controller{
 						$offer_resort2[$i]['area']=$value->area;
 						$offer_resort2[$i]['rating_trip_advisor']=$value->rating_trip_advisor;
 					}
-				}
+				}  
 				if($value->location == 'Mexican Caribbean'){
 					View::share('phones_mex',$this->phones_mex);
 					View::share('phone_skype',$this->phone_skype_mex);

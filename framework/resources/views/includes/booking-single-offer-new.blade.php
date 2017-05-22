@@ -71,8 +71,8 @@
 		<button type="submit" class="btn form-control b001" id="btn-booking">@lang('messages.book_now')</button>
 	</div>
 	<div class="clearfix"></div>
-	<a href="#" class="b003">Modify your Reservation <span>/ Cancel your Reservation<span></a>
-    <img src="{{asset('img/general/payments.jpg')}}" class="b005">
+	<a href="#" class="b003">@lang('messages.modify') <span>/ @lang('messages.cancel')<span></a>
+    <img src="{{asset('img/general/payments.png')}}" class="b005">
 </form>
 
 <div class="alert alert-danger msgError" role="alert" id="error-minimum">@lang('messages.error_minimum')</div>
