@@ -101,7 +101,7 @@ button.btn.dropdown-toggle.btn-default span.filter-option.pull-left{background-c
 button.btn.dropdown-toggle.btn-default span.filter-option.pull-left{font-weight:normal; color:#666;font-size: 14px; font-family: 'Oswald', sans-serif; font-weight: 300;}
 ul.dropdown-menu.inner li{ margin: 0 0px;}
 ul.dropdown-menu.inner li.selected a:focus, li a.opt:hover,ul.dropdown-menu.inner li.selected a span.text, ul.dropdown-menu.inner li a:hover { border: none; background-color: #0074d8; color: #fff;}
-.dropdown-menu{padding: 0;  margin: 0px; border-radius: 0;}
+.dropdown-menu{padding: 0;  margin: 0px; border-radius: 0; z-index: 9999;}
 ul.dropdown-menu.inner li.selected{ background-color: #0074d8;}
 
 .lbForm{font-size:12px;color:#636363;} 

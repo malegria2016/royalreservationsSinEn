@@ -448,7 +448,7 @@ class PagesController extends Controller{
 			$offer = Offer::active()->identifier($offer)
 				->whereHas('websites', function($q){ $q->where('id',$this->website_id);})
 				->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
-				->where('mobile_only',0)->where('main', '1')->first();	
+				->where('mobile_only',0)->where('main', '1')->first();
 		}
 		if($offer){
 			$travel_window = App\OfferTravelWindow::where('offer_id',$offer->id)->orderBy('start_date','asc')->get();
@@ -471,8 +471,9 @@ class PagesController extends Controller{
 						$offer_resort2[$i]['name']=$value->name;
 						$offer_resort2[$i]['ihotelier_id']=$value->ihotelier_id;
 						$offer_resort2[$i]['area']=$value->area;
+						$offer_resort2[$i]['rating_trip_advisor']=$value->rating_trip_advisor;
 					}
-				}
+				}  
 				if($value->location == 'Mexican Caribbean'){
 					View::share('phones_mex',$this->phones_mex);
 					View::share('phone_skype',$this->phone_skype_mex);
@@ -531,12 +532,32 @@ class PagesController extends Controller{
 
 			}// FIN convierte fechas a TX y por idioma del vector Travel Window
 
-			//$reviews=App\Review::where('offer_id',$offer->id)->get();
+			$reviews=App\Review::active()->where('website_id','11')->take(3)->get();
+			
+			$offer_resort_plan=DB::table('offer_resort_plan')
+	            ->join('accommodation_contents','offer_resort_plan.room', '=', 'accommodation_contents.accommodation_id')
+	            ->select('accommodation_contents.name as a_name', 'offer_resort_plan.*')
+	            ->where('offer_resort_plan.offer_id',$offer->id)
+	            ->where('accommodation_contents.lang_id',$this->lang_id)
+	            ->get();
 
-			//return dd($tx_sd);
+	        
 
-			return View('pages.offer-new', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time'));
-			//return View('pages.offer-new', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time','end_date','tx_tw'));
+			//$offer_resort_plan= App\OfferResortPlan::where('lang_id', '=', $this->lang_id)->where('offer_id', $offer->id)->get();  
+			//return dd($offer_resort_plan);
+			$offer_contents_plan=App\OfferContentPlan::where('lang_id', '=', $this->lang_id)->where('offer_id', $offer->id)->get();
+
+			//controla variable de sentido de urgencia
+			$urgency=0;
+			$diferencia = (strtotime($offer->end_date) - strtotime(date('Y-m-d')))/60/60/24;
+			if($diferencia<7 && $diferencia>0){
+				$urgency=1;
+			}
+
+			//return dd($offer_resort_plan);
+
+			//return View('pages.offer-new', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time'));
+			return View('pages.offer-new', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time','end_date','tx_tw','reviews','urgency','offer_resort_plan','offer_contents_plan'));
 		}else{
 			abort(404);
 		}

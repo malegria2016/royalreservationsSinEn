@@ -11,7 +11,7 @@
 
 
 @section('style')
-<link rel="stylesheet" href="{{ asset('css/landings.css') }}">
+<link rel="stylesheet" href="{{ asset('css/reloj-contador.css') }}">
 @endsection
 
 
@@ -46,230 +46,89 @@
 
 	/*--}}
 
-<div class="container mainarea">
-	<div class="row">
-    	<div class="col-md-8 nopadding">
+<div class="container" id="offer">
+
+	<div class="row" style="background-color: #ccc;">
+    	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" style="padding: 0;">
     		<img class="img-responsive" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}"/>
     	</div>
-    	<div class="b002">
-        	<p>@lang('messages.form_title')</p>
-    	</div>
-    	<div class="col-md-4 b00">
+    	<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="padding: 0;">
     		@include('includes.booking-single-offer-new',['rate_access_code'=>($offer->rate_access_code != '' ? $offer->rate_access_code : null),'offers_resorts'=>$offer_resort2, 'ihotelier_type'=>($offer->ihotelier_type != '' ? $offer->ihotelier_type : null)])
     	</div>
+    </div>
+    <div class="row" style="background-color:#000;">
+    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    		<ul>
+    			<li><a href="#">@lang('messages.best_deal')</a></li>
+    			<li><a href="#">@lang('messages.book_now_pay_later')</a></li>
+    			<li><a href="#">@lang('messages.why_book_with_us')</a></li>
+    		</ul>
+    	</div>
+    </div>
+    <div class="row">
+    	<!--DIV IZQ-->
+    	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">    		
+    		<h2>{{$offer->contents[0]->title_short_description}}</h2>
+    		<p>{{$offer->contents[0]->short_description}}</p>
 
-    	<div class="col-md-12 b01">
-	        <div class="col-md-4 col-sm-12">
-	            <img src="{{asset('img/general/b01-icon.jpg')}}" class="">
-	            <p>@lang('messages.best_deal')</p>
-	        </div>
-	        <div class="col-md-4 col-sm-12">
-	            <img src="{{asset('img/general/b01-icon.jpg')}}" class="">
-	            <p>@lang('messages.book_now_pay_later')</p>
-	        </div>
-	        <div class="col-md-4 col-sm-12">
-	            <img src="{{asset('img/general/b01-icon.jpg')}}" class="">
-	            <p>@lang('messages.why_book_with_us')</p>
-	        </div>
-	        <div class="clear"></div>
-	    </div>
-    	<div class="col-md-8 b02">
-	        <h2>{{$offer->contents[0]->title_short_description}}</h2>
-	        <p>{!!$offer->contents[0]->short_description!!}</p>
-	        <hr>
-	    </div>
+    		<h1>{{$offer->contents[0]->headline}}</h1>
+    		<h3>{{$offer->contents[0]->item1}}</h3>
+    		<h4>{{$offer->contents[0]->item2}}</h4>
 
-		<div class="col-md-4 nopadding">
-			@if($offer->category==1)
+    		<div id="overview">{!!$offer->contents[0]->overview !!}</div>
+
+    		@foreach($offer_contents_plan as $key=>$offer_content_plan)
+    			<div id="all-inclusive" class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="background-color: #abd6ac;">
+	    			<div>{{$offer_content_plan->title}}</div>
+	    			<div>
+	    				{!!$offer_content_plan->benefits!!}
+	    				<br/><br/>
+	    				<button type="button" id="btn-plan{{$offer_content_plan->plan_id>0?$offer_content_plan->plan_id:99}}" class="btn btn-warning">@lang('messages.book_now')</button>
+	    			</div>
+    			</div>
+    		@endforeach
+
+    		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    			@lang('messages.expiring')<br/>
+    			{{ $end_date}}<br/>
+    		</div>
+    		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    			<div>@lang('messages.terms')</div>
+    			<div>{!!$offer->contents[0]->conditions !!}</div>
+    		</div>
+
+    		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    			<div>@lang('messages.travel_window')</div>
+    			<div>
+    				@foreach($tx_tw as $key=>$tw)
+    					{{$tw['start_date']}} - {{$tw['end_date']}}
+    				@endforeach
+    			</div>
+    		</div>
+
+    	</div><!--FIN DIV IZQ-->
+
+    	<!--DIV DER-->
+    	<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    		@if($offer->category==1)
     			@if($urgency==1)
-    			<div class="col-md-12 nopadding b031">
-		            <img src="{{asset('img/general/icon-01.png')}}" class="img01">
-		            <p>Time left (Hurry, <span>Only 1 day left</span>)</p>
-		        </div>
-		        <div id="clockdiv" class="col-md-12 b03">
-		        	<div><span class="days">01</span><div class="smalltext">@lang('messages.days')</div></div>
-		            <div><span>:</span><div class="smalltext">&nbsp;</div></div>
-		            <div><span class="hours">23</span><div class="smalltext">@lang('messages.hours')</div></div>
-		            <div><span>:</span><div class="smalltext">&nbsp;</div></div>
-		            <div><span class="minutes">18</span><div class="smalltext">@lang('messages.minutes')</div></div>
-		            <div><span>:</span><div class="smalltext">&nbsp;</div></div>
-		            <div><span class="seconds">34</span><div class="smalltext">@lang('messages.seconds')</div></div>
-		        </div> 
+    			<div id="clockdiv"><div><div class="smalltext">Days</div><span class="days"></span></div><span>:</span><div><div class="smalltext">Hours</div><span class="hours"></span></div><span>:</span><div><div class="smalltext">Minutes</div><span class="minutes"></span></div><span>:</span><div><div class="smalltext">Seconds</div><span class="seconds"></span></div></div>
     			@else
-    			<div id="clockdiv" style="display:none;"><div><span class="days"></span></div><div><span class="hours"></span></div><div><span class="minutes"></span></div><div><span class="seconds"></span></div></div>
-				<div class="col-md-12 b04">
-		            <img src="{{asset('img/general/icon-01.png')}}" class="img01 b044">
-		            <p>@lang('messages.act_now')</p>
-		        </div>
-		        <div class="col-md-12 b041">
-		            <p class="b042">{{ $end_date}}</p>
-		            <p class="b043">{{ $offer_resort2[0]['minimum'] }} @lang('messages.minimun')</p>
-		        </div>
+    			<div id="clockdiv" style="display: none;"><div><div class="smalltext">Days</div><span class="days"></span></div><span>:</span><div><div class="smalltext">Hours</div><span class="hours"></span></div><span>:</span><div><div class="smalltext">Minutes</div><span class="minutes"></span></div><span>:</span><div><div class="smalltext">Seconds</div><span class="seconds"></span></div></div>
+	    		@lang('messages.expiring')<br/>
+	    		{{ $end_date}}<br/>
 
+	    		{{ $offer_resort2[0]['minimum'] }} @lang('messages.minimun')<br/>
     			@endif
     		@else
-    			<div id="clockdiv" style="display:none;"><div><span class="days"></span></div><div><span class="hours"></span></div><div><span class="minutes"></span></div><div><span class="seconds"></span></div></div>
-    			<div class="col-md-12 b04">
-		            <img src="{{asset('img/general/icon-01.png')}}" class="img01 b044">
-		            <p>@lang('messages.tx_1')</p>
-		        </div>
-	    		<div class="col-md-12 b041">
-		            <p class="b042">@lang('messages.tx_2')</p>
-		            <p class="b043">{{ $offer_resort2[0]['minimum'] }} @lang('messages.minimun')</p>
-		        </div>
+    			<div id="clockdiv" style="display: none;"><div><div class="smalltext">Days</div><span class="days"></span></div><span>:</span><div><div class="smalltext">Hours</div><span class="hours"></span></div><span>:</span><div><div class="smalltext">Minutes</div><span class="minutes"></span></div><span>:</span><div><div class="smalltext">Seconds</div><span class="seconds"></span></div></div>
+	    		¡Book Now and Save!<br/>
     		@endif
-    	</div>
 
-
-	    <div class="col-md-8 b05">
-	        @if($offer->contents[0]->overview !="")
-	        <h1>{{$offer->contents[0]->headline}}</h1>
-	        <h3>{{$offer->contents[0]->item1}}</h3>
-	        <h4>{{$offer->contents[0]->item2}}</h4>
-	        <div class="b054">{!!$offer->contents[0]->overview !!}</div>
-	        @endif
-
-	        @foreach($offer_contents_plan as $key=>$offer_content_plan)
-	        <div class="col-md-6 b056 b0551">
-	            <div class="b053">
-	                <img src="{{asset('img/general/icon-03.png')}}" class="img01 img013">
-	                <p>{{$offer_content_plan->title}}</p>
-	            </div>
-	            <div class="b051">
-	                {!!$offer_content_plan->benefits!!}
-	                <button type="button" id="btn-plan{{$offer_content_plan->plan_id>0?$offer_content_plan->plan_id:99}}" class="btn btn-warning">@lang('messages.reserve_room')</button>
-	            </div>
-	        </div>
-	        @if(($key + 1) % 2 == 0)
-			<div class="clearfix"></div>
-			@endif
-	        @endforeach
-
-	        <div class="col-md-6 b057 b0552">
-	            <div class="">
-	                <div class="b0531">
-	                    <img src="{{asset('img/general/icon-05.png')}}" class="img01 img013">
-	                    <p>@lang('messages.expiring')</p>
-	                </div>
-	                <div class="b051">
-	                    <p>{{ $end_date}}</p>
-	                </div>
-	            </div>
-	            
-	            <div class="b0531">
-	                <img src="{{asset('img/general/icon-06.png')}}" class="img01 img014">
-	                <p>@lang('messages.travel_window')</p>
-	            </div>
-	            <div class="b051">
-	                @foreach($tx_tw as $key=>$tw)
-    					<p>{{$tw['start_date']}} - {{$tw['end_date']}}</p>
-    				@endforeach
-	            </div>
-	        </div>
-
-	        @if($offer->contents[0]->conditions!="")
-	        <div class="col-md-6 b058 b0552">
-	            <div class="">
-	                <div class="b0531">
-	                    <img src="{{asset('img/general/icon-07.png')}}" class="img01 img013">
-	                    <p>@lang('messages.terms')</p>
-	                </div>
-	                <div class="b051">{!!$offer->contents[0]->conditions !!}</div>
-	            </div>
-	        </div>
-	        @endif
-
-	    </div><!--FIN col-md-8-->
-
-	    <div class="col-md-4 b06">
-	        <p class="b061">@lang('messages.resorts_apply')</p>
-
-	        @foreach($resorts as $key=>$resort)
-
-	        <div class="b0611">
-	            <div class="b068 img01">
-	                <a href="{{url($prefix.Lang::get('routes.resorts').'/'.$resort->identifier)}}"><img src="{{asset('img/thumbnail/'.$resort->identifier.'.jpg')}}" alt="{{$resort->contents[0]->alt1}}"></a>
-	            </div>
-	            <div class="b069 img01">
-	                <p class="b062">{{ $resort->area }}, {{ $resort->location }}</p>
-	                <p class="b063"><a href="{{url($prefix.Lang::get('routes.resorts').'/'.$resort->identifier)}}"><span>{{ $resort->name }}</span></a></p>
-	                <div class="resort_stars">
-						{{--*/ $stars = round( $resort->stars * 2, 0, PHP_ROUND_HALF_UP); $i=1 /*--}}
-						@while($i <= $stars - 1)
-							<i class="fa fa-star"></i>
-							{{--*/ $i += 2; /*--}}
-						@endwhile
-						@if($stars & 1)
-							<i class="fa fa-star-half-o"></i>
-						@endif
-						<br/>
-						
-					</div>
-					@for($i=0;$i<count($offer_resort_plan); $i++)
-						@if($offer_resort_plan[$i]->resort_id==$resort->id)
-							<p class="b064"> {{ $offer_resort_plan[$i]->a_name}}</p>
-							@if($offer_resort_plan[$i]->plan_id==1)
-								<p class="b065">@lang('messages.ai')</p>
-							@endif
-							@if($offer_resort_plan[$i]->plan_id==2)
-								<p class="b065">@lang('messages.ro')</p>
-							@endif
-							@if($offer_resort_plan[$i]->plan_id==3)
-								<p class="b065">Bed and Breakfast</p>
-							@endif
-							<p class="b066">${{ $offer_resort_plan[$i]->price}} USD <span>@lang('messages.per_person')</span></p>
-							<div class="clear"></div>
-	                		<hr>
-						@endif
-					@endfor
-	           		
-	                <img src="{{asset('img/general/tripadvisor-stars'.$resort->rating_trip_advisor.'.jpg')}}" class="img01 b0691">
-	                <div class="clear"></div>
-	                
-	                <button type="button" id="btn-{{$resort->ihotelier_id}}" class="b067">@lang('messages.search')</button>
-	            </div>
-	            <div class="clear"></div>
-	        </div>
-
-
-	        @if($offer->ihotelier_type==1) 
-				@foreach($offer_resort2 as $key=>$offer_resort)
-					@if($offer_resort['id']==$resort->id)
-						{{--*/
-						echo '<script languaje="JavaScript"> var Jrate'.$resort->ihotelier_id.'='.$offer_resort['ihotelier_rate_id'].'; var Jpackage'.$resort->ihotelier_id.'=1010; var Jminimum'.$resort->ihotelier_id.'='.$offer_resort['minimum'].'; </script>';
-						/*--}}
-					@endif
-				@endforeach
-			@endif
-
-			@if($offer->ihotelier_type==2) 
-				@foreach($offer_resort2 as $key=>$offer_resort)
-					@if($offer_resort['id']==$resort->id)
-						{{--*/
-						echo '<script languaje="JavaScript"> var Jpackage'.$resort->ihotelier_id.'='.$offer_resort['ihotelier_rate_id'].'; var Jrate'.$resort->ihotelier_id.'=1010; var Jminimum'.$resort->ihotelier_id.'='.$offer_resort['minimum'].'; </script>';
-						/*--}}
-					@endif
-				@endforeach
-				<input type="hidden" name="packageId" id="packageId" value="">				
-			@endif
-
-	        @endforeach
-
-	        <div class="b070">
-	            <p class="b07">@lang('messages.reviews')</p>
-	            @foreach($reviews as $key=>$review)
-	            {{--*/ $d=date_create($review->review_date); /*--}}
-				<p class="b071">{{$review->review}}</p>
-				<p class="b074"><span class="b072">{{$review->traveler_name}}</span> - <span class="b073">{{$review->city}}, {{date_format($d,"m/d/Y")}}</span></p>
-				@endforeach
-	        </div>
-
-	    </div> <!-- FIN COL 4-->
-
-	    {!!$offer->contents[0]->footer !!}
-
-	</div><!--FIN ROW-->
-
+    		<br/>
+    		<br/>
+    		<br/>
+    		@lang('messages.resorts_apply')<br/>
 
 			<!-- Modal -->
 			<div id="dates" class="modal fade" role="dialog">
@@ -277,7 +136,7 @@
 			    <!-- Modal content-->
 			    <div class="modal-content">
 			      <div  class="modal-header">
-			      	<h4 id="title" class="c_brown tx_bold">@lang('messages.form_title')</h4>
+			      	<h4 id="title" class="c_brown tx_bold"></h4>
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
 			      </div>
 			      <div class="modal-body">
@@ -302,35 +161,44 @@
 					<form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" id="formModal" name="formModal" onsubmit="return validateBookingModal();">
 
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bookesp">
-							<span class="lbForm" id="txHotel">@lang('messages.select_resort')</span>	
+							<span class="lbForm" id="txHotel">@lang('messages.select_resort')</span>
+							<!--<select class="form-control" id="hotelidB" name="hotelidB" onchange="asignaRates(this)">
+								@foreach($offer_resort2 as $resort_route)
+									<option value="{{$resort_route['ihotelier_id']}}" id="{{$resort_route['ihotelier_rate_id']}}" data-subtext="{{$resort_route['area']}}" name="{{$resort_route['minimum']}}">{{$resort_route['name']}}</option>
+								@endforeach
+							</select>-->	
 
 							<select class="form-control" id="hotelidC" name="hotelidC" onchange="asignaRatesC(this)">
+
+								
+							
 								@foreach($offer_resort2 as $resort_route)
-									@for($i=0;$i<count($offer_resort_plan); $i++)
-										@if($offer_resort_plan[$i]->plan_id==1&& $offer_resort_plan[$i]->resort_id==$resort_route['id'])
+									@foreach($offer_resort_plan as $plan)
+										@if($plan['plan_id']==1&& $plan['resort_id']==$resort_route['id'])
 										<option value="{{$resort_route['ihotelier_id']}}" id="{{$resort_route['ihotelier_rate_id']}}" data-subtext="{{$resort_route['area']}}" name="{{$resort_route['minimum']}}">{{$resort_route['name']}}</option>
 										@endif
-									@endfor
+									@endforeach	
 								@endforeach
 							</select>
 							<select class="form-control" id="hotelidD" name="hotelidD" onchange="asignaRatesD(this)">
 								@foreach($offer_resort2 as $resort_route)
-									@for($i=0;$i<count($offer_resort_plan); $i++)
-										@if($offer_resort_plan[$i]->plan_id==2&& $offer_resort_plan[$i]->resort_id==$resort_route['id'])
+									@foreach($offer_resort_plan as $plan)
+										@if($plan['plan_id']==2&& $plan['resort_id']==$resort_route['id'])
 										<option value="{{$resort_route['ihotelier_id']}}" id="{{$resort_route['ihotelier_rate_id']}}" data-subtext="{{$resort_route['area']}}" name="{{$resort_route['minimum']}}">{{$resort_route['name']}}</option>
 										@endif
-									@endfor
+									@endforeach	
 								@endforeach
 							</select>
 							<select class="form-control" id="hotelidE" name="hotelidE" onchange="asignaRatesE(this)">
 								@foreach($offer_resort2 as $resort_route)
-									@for($i=0;$i<count($offer_resort_plan); $i++)
-										@if($offer_resort_plan[$i]->plan_id==3&& $offer_resort_plan[$i]->resort_id==$resort_route['id'])
+									@foreach($offer_resort_plan as $plan)
+										@if($plan['plan_id']==3&& $plan['resort_id']==$resort_route['id'])
 										<option value="{{$resort_route['ihotelier_id']}}" id="{{$resort_route['ihotelier_rate_id']}}" data-subtext="{{$resort_route['area']}}" name="{{$resort_route['minimum']}}">{{$resort_route['name']}}</option>
 										@endif
-									@endfor
+									@endforeach	
 								@endforeach
 							</select>
+
 						</div>
 
 						@if($offer->ihotelier_type==1)<input type="hidden" name="RatePlanIDB" id="RatePlanIDB">@endif
@@ -414,11 +282,94 @@
 			</div>
 			<!-- Modal -->
 
+    		@foreach($resorts as $key=>$resort)
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<a href="{{url($prefix.Lang::get('routes.resorts').'/'.$resort->identifier)}}"><img class="img-responsive" src="{{asset('img/small/'.$resort->identifier.'-1.jpg')}}" alt="{{$resort->contents[0]->alt1}}"></a>
+				</div>
 
-			
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+					{{ $resort->area }}<br/>
+					<a href="{{url($prefix.Lang::get('routes.resorts').'/'.$resort->identifier)}}"><span>{{ $resort->name }}</span></a>
+					<div class="resort_stars">
+						{{--*/ $stars = round( $resort->stars * 2, 0, PHP_ROUND_HALF_UP); $i=1 /*--}}
+						@while($i <= $stars - 1)
+							<i class="fa fa-star"></i>
+							{{--*/ $i += 2; /*--}}
+						@endwhile
+						@if($stars & 1)
+							<i class="fa fa-star-half-o"></i>
+						@endif
+						<br/>
+						{{ $resort->rating_trip_advisor }}
+						<br/>
+
+						@foreach($offer_resort_plan as $key=>$offer_plan)
+							@if($offer_plan['resort_id']==$resort->id)
+								@if($offer_plan->plan_id==1)
+									@lang('messages.ai')<br/>
+								@endif
+								@if($offer_plan->plan_id==2)
+									@lang('messages.ro')<br/>
+								@endif
+								@if($offer_plan->plan_id==3)
+									Bed and Breakfast<br/>
+								@endif
+								-{{ $offer_plan->room}}<br/>
+								${{ $offer_plan->price}} USD<br/>
+							@endif
+						@endforeach
+						
+					</div>
+					
+					@if($offer->ihotelier_type==1) 
+						@foreach($offer_resort2 as $key=>$offer_resort)
+							@if($offer_resort['id']==$resort->id)
+								{{--*/
+								echo '<script languaje="JavaScript"> var Jrate'.$resort->ihotelier_id.'='.$offer_resort['ihotelier_rate_id'].'; var Jpackage'.$resort->ihotelier_id.'=1010; var Jminimum'.$resort->ihotelier_id.'='.$offer_resort['minimum'].'; </script>';
+								/*--}}
+							@endif
+						@endforeach
+					@endif
+
+					@if($offer->ihotelier_type==2) 
+						@foreach($offer_resort2 as $key=>$offer_resort)
+							@if($offer_resort['id']==$resort->id)
+								{{--*/
+								echo '<script languaje="JavaScript"> var Jpackage'.$resort->ihotelier_id.'='.$offer_resort['ihotelier_rate_id'].'; var Jrate'.$resort->ihotelier_id.'=1010; var Jminimum'.$resort->ihotelier_id.'='.$offer_resort['minimum'].'; </script>';
+								/*--}}
+							@endif
+						@endforeach
+					@endif
 
 
+					@if($offer->ihotelier_type==2)<input type="hidden" name="packageId" id="packageId" value="">@endif
 
+					<button type="button" id="btn-{{$resort->ihotelier_id}}" class="btn btn-success {{ Agent::isMobile()? 'btn-lg col-sm-12 col-xs-12':'right'}}">@lang('messages.book_now')</button>
+
+				</div>
+			@if(($key + 1) % 3 == 0)
+			<div class="clearfix"></div>
+			@endif
+			@endforeach
+
+			<div class="clearfix"></div>
+			<br/><br/>
+			@lang('messages.reviews')<br/>
+
+			@foreach($reviews as $key=>$review)
+				{{$review->review}} <br/><br/>
+			@endforeach
+    		
+    	</div><!--FIN DIV DER-->	
+    </div>
+
+    <div class="row">
+    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    		{!!$offer->contents[0]->footer !!}
+    	</div>
+    </div>
+
+</div>
 
 <div class="container">
     <script>  
@@ -433,7 +384,19 @@ echo '<script languaje="JavaScript"> var varjs="'.$variable_php.'";</script>';
 /*--}}
 
 
-
+@if($offer->id==1)
+	@section('javascript')
+	<!--Activity name for this tag: 137484-PageViews Expedia 02.05.2017-->
+	<script type='text/javascript'>
+	var axel = Math.random()+"";
+	var a = axel * 10000000000000;
+	document.write('<img src="https://pubads.g.doubleclick.net/activity;xsp=221297;ord='+ a +'?" width=1 height=1 border=0/>');
+	</script>
+	<noscript>
+	<img src="https://pubads.g.doubleclick.net/activity;xsp=221297;ord=1?" width=1 height=1 border=0/>
+	</noscript>
+	@stop
+@endif
 
 
 
@@ -442,6 +405,7 @@ echo '<script languaje="JavaScript"> var varjs="'.$variable_php.'";</script>';
 
 @section('javascript')
 <script>
+
 function validateBookingModal(){
 	var minimumBB  =document.formModal.minimumB.value;
 
@@ -484,7 +448,7 @@ function validateBookingModal(){
 	}
 	return false;
 }
-function asignaRatesC(T){ 
+function asignaRatesC(T){
 	var rate=$j('#hotelidC option:selected').attr('id');
 	var min=$j('#hotelidC option:selected').attr('name');
 	var resort=$j('#hotelidC option:selected').attr('value');
@@ -548,7 +512,7 @@ function changeBooking2(resort_id){
 	}
 
 }
-function getTimeRemaining(endtime) { 
+function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
@@ -981,17 +945,3 @@ $j(document).ready(function(){
 
 </script>
 @stop
-
-@if($offer->id==1)
-	@section('javascript')
-	<!--Activity name for this tag: 137484-PageViews Expedia 02.05.2017-->
-	<script type='text/javascript'>
-	var axel = Math.random()+"";
-	var a = axel * 10000000000000;
-	document.write('<img src="https://pubads.g.doubleclick.net/activity;xsp=221297;ord='+ a +'?" width=1 height=1 border=0/>');
-	</script>
-	<noscript>
-	<img src="https://pubads.g.doubleclick.net/activity;xsp=221297;ord=1?" width=1 height=1 border=0/>
-	</noscript>
-	@stop
-@endif

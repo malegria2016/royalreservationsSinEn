@@ -52,7 +52,7 @@
     		<img class="img-responsive" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}"/>
     	</div>
     	<div class="b002">
-        	<p>@lang('messages.form_title')</p>
+        	<p>Grab this offer now</p>
     	</div>
     	<div class="col-md-4 b00">
     		@include('includes.booking-single-offer-new',['rate_access_code'=>($offer->rate_access_code != '' ? $offer->rate_access_code : null),'offers_resorts'=>$offer_resort2, 'ihotelier_type'=>($offer->ihotelier_type != '' ? $offer->ihotelier_type : null)])
@@ -61,15 +61,15 @@
     	<div class="col-md-12 b01">
 	        <div class="col-md-4 col-sm-12">
 	            <img src="{{asset('img/general/b01-icon.jpg')}}" class="">
-	            <p>@lang('messages.best_deal')</p>
+	            <p>Best Deal <span>Guaranteed</span></p>
 	        </div>
 	        <div class="col-md-4 col-sm-12">
 	            <img src="{{asset('img/general/b01-icon.jpg')}}" class="">
-	            <p>@lang('messages.book_now_pay_later')</p>
+	            <p>Book Now, <span>Pay Later</span></p>
 	        </div>
 	        <div class="col-md-4 col-sm-12">
 	            <img src="{{asset('img/general/b01-icon.jpg')}}" class="">
-	            <p>@lang('messages.why_book_with_us')</p>
+	            <p>Reasons to <span>Book With Us</span></p>
 	        </div>
 	        <div class="clear"></div>
 	    </div>
@@ -87,19 +87,19 @@
 		            <p>Time left (Hurry, <span>Only 1 day left</span>)</p>
 		        </div>
 		        <div id="clockdiv" class="col-md-12 b03">
-		        	<div><span class="days">01</span><div class="smalltext">@lang('messages.days')</div></div>
+		        	<div><span class="days">01</span><div class="smalltext">Days</div></div>
 		            <div><span>:</span><div class="smalltext">&nbsp;</div></div>
-		            <div><span class="hours">23</span><div class="smalltext">@lang('messages.hours')</div></div>
+		            <div><span class="hours">23</span><div class="smalltext">Hours</div></div>
 		            <div><span>:</span><div class="smalltext">&nbsp;</div></div>
-		            <div><span class="minutes">18</span><div class="smalltext">@lang('messages.minutes')</div></div>
+		            <div><span class="minutes">18</span><div class="smalltext">Minutes</div></div>
 		            <div><span>:</span><div class="smalltext">&nbsp;</div></div>
-		            <div><span class="seconds">34</span><div class="smalltext">@lang('messages.seconds')</div></div>
+		            <div><span class="seconds">34</span><div class="smalltext">Seconds</div></div>
 		        </div> 
     			@else
-    			<div id="clockdiv" style="display:none;"><div><span class="days"></span></div><div><span class="hours"></span></div><div><span class="minutes"></span></div><div><span class="seconds"></span></div></div>
+    			<div id="clockdiv" style="display:none;"><div><span class="days">01</span><div class="smalltext">Days</div></div><div><span>:</span><div class="smalltext">&nbsp;</div></div><div><span class="hours">23</span><div class="smalltext">Hours</div></div><div><span>:</span><div class="smalltext">&nbsp;</div></div><div><span class="minutes">18</span><div class="smalltext">Minutes</div></div><div><span>:</span><div class="smalltext">&nbsp;</div></div><div><span class="seconds">34</span><div class="smalltext">Seconds</div></div></div>
 				<div class="col-md-12 b04">
 		            <img src="{{asset('img/general/icon-01.png')}}" class="img01 b044">
-		            <p>@lang('messages.act_now')</p>
+		            <p>Act now! This offer must end on…</p>
 		        </div>
 		        <div class="col-md-12 b041">
 		            <p class="b042">{{ $end_date}}</p>
@@ -108,13 +108,13 @@
 
     			@endif
     		@else
-    			<div id="clockdiv" style="display:none;"><div><span class="days"></span></div><div><span class="hours"></span></div><div><span class="minutes"></span></div><div><span class="seconds"></span></div></div>
+    			<div id="clockdiv" style="display:none;"><div><span class="days">01</span><div class="smalltext">Days</div></div><div><span>:</span><div class="smalltext">&nbsp;</div></div><div><span class="hours">23</span><div class="smalltext">Hours</div></div><div><span>:</span><div class="smalltext">&nbsp;</div></div><div><span class="minutes">18</span><div class="smalltext">Minutes</div></div><div><span>:</span><div class="smalltext">&nbsp;</div></div><div><span class="seconds">34</span><div class="smalltext">Seconds</div></div></div>
     			<div class="col-md-12 b04">
 		            <img src="{{asset('img/general/icon-01.png')}}" class="img01 b044">
-		            <p>@lang('messages.tx_1')</p>
+		            <p>----</p>
 		        </div>
 	    		<div class="col-md-12 b041">
-		            <p class="b042">@lang('messages.tx_2')</p>
+		            <p class="b042">¡Book Now and Save!</p>
 		            <p class="b043">{{ $offer_resort2[0]['minimum'] }} @lang('messages.minimun')</p>
 		        </div>
     		@endif
@@ -137,7 +137,7 @@
 	            </div>
 	            <div class="b051">
 	                {!!$offer_content_plan->benefits!!}
-	                <button type="button" id="btn-plan{{$offer_content_plan->plan_id>0?$offer_content_plan->plan_id:99}}" class="btn btn-warning">@lang('messages.reserve_room')</button>
+	                <button type="button" id="btn-plan{{$offer_content_plan->plan_id>0?$offer_content_plan->plan_id:99}}" class="btn btn-warning">Reserve your room now</button>
 	            </div>
 	        </div>
 	        @if(($key + 1) % 2 == 0)
@@ -149,7 +149,7 @@
 	            <div class="">
 	                <div class="b0531">
 	                    <img src="{{asset('img/general/icon-05.png')}}" class="img01 img013">
-	                    <p>@lang('messages.expiring')</p>
+	                    <p>This offer must end on…</p>
 	                </div>
 	                <div class="b051">
 	                    <p>{{ $end_date}}</p>
@@ -158,7 +158,7 @@
 	            
 	            <div class="b0531">
 	                <img src="{{asset('img/general/icon-06.png')}}" class="img01 img014">
-	                <p>@lang('messages.travel_window')</p>
+	                <p>When you can travel</p>
 	            </div>
 	            <div class="b051">
 	                @foreach($tx_tw as $key=>$tw)
@@ -182,7 +182,7 @@
 	    </div><!--FIN col-md-8-->
 
 	    <div class="col-md-4 b06">
-	        <p class="b061">@lang('messages.resorts_apply')</p>
+	        <p class="b061">Your choice of hotels</p>
 
 	        @foreach($resorts as $key=>$resort)
 
@@ -217,7 +217,7 @@
 							@if($offer_resort_plan[$i]->plan_id==3)
 								<p class="b065">Bed and Breakfast</p>
 							@endif
-							<p class="b066">${{ $offer_resort_plan[$i]->price}} USD <span>@lang('messages.per_person')</span></p>
+							<p class="b066">${{ $offer_resort_plan[$i]->price}} dlls <span>per person</span></p>
 							<div class="clear"></div>
 	                		<hr>
 						@endif
@@ -226,7 +226,7 @@
 	                <img src="{{asset('img/general/tripadvisor-stars'.$resort->rating_trip_advisor.'.jpg')}}" class="img01 b0691">
 	                <div class="clear"></div>
 	                
-	                <button type="button" id="btn-{{$resort->ihotelier_id}}" class="b067">@lang('messages.search')</button>
+	                <button type="button" id="btn-{{$resort->ihotelier_id}}" class="b067">Check Availability</button>
 	            </div>
 	            <div class="clear"></div>
 	        </div>
@@ -256,7 +256,7 @@
 	        @endforeach
 
 	        <div class="b070">
-	            <p class="b07">@lang('messages.reviews')</p>
+	            <p class="b07">What our guests are saying</p>
 	            @foreach($reviews as $key=>$review)
 	            {{--*/ $d=date_create($review->review_date); /*--}}
 				<p class="b071">{{$review->review}}</p>
@@ -265,6 +265,31 @@
 	        </div>
 
 	    </div> <!-- FIN COL 4-->
+
+
+	    <!--<div class="col-md-12 b08">
+	        <p class="b081">Your best option for a great deal</p>
+	        <p class="b082">Royal Reservations Official Website</p>
+	        <p class="b083">Phasellus ante tortor, tempus et luctus quis, tristique id quam. Aenean mollis ullamcorper elit ac dignissim. Suspendisse ornare sem nibh, a mollis dolor pretium at. Maecenas malesuada suscipit mauris vitae dictum. Sed pharetra vitae libero in congue. Morbi id rutrum neque.</p>
+	    </div>
+
+	    <div class="col-md-12 b09">
+	        <div class="col-md-4">
+	            <img src="https://royalreservations.com/img/general/book-now-icons.jpg" class="img01">
+	            <p>Direct Booking with Royal Reservations guarantees great benefits such as payment flexibility, regardless of the resort you choose your room is always secured and guaranteed; Pay up to 14 days before your arrival date (restrictions may apply see payment policies when booking).</p>
+	            <p class="b091">Book Now, Pay Later</p>
+	        </div>
+	        <div class="col-md-4">
+	            <img src="https://royalreservations.com/img/general/best-deal-icons.jpg" class="img01">
+	            <p>We want you to be confident that <strong>direct booking is always your best option</strong>; you will not only be getting the <strong>Best Deal Guaranteed</strong> but the lowest online price and exclusive benefits only available at <strong>Royal Reservations</strong>.</p>
+	            <p class="b091">Best Deal Guaranteed</p>
+	        </div>
+	        <div class="col-md-4">
+	            <img src="https://royalreservations.com/img/general/why-book-icons.jpg" class="img01">
+	            <p><strong>Free Transfers, Resort Credits, Tour Credit, you name it, Royal Reservations has it all, </strong>reserve quickly, easily and securely; always get <strong>the lowest price</strong> online, no intermediaries means no surprises, <strong>Direct Booking is always your best option.</strong></p>
+	            <p class="b091">Reasons to Book With Us</p>
+	        </div>
+	    </div>-->
 
 	    {!!$offer->contents[0]->footer !!}
 
@@ -277,7 +302,7 @@
 			    <!-- Modal content-->
 			    <div class="modal-content">
 			      <div  class="modal-header">
-			      	<h4 id="title" class="c_brown tx_bold">@lang('messages.form_title')</h4>
+			      	<h4 id="title" class="c_brown tx_bold"></h4>
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
 			      </div>
 			      <div class="modal-body">
@@ -302,7 +327,12 @@
 					<form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" id="formModal" name="formModal" onsubmit="return validateBookingModal();">
 
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bookesp">
-							<span class="lbForm" id="txHotel">@lang('messages.select_resort')</span>	
+							<span class="lbForm" id="txHotel">@lang('messages.select_resort')</span>
+							<!--<select class="form-control" id="hotelidB" name="hotelidB" onchange="asignaRates(this)">
+								@foreach($offer_resort2 as $resort_route)
+									<option value="{{$resort_route['ihotelier_id']}}" id="{{$resort_route['ihotelier_rate_id']}}" data-subtext="{{$resort_route['area']}}" name="{{$resort_route['minimum']}}">{{$resort_route['name']}}</option>
+								@endforeach
+							</select>-->	
 
 							<select class="form-control" id="hotelidC" name="hotelidC" onchange="asignaRatesC(this)">
 								@foreach($offer_resort2 as $resort_route)
@@ -433,7 +463,19 @@ echo '<script languaje="JavaScript"> var varjs="'.$variable_php.'";</script>';
 /*--}}
 
 
-
+@if($offer->id==1)
+	@section('javascript')
+	<!--Activity name for this tag: 137484-PageViews Expedia 02.05.2017-->
+	<script type='text/javascript'>
+	var axel = Math.random()+"";
+	var a = axel * 10000000000000;
+	document.write('<img src="https://pubads.g.doubleclick.net/activity;xsp=221297;ord='+ a +'?" width=1 height=1 border=0/>');
+	</script>
+	<noscript>
+	<img src="https://pubads.g.doubleclick.net/activity;xsp=221297;ord=1?" width=1 height=1 border=0/>
+	</noscript>
+	@stop
+@endif
 
 
 
@@ -442,6 +484,7 @@ echo '<script languaje="JavaScript"> var varjs="'.$variable_php.'";</script>';
 
 @section('javascript')
 <script>
+
 function validateBookingModal(){
 	var minimumBB  =document.formModal.minimumB.value;
 
@@ -484,7 +527,7 @@ function validateBookingModal(){
 	}
 	return false;
 }
-function asignaRatesC(T){ 
+function asignaRatesC(T){
 	var rate=$j('#hotelidC option:selected').attr('id');
 	var min=$j('#hotelidC option:selected').attr('name');
 	var resort=$j('#hotelidC option:selected').attr('value');
@@ -548,7 +591,7 @@ function changeBooking2(resort_id){
 	}
 
 }
-function getTimeRemaining(endtime) { 
+function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
@@ -981,17 +1024,3 @@ $j(document).ready(function(){
 
 </script>
 @stop
-
-@if($offer->id==1)
-	@section('javascript')
-	<!--Activity name for this tag: 137484-PageViews Expedia 02.05.2017-->
-	<script type='text/javascript'>
-	var axel = Math.random()+"";
-	var a = axel * 10000000000000;
-	document.write('<img src="https://pubads.g.doubleclick.net/activity;xsp=221297;ord='+ a +'?" width=1 height=1 border=0/>');
-	</script>
-	<noscript>
-	<img src="https://pubads.g.doubleclick.net/activity;xsp=221297;ord=1?" width=1 height=1 border=0/>
-	</noscript>
-	@stop
-@endif
