@@ -1,6 +1,6 @@
 <h1>Book with us</h1>
 <section>
-	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']); return validateBooking();" id="bookingResort">
+	<form class='booking' action="https://reservations.travelclick.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']); return validateBooking();" id="bookingResort">
 		<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12 bookesp">
 			<select class="form-control" id="hotelid" name="hotelid">
 				<option selected readonly value="0">@lang('messages.select_resort')</option>

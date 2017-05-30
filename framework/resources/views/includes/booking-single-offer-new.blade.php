@@ -1,4 +1,4 @@
-<form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" accept-charset="UTF-8" target="_blank" onsubmit="return validateBookingSingle();">
+<form action="https://reservations.travelclick.com/bookings.jsp" method="GET" accept-charset="UTF-8" target="_blank" onsubmit="return validateBookingSingle();">
 
 	<div class="col-md-12 b004">
 		<label>@lang('messages.select_resort')</label>
@@ -71,7 +71,8 @@
 		<button type="submit" class="btn form-control b001" id="btn-booking">@lang('messages.book_now')</button>
 	</div>
 	<div class="clearfix"></div>
-	<a href="#" class="b003">@lang('messages.modify') <span>/ @lang('messages.cancel')<span></a>
+	<a href="#" class="b003" role="button" data-toggle="modal" data-target="#modifyForm">@lang('messages.modify') <span>/ @lang('messages.cancel')<span></a>
+	<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
     <img src="{{asset('img/general/payments.png')}}" class="b005">
 </form>
 

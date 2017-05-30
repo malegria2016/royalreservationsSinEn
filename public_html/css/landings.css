@@ -2,13 +2,14 @@ body {background: #f2f1ee !important;font-family: 'Lato', sans-serif !important;
 .nopadding {padding: 0 !important;}
 .mainarea {background: #fff;border-left: 1px solid #d1d1d1;border-right: 1px solid #d1d1d1;}
 input[type="text"] {width: 100% !important;}
-
+.img01 {float: left;}
+.img02 {float: right;}
 
 /********** seccion booking **********/
 .b00 {background: #aacfe4 ;}
 .b00 form label {color: #202d50; font-size: .8em; font-weight: 400;}
 .b001 {background: #ff5500 !important;color: #fff !important;border-bottom: 5px solid #cb4f12 !important;font-size: 1.5em !important;height: auto !important;text-transform: uppercase;font-style: italic;font-weight: bold !important;}
-.b001:hover {background: #ff7631 !important;border-bottom: 5px solid #cb5d26 !important;}
+.b001:hover {background: #ff4e00 !important;border-bottom: 5px solid #ec3d00 !important;}
 .b002 {background: #0072cd;border-bottom: 5px solid #005396;}
 .b002 p {color: #fff;text-align: center;font-size: 1.5em;margin: 0;text-transform: uppercase;}
 .b003 {color: #202d50;font-size: .85em;font-weight: bold;}
@@ -18,18 +19,15 @@ input[type="text"] {width: 100% !important;}
 .b005 {padding: 10px 0;}
 
 
-
-
 /********** seccion garantias del resort **********/
 .b01 {background: #202d50;color: #fff;}
-.b01 img {float: left;padding: 20px 10px;}
-.b01 p {text-transform: uppercase;font-size: 1.3em;padding: 20px 0 0;}
+.b01 img {float: left;padding: 28px 10px;}
+.b01 p {text-transform: uppercase;font-size: 1.2em;padding: 24px 0 10px;}
 .b01 p span {font-weight: bolder;}
 @media only screen and (max-width : 480px) {
 	.b01 img {padding: 18px 10px 0px;}
-	.b01 p {padding: 20px 0 10px;}
+	.b01 p {padding: 23px 0 10px;}
 }
-
 
 
 /********** seccion beneficios cortos **********/
@@ -39,11 +37,13 @@ input[type="text"] {width: 100% !important;}
 .b02 hr {border-top: 1px solid #d1d1d1;width: 95%;}
 
 
-
 /********** seccion timer **********/
 .b03 {background: #9c9c9c;}
 .b031 {background: #e21a1a;border-left: 1px solid #fff;border-bottom: 5px solid #a32626;border-top: 1px solid #fff;color: #fff;font-family: 'Oswald', sans-serif;text-align: center;font-size: 1.4em}
+.b031 p {font-size: 1em;text-align: center;padding: 0;margin: 5px;}
 .b031 span {font-size: .7em;}
+.b032 {display: block;top: 5px;left: 10%;position: absolute;}
+.b033 {width: 20%;}
 #clockdiv{text-align: center;padding-bottom: 15px;border-left: 1px solid #fff;}
 #clockdiv > div{display: inline-block;}
 #clockdiv div span, #clockdiv span {color: #ffe300;text-shadow: 1px 1px 3px #4d4500;font-size: 70px;font-family: 'Oswald', sans-serif;}
@@ -52,7 +52,6 @@ input[type="text"] {width: 100% !important;}
 	#clockdiv { font-size: 20px;}
 	#clockdiv > div{padding: 2px;}
 }
-
 
 
 /********** seccion booking window **********/
@@ -64,50 +63,50 @@ input[type="text"] {width: 100% !important;}
 .b04 p {font-size: 1.3em;text-align: center;padding: 0;margin: 5px;}
 
 
-
 /********** seccion texto oferta principal **********/
 .b05 {border-right: 1px solid #d1d1d1;}
 .b05 h1 {color: #202d50;border-bottom: none !important;margin: 0;padding: 10px 0 0 20px;text-align: left;font-family: 'Oswald', sans-serif !important;font-size: 2.2em !important;}
 .b05 h3 {font-family: 'Playfair Display', serif;color: #006ec6;text-transform: none;margin: 0;padding: 0 0 0 20px;font-size: 1.2em;font-weight: bold;}
 .b05 h4 {color: #c66600;font-family: 'Oswald', sans-serif;font-weight: 100;margin: 0;padding: 0 0 0px 20px;text-transform: none;}
 .b05 p {color: #202d50;margin: 0;padding: 10px 20px 10px 20px;}
-.b051 {background: #f7f7f7;padding: 20px 15px 10px 0px;}
+.b051 {background: #f7f7f7;padding-top: 15px;padding-right: 15px;padding-bottom: 20px;}
 .b051 ul li {list-style: url(../img/general/icon-02.png);padding-bottom: 10px;color: #202d50}
 .b051 p {text-align: center;}
-.b052 {background: #ff6600;color: #fff;text-align: center;padding: 10px 30px;width: 80%;display: block;margin: 10px auto;}
-.b052:hover {background: #ff4800;text-decoration: none;color: #fff;}
 .b053 {background: #057ddd;}
 .b0531 {background: #057ddd;}
-.b053 p, .b0531 p {color: #fff;border-bottom: 5px solid #ffe300;font-family: 'Oswald', sans-serif !important; font-size: 1.5em;padding-left: 33%}
-.b054 {margin: 10px 0 20px 0;}
-.b056 {padding-bottom: 50px;}
-.b0551 {padding-right: .5px !important;}
-.b0552 {padding-left: .5px !important;}
-.b059 {background: #f7f7f7;}
-@media screen and (max-width: 480px) {
-	.b0551 {padding-right: 15px !important;}
-	.b0552 {padding-left: 15px !important;}
-}
+.b053 p, .b0531 p {color: #fff;border-bottom: 5px solid #ffe300;font-family: 'Oswald', sans-serif !important; font-size: 1.3em;}
+.b054 {}
+.b056 {}
+.b057, .b054 {padding-bottom: 30px;}
+.b057 img {margin: 5px 10px 10px 15px;}
+.b058 p {text-align:left;}
+.b059 {color: #fff;background: #0cd320;padding: 6px 50px;text-transform: uppercase;font-size: 1em;border: 0;width: 80%;display: block;margin: auto;}
+.b059:hover {background: #0efd26;}
 
 
 /********** seccion aside hotels **********/
 .b06 {}
 .b06 hr {border-top: 1px solid #d1d1d1;margin: 0;}
-.b061 {color: #202d50;font-family: 'Oswald', sans-serif !important;font-size: 1.7em;}
-.b0611 {line-height: 1em;margin: 20px 0;}
+.b061 {color: #202d50;font-family: 'Oswald', sans-serif !important;font-size: 1.7em;padding-top: 20px;}
+.b0611 {padding-bottom: 20px;}
 .b0611 img {padding-right: 15px;}
 .b062 {color: #202d50;margin: 0;padding: 0 0 5px 0;font-size: .9em;}
-.b063 {color: #006ec6;margin: 0;padding: 0;font-family: 'Cinzel', serif;font-size: 1.3em;}
+.b063 {color: #006ec6;margin: 0;padding: 0;font-family: 'Cinzel', serif;font-size: 1.2em;line-height: 1em;}
 .b064 {color: #c66600;margin: 0;padding: 0;font-size: .75em;}
-.b065 {color: #006ec6;margin: 0;padding: 0;font-size: .75em;float: left;}
+.b065 {color: #006ec6;margin: 0;padding: 0;font-size: .7em;float: left;font-weight: bold;}
 .b066 {color: #ff6600;font-size: 1.1em; font-weight: bold;float: right;margin-bottom: 2px;margin-top: 2px;}
 .b066 span {font-size: .5em}
-.b067 {color: #fff;background: #0cd320;padding: 6px 70px;box-shadow: 2px 2px 4px #989898;margin: 3px;text-transform: uppercase;font-size: 0.7em;float: left;}
+.b067 {color: #fff;background: #0cd320;padding: 6px 30px;box-shadow: 2px 2px 4px #989898;text-transform: uppercase;font-size: 0.7em;float: left;border: 0;width: 100%}
 .b067:hover {color: #fff;text-decoration: none;background: #0efd26;}
-.b068 {}
+.b068 {padding-left: 0 !important;padding-right: 0 !important;}
+.b069 {padding-left: 0 !important;padding-right: 0 !important;}
 .b0691 {padding: 5px 0;}
-
-
+.b0692 {margin-top: 10px !important;}
+.b0693 {color: #fff;font-size: 0.8em;text-align: center;width: 89%;display: block;background: #F0AD4E;padding: 8px 3px;margin-top: 5px;}
+.b0693:hover {text-decoration: none;background: blue;color: #fff;}
+@media only screen and (max-width : 480px) {
+	.b069 {padding-left: 15px !important;}
+}
 
 
 /********** seccion reviews **********/
@@ -131,7 +130,6 @@ input[type="text"] {width: 100% !important;}
 }
 
 
-
 /********** seccion best deal/book now/why book/flexible cancellations **********/
 .b09 {padding: 50px 0;}
 .b091 {color: #c66600;font-family: 'Playfair Display', serif;font-size: 1.5em;}
@@ -143,40 +141,14 @@ input[type="text"] {width: 100% !important;}
 }
 
 
-
 /********** seccion banner best deal **********/
 footer {margin-top: 0px !important;}
 
 
-
-
-
-
-
-.temp01 {background: #f7f7f7;}
-.temp02 {background: blue;}
-.temp03 {background: orange;}
-.temp04 {background: pink;}
-.temp05 {background: brown;}
-.temp06 {background: CornflowerBlue;}
-.temp07 {background: yellow;}
-.temp08 {background: purple;}
-.temp09 {background: DarkGoldenRod;}
-.temp10 {background: DarkSeaGreen;}
-.temp11 {background: DeepSkyBlue;}
-.temp12 {background: GreenYellow;}
-.temp13 {background: HotPink;}
-.temp14 {background: Khaki;}
-.temp15 {background: DarkSeaGreen;}
-.temp16 {background: DarkSeaGreen;}
-.temp17 {background: DarkSeaGreen;}
-.temp18 {background: DarkSeaGreen;}
-.temp19 {background: DarkSeaGreen;}
-.temp20 {background: DarkSeaGreen;}
-
-.img01 {float: left;}
-.img011 {position: absolute;top: -43px;left: 15px}
-.img012 {position: absolute;top: -43px;left: 1px}
-.img013 {position: absolute;top: 6px;left: 50px;}
-.img014 {position: absolute;top: 136px;left: 50px;}
-.img015 {position: absolute;top: 7px;left: 50px;}
+/********** seccion modal **********/
+.m01 {margin: 0 !important;color: #fff;}
+.m02 {background: #057ddd;border-bottom: 5px solid #ffe300 !important;}
+.m03 {margin: 0px;border: 1px solid #ccc !important;}
+.m04 {padding-top: 30px;padding-bottom: 10px;}
+.m05 {background: #0cd320 !important; color: #fff !important;text-transform: uppercase;box-shadow: 2px 2px 4px #989898 !important;}
+.m05:hover {background: #0efd26 !important;}
