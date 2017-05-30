@@ -228,7 +228,7 @@
 	        <div class="b0611">
 	            <div class="col-md-3 col-xs-3 b068">
 	                <a href="{{url($prefix.Lang::get('routes.resorts').'/'.$resort->identifier)}}"><img src="{{asset('img/thumbnail/'.$resort->identifier.'.jpg')}}" alt="{{$resort->contents[0]->alt1}}"></a>
-	                <a href="#" class="b0693">View Room</a>
+	                <!-- BOTON DE VISTA DE CUARTO {SE HABILITARA APARTIR DEL 10-JUN-17} <a href="#" class="b0693">View Room</a> -->
 	            </div>
 	            <div class="col-md-9 col-xs-9 b069">
 	                <p class="b062">{{ $resort->area }}, {{ $resort->location }}</p>
@@ -314,12 +314,12 @@
 
 			<!-- Modal -->
 			<div id="dates" class="modal fade" role="dialog">
-			  <div class="modal-dialog modal-m">
+			  <div class="modal-dialog modal-sm">
 			    <!-- Modal content-->
 			    <div class="modal-content">
 			      <div  class="modal-header m02">
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
-			        <h4 id="title" class="c_brown tx_bold m01">@lang('messages.form_title')</h4>
+			        <h4 id="title" class="m07">@lang('messages.form_title')</h4>
 			      </div>
 			      <div class="modal-body">
 
@@ -345,7 +345,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bookesp">
 							<span class="lbForm" id="txHotel">@lang('messages.select_resort')</span>	
 
-							<select class="form-control" id="hotelidC" name="hotelidC" onchange="asignaRatesC(this)">
+							<select class="form-control m08" id="hotelidC" name="hotelidC" onchange="asignaRatesC(this)">
 								@foreach($offer_resort2 as $resort_route)
 									@for($i=0;$i<count($offer_resort_plan); $i++)
 										@if($offer_resort_plan[$i]->plan_id==1&& $offer_resort_plan[$i]->resort_id==$resort_route['id'])
@@ -354,7 +354,7 @@
 									@endfor
 								@endforeach
 							</select>
-							<select class="form-control" id="hotelidD" name="hotelidD" onchange="asignaRatesD(this)">
+							<select class="form-control m08" id="hotelidD" name="hotelidD" onchange="asignaRatesD(this)">
 								@foreach($offer_resort2 as $resort_route)
 									@for($i=0;$i<count($offer_resort_plan); $i++)
 										@if($offer_resort_plan[$i]->plan_id==2&& $offer_resort_plan[$i]->resort_id==$resort_route['id'])
@@ -363,7 +363,7 @@
 									@endfor
 								@endforeach
 							</select>
-							<select class="form-control" id="hotelidE" name="hotelidE" onchange="asignaRatesE(this)">
+							<select class="form-control m08" id="hotelidE" name="hotelidE" onchange="asignaRatesE(this)">
 								@foreach($offer_resort2 as $resort_route)
 									@for($i=0;$i<count($offer_resort_plan); $i++)
 										@if($offer_resort_plan[$i]->plan_id==3&& $offer_resort_plan[$i]->resort_id==$resort_route['id'])
@@ -393,7 +393,7 @@
 		                    </div>
 						</div>
 				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-					<span id="spAdultB" name="spAdultB" class="lbForm">@lang('messages.adults')</span>
+					<span id="spAdultB" name="spAdultB" class="lbForm m06">@lang('messages.adults')</span>
 					<select name="adultsB" class="form-control" id="adultsB">
 						<option value="1">1</option>
 						<option value="2" selected>2</option>
@@ -408,7 +408,7 @@
 					</select>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-					<span id="spTeenB" name="spTeenB" class="lbForm">@lang('messages.teen')</span>
+					<span id="spTeenB" name="spTeenB" class="lbForm m06">@lang('messages.teen')</span>
 					<select name="childrenB" class="form-control" id="childrenB">
 						<option value="0" selected>0</option>
 						<option value="1">1</option>
@@ -419,7 +419,7 @@
 					</select>
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" >
-					<span id="spChildrenB" name="spChildrenB" class="lbForm">@lang('messages.children')</span>
+					<span id="spChildrenB" name="spChildrenB" class="lbForm m06">@lang('messages.children')</span>
 					<select name="children2B" class="form-control" id="children2B">
 						<option value="0" selected>0</option>
 						<option value="1">1</option>
@@ -443,8 +443,6 @@
 				<div class="alert alert-danger msgError" role="alert" id="error-minimum2">@lang('messages.error_minimum')</div>
 
 				</form>
-					
-					<br/><br/>
 			      </div>
 			    </div>
 
@@ -459,9 +457,9 @@
 
 			    <!-- Modal content-->
 			    <div class="modal-content">
-			      <div class="modal-header">
+			      <div class="modal-header m02">
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
-			        <h4 class="modal-title">@lang('messages.cancel_title')</h4>
+			        <h4 class="modal-title m07">@lang('messages.cancel_title')</h4>
 			      </div>
 			      <div class="modal-body">
 			      	@lang('messages.cancel_text')
@@ -473,7 +471,7 @@
 					  </div>
 					  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
 					    <span class="lbForm" id="txHotel">@lang('messages.lb_confirm')</span>
-					    <input id="confirmId" name="confirmId" type="text" class="form-control" value="" placeholder="@lang('messages.lb_confirm')" />
+					    <input id="confirmId" name="confirmId" type="text" class="form-control m08" value="" placeholder="@lang('messages.lb_confirm')" />
 					  </div>
 					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
 					  	<input id="languageid" name="languageid" type="hidden" value="{{App::getLocale()=='en'?'1':'2'}}"/>
@@ -482,9 +480,6 @@
 					  </div>
 					</form>
 					<div class="clearfix"></div>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			      </div>
 			    </div>
 

@@ -91,7 +91,7 @@
 				<center>
 				  <img src=" https://royalreservations.com/img/general/logo-royal-404.png " alt="Royal Reservations">
 				</center> 
-				<p style="text-align: justify; padding-top:10px;">@lang('messages.maintenance')</p> 
+				<p class="b006">@lang('messages.maintenance')</p> 
 			</div> 
 			<div class="modal-footer"> </div> 
 		</div> 

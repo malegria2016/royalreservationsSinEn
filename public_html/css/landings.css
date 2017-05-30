@@ -14,19 +14,21 @@ input[type="text"] {width: 100% !important;}
 .b002 p {color: #fff;text-align: center;font-size: 1.5em;margin: 0;text-transform: uppercase;}
 .b003 {color: #202d50;font-size: .85em;font-weight: bold;}
 .b003 span {color: #c66600; font-size: .6em;}
+.b003:focus, .b003:active {color: #202d50 !important;}
 .b004 {padding: 11.6px;}
 .form-control {height: none !important;}
 .b005 {padding: 10px 0;}
+.b006 {text-align: justify; padding-top:10px;}
 
 
 /********** seccion garantias del resort **********/
 .b01 {background: #202d50;color: #fff;}
-.b01 img {float: left;padding: 28px 10px;}
-.b01 p {text-transform: uppercase;font-size: 1.2em;padding: 24px 0 10px;}
+.b01 img {float: left;padding: 20px 10px;width: 40px;}
+.b01 p {text-transform: uppercase;font-size: 1em;padding: 17px 0 5px;}
 .b01 p span {font-weight: bolder;}
 @media only screen and (max-width : 480px) {
-	.b01 img {padding: 18px 10px 0px;}
-	.b01 p {padding: 23px 0 10px;}
+	.b01 img {padding: 8px 10px 0px;}
+	.b01 p {padding: 5px 0 10px;}
 }
 
 
@@ -152,3 +154,10 @@ footer {margin-top: 0px !important;}
 .m04 {padding-top: 30px;padding-bottom: 10px;}
 .m05 {background: #0cd320 !important; color: #fff !important;text-transform: uppercase;box-shadow: 2px 2px 4px #989898 !important;}
 .m05:hover {background: #0efd26 !important;}
+.m06 {font-size: .6em !important;}
+.m07 {margin-bottom: 0 !important;color: #fff;}
+.m08 {border: 1px solid #ccc !important;}
+.modal-body {padding-top: 20px !important; padding-bottom: 20px !important;}
+.modal-body p {text-align: justify;color: #202d50 !important;}
+
+/********** seccion modal **********/
