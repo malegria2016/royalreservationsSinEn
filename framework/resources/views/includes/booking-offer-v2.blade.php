@@ -1,6 +1,6 @@
 <h1>Book with us</h1>
 <section>
-	<form class='booking' action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="">
+	<form class='booking' action="https://reservations.travelclick.com/bookings.jsp" method="GET" target="_blank" onsubmit="">
 		@if(isset($rate_access_code))
 			<input type="hidden" name="identifier" value="{{$rate_access_code}}">
 		@endif

@@ -11,6 +11,9 @@
 
 
 @section('style')
+<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cinzel:400,700" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/landings.css') }}">
 @endsection
 
@@ -46,17 +49,50 @@
 
 	/*--}}
 
+	@if($offer->end_date < $hoy)
+	<div class="container mainarea">
+    <div class="row">
+    	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margint50">
+    		<h2>@lang('messages.offers_old_1')</h2>
+    	</div>
+    	@if(count($all_offers) > 0)
+    		@foreach($all_offers as $key=>$offers)
+    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 offer marginb50">
+					<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offers->identifier)}}">
+					<img class="img-responsive marco" src="{{ asset('img/medium/'.$offers->identifier.'-'.App::getLocale().'.jpg') }}" alt="{{$offers->contents[0]->alt}}" title="{{$offers->contents[0]->alt}}">
+					</a>
+					<a href="{{url($prefix.Lang::get('routes.offers').'/'.$offers->identifier)}}">
+						<label class="pointer">{{$offers->contents[0]->headline}}</label>
+					</a>
+				</div>
+			@endforeach
+    	@endif
+    </div>
+    <div class="img-responsive"><img class="img-responsive" src="{{asset('img/general/division-01.png')}}" alt="separator"></div>
+    </div>
+	@endif
+
 <div class="container mainarea">
 	<div class="row">
     	<div class="col-md-8 nopadding">
-    		<img class="img-responsive" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg':'img/big/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}"/>
+    		<img class="img-responsive" src="{{asset((Agent::isMobile() && !Agent::isTablet()) ? 'img/small/'.$offer->identifier.'-'.App::getLocale().'.jpg':'img/offers/'.$offer->identifier.'-'.App::getLocale().'.jpg')}}" alt="{{$offer->contents[0]->alt}}"/>
     	</div>
+
+    	@if($offer->end_date >= $hoy)
     	<div class="b002">
         	<p>@lang('messages.form_title')</p>
     	</div>
     	<div class="col-md-4 b00">
     		@include('includes.booking-single-offer-new',['rate_access_code'=>($offer->rate_access_code != '' ? $offer->rate_access_code : null),'offers_resorts'=>$offer_resort2, 'ihotelier_type'=>($offer->ihotelier_type != '' ? $offer->ihotelier_type : null)])
     	</div>
+    	@else
+		<div class="col-md-4 b02">
+			<div class="offerInfo"><span style="">@lang('messages.offers_old_2')</span></div>
+    		<h2>{{$offer->contents[0]->title_short_description}}</h2>
+	        <p>{!!$offer->contents[0]->short_description!!}</p>
+		</div>
+		<div id="clockdiv" class="msgError"><span class="days"></span><span class="hours"></span><span class="minutes"></span><span class="seconds"></span></div><div id="clockday" class="msgError"><span class="days"></span><span class="hours"></span><span class="minutes"></span><span class="seconds"></span></div>
+    	@endif
 
     	<div class="col-md-12 b01">
 	        <div class="col-md-4 col-sm-12">
@@ -73,30 +109,33 @@
 	        </div>
 	        <div class="clear"></div>
 	    </div>
+
+	@if($offer->end_date >= $hoy)
     	<div class="col-md-8 b02">
 	        <h2>{{$offer->contents[0]->title_short_description}}</h2>
 	        <p>{!!$offer->contents[0]->short_description!!}</p>
 	        <hr>
 	    </div>
 
-		<div class="col-md-4 nopadding">
+		<div class="col-md-4 nopadding b034">
 			@if($offer->category==1)
     			@if($urgency==1)
-    			<div class="col-md-12 nopadding b031">
-		            <img src="{{asset('img/general/icon-01.png')}}" class="img01">
-		            <p>Time left (Hurry, <span>Only 1 day left</span>)</p>
+    			<div id="clockday" class="col-md-12 nopadding b031">
+		            <img src="{{asset('img/general/icon-01.png')}}" class="img01 b032">
+		            <p>Time left (Hurry, <span>Only <span class="days"></span> days left</span>)</p>
+		            <span class="msgError"><span class="hours"></span><span class="minutes"></span><span class="seconds"></span></span>
 		        </div>
 		        <div id="clockdiv" class="col-md-12 b03">
-		        	<div><span class="days">01</span><div class="smalltext">@lang('messages.days')</div></div>
+		        	<div><span class="days"></span><div class="smalltext">@choice('messages.days', 2)</div></div>
 		            <div><span>:</span><div class="smalltext">&nbsp;</div></div>
-		            <div><span class="hours">23</span><div class="smalltext">@lang('messages.hours')</div></div>
+		            <div class="b033"><span class="hours"></span><div class="smalltext">@lang('messages.hours')</div></div>
 		            <div><span>:</span><div class="smalltext">&nbsp;</div></div>
-		            <div><span class="minutes">18</span><div class="smalltext">@lang('messages.minutes')</div></div>
+		            <div class="b033"><span class="minutes"></span><div class="smalltext">@lang('messages.minutes')</div></div>
 		            <div><span>:</span><div class="smalltext">&nbsp;</div></div>
-		            <div><span class="seconds">34</span><div class="smalltext">@lang('messages.seconds')</div></div>
+		            <div class="b033"><span class="seconds"></span><div class="smalltext">@lang('messages.seconds')</div></div>
 		        </div> 
     			@else
-    			<div id="clockdiv" style="display:none;"><div><span class="days"></span></div><div><span class="hours"></span></div><div><span class="minutes"></span></div><div><span class="seconds"></span></div></div>
+    			<div id="clockdiv" class="msgError"><div><span class="days"></span></div><div><span class="hours"></span></div><div><span class="minutes"></span></div><div><span class="seconds"></span></div></div><div id="clockday" class="msgError"><span class="days"></span><span class="hours"></span><span class="minutes"></span><span class="seconds"></span></div>
 				<div class="col-md-12 b04">
 		            <img src="{{asset('img/general/icon-01.png')}}" class="img01 b044">
 		            <p>@lang('messages.act_now')</p>
@@ -108,7 +147,7 @@
 
     			@endif
     		@else
-    			<div id="clockdiv" style="display:none;"><div><span class="days"></span></div><div><span class="hours"></span></div><div><span class="minutes"></span></div><div><span class="seconds"></span></div></div>
+    			<div id="clockdiv" class="msgError"><div><span class="days"></span></div><div><span class="hours"></span></div><div><span class="minutes"></span></div><div><span class="seconds"></span></div></div><div id="clockday" class="msgError"><span class="days"></span><span class="hours"></span><span class="minutes"></span><span class="seconds"></span></div>
     			<div class="col-md-12 b04">
 		            <img src="{{asset('img/general/icon-01.png')}}" class="img01 b044">
 		            <p>@lang('messages.tx_1')</p>
@@ -130,14 +169,14 @@
 	        @endif
 
 	        @foreach($offer_contents_plan as $key=>$offer_content_plan)
-	        <div class="col-md-6 b056 b0551">
+	        <div class="col-md-6 b057">
 	            <div class="b053">
-	                <img src="{{asset('img/general/icon-03.png')}}" class="img01 img013">
+	                <img src="{{asset('img/general/icon-plan-'.$offer_content_plan->plan_id.'.png')}}" class="img01 img013">
 	                <p>{{$offer_content_plan->title}}</p>
 	            </div>
-	            <div class="b051">
+	            <div class="b051 b058">
 	                {!!$offer_content_plan->benefits!!}
-	                <button type="button" id="btn-plan{{$offer_content_plan->plan_id>0?$offer_content_plan->plan_id:99}}" class="btn btn-warning">@lang('messages.reserve_room')</button>
+	                <button type="button" id="btn-plan{{$offer_content_plan->plan_id>0?$offer_content_plan->plan_id:99}}" class="b059">@lang('messages.search')</button>
 	            </div>
 	        </div>
 	        @if(($key + 1) % 2 == 0)
@@ -145,7 +184,7 @@
 			@endif
 	        @endforeach
 
-	        <div class="col-md-6 b057 b0552">
+	        <div class="col-md-6 b057">
 	            <div class="">
 	                <div class="b0531">
 	                    <img src="{{asset('img/general/icon-05.png')}}" class="img01 img013">
@@ -168,13 +207,13 @@
 	        </div>
 
 	        @if($offer->contents[0]->conditions!="")
-	        <div class="col-md-6 b058 b0552">
+	        <div class="col-md-6 b057">
 	            <div class="">
 	                <div class="b0531">
 	                    <img src="{{asset('img/general/icon-07.png')}}" class="img01 img013">
 	                    <p>@lang('messages.terms')</p>
 	                </div>
-	                <div class="b051">{!!$offer->contents[0]->conditions !!}</div>
+	                <div class="b051 b058">{!!$offer->contents[0]->conditions !!}</div>
 	            </div>
 	        </div>
 	        @endif
@@ -187,10 +226,11 @@
 	        @foreach($resorts as $key=>$resort)
 
 	        <div class="b0611">
-	            <div class="b068 img01">
+	            <div class="col-md-3 col-xs-3 b068">
 	                <a href="{{url($prefix.Lang::get('routes.resorts').'/'.$resort->identifier)}}"><img src="{{asset('img/thumbnail/'.$resort->identifier.'.jpg')}}" alt="{{$resort->contents[0]->alt1}}"></a>
+	                <a href="#" class="b0693">View Room</a>
 	            </div>
-	            <div class="b069 img01">
+	            <div class="col-md-9 col-xs-9 b069">
 	                <p class="b062">{{ $resort->area }}, {{ $resort->location }}</p>
 	                <p class="b063"><a href="{{url($prefix.Lang::get('routes.resorts').'/'.$resort->identifier)}}"><span>{{ $resort->name }}</span></a></p>
 	                <div class="resort_stars">
@@ -202,7 +242,9 @@
 						@if($stars & 1)
 							<i class="fa fa-star-half-o"></i>
 						@endif
-						<br/>
+						<img src="{{asset('img/general/tripadvisor-stars'.$resort->rating_trip_advisor.'.jpg')}}" class="b0691 img02">
+						<div class="clear"></div>
+						<hr>
 						
 					</div>
 					@for($i=0;$i<count($offer_resort_plan); $i++)
@@ -217,18 +259,15 @@
 							@if($offer_resort_plan[$i]->plan_id==3)
 								<p class="b065">Bed and Breakfast</p>
 							@endif
-							<p class="b066">${{ $offer_resort_plan[$i]->price}} USD <span>@lang('messages.per_person')</span></p>
+							<p class="b066"><span>@lang('messages.starting_at')</span> ${{ $offer_resort_plan[$i]->price}} USD <span>@lang('messages.per_night')</span></p>
 							<div class="clear"></div>
 	                		<hr>
 						@endif
 					@endfor
-	           		
-	                <img src="{{asset('img/general/tripadvisor-stars'.$resort->rating_trip_advisor.'.jpg')}}" class="img01 b0691">
-	                <div class="clear"></div>
-	                
-	                <button type="button" id="btn-{{$resort->ihotelier_id}}" class="b067">@lang('messages.search')</button>
+	           		<button type="button" id="btn-{{$resort->ihotelier_id}}" class="b067">@lang('messages.search')</button>  
 	            </div>
 	            <div class="clear"></div>
+	            <hr class="b0692">
 	        </div>
 
 
@@ -268,21 +307,23 @@
 
 	    {!!$offer->contents[0]->footer !!}
 
+	@endif
+
 	</div><!--FIN ROW-->
 
 
 			<!-- Modal -->
 			<div id="dates" class="modal fade" role="dialog">
-			  <div class="modal-dialog modal-sm">
+			  <div class="modal-dialog modal-m">
 			    <!-- Modal content-->
 			    <div class="modal-content">
-			      <div  class="modal-header">
-			      	<h4 id="title" class="c_brown tx_bold">@lang('messages.form_title')</h4>
+			      <div  class="modal-header m02">
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 id="title" class="c_brown tx_bold m01">@lang('messages.form_title')</h4>
 			      </div>
 			      <div class="modal-body">
 
-			      	<form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" id="formModalSend" name="formModalSend">
+			      	<form action="https://reservations.travelclick.com/bookings.jsp" method="GET" target="_blank" id="formModalSend" name="formModalSend">
 			      		<input type="hidden" name="hotelid" id="hotelid">
 			      		@if($offer->ihotelier_type==1)<input type="hidden" name="RatePlanID" id="RatePlanID">@endif
 
@@ -299,7 +340,7 @@
 
 			      	</form>
 						
-					<form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" id="formModal" name="formModal" onsubmit="return validateBookingModal();">
+					<form action="https://reservations.travelclick.com/bookings.jsp" method="GET" target="_blank" id="formModal" name="formModal" onsubmit="return validateBookingModal();">	
 
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bookesp">
 							<span class="lbForm" id="txHotel">@lang('messages.select_resort')</span>	
@@ -342,16 +383,16 @@
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 							<span class="lbForm">@lang('messages.arrival')</span>
 							<div class='input-group date'>
-		                        <input id="dateinB" name="dateinB" type="text" class="form-control" style="margin: 0px;" value="{{$dateInDefault}}" />
+		                        <input id="dateinB" name="dateinB" type="text" class="form-control m03 calendario" style="margin: 0px;" value="{{$dateInDefault}}" />
 		                    </div>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 							<span class="lbForm">@lang('messages.departure')</span>
 							<div class='input-group date'>
-		                        <input id="dateoutB" name="dateoutB" type="text"  class="form-control" style="margin: 0px;" value="{{$dateOutDefault}}"/>
+		                        <input id="dateoutB" name="dateoutB" type="text"  class="form-control m03 calendario" style="margin: 0px;" value="{{$dateOutDefault}}"/>
 		                    </div>
 						</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
 					<span id="spAdultB" name="spAdultB" class="lbForm">@lang('messages.adults')</span>
 					<select name="adultsB" class="form-control" id="adultsB">
 						<option value="1">1</option>
@@ -366,7 +407,7 @@
 						<option value="10">10</option>
 					</select>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
 					<span id="spTeenB" name="spTeenB" class="lbForm">@lang('messages.teen')</span>
 					<select name="childrenB" class="form-control" id="childrenB">
 						<option value="0" selected>0</option>
@@ -377,7 +418,7 @@
 						<option value="5">5</option>
 					</select>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" >
 					<span id="spChildrenB" name="spChildrenB" class="lbForm">@lang('messages.children')</span>
 					<select name="children2B" class="form-control" id="children2B">
 						<option value="0" selected>0</option>
@@ -388,18 +429,15 @@
 						<option value="5">5</option>
 					</select>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<button type="submit" class="btn btn-success {{ Agent::isMobile()? 'btn-lg':''}} col-lg-2 col-md-2 col-sm-12 col-xs-12 form-control btnTemporal" id="btn-booking">@lang('messages.book_now')</button>
-
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m04">
+					<button type="submit" class="btn {{ Agent::isMobile()? 'btn-lg':''}} col-lg-2 col-md-2 col-sm-12 col-xs-12 form-control m05" id="btn-booking">@lang('messages.book_now')</button>
 					<input type="hidden" name="minimumB" name="minimumB">
 					<input type="hidden" name="tag_adultB" id="tag_adultB" value="@lang('messages.adults')">
 					<input type="hidden" name="tag_adult2B" id="tag_adult2B" value="@lang('messages.adults2')">
 					<input type="hidden" name="tag_teenB" id="tag_teenB" value="@lang('messages.teen')">
 					<input type="hidden" name="tag_childrenB" id="tag_childrenB" value="@lang('messages.children')">
 					<input type="hidden" name="tag_children2B" id="tag_children2B" value="@lang('messages.children2')">
-
 				</div>
-
 				<div class="clearfix"></div>
 							
 				<div class="alert alert-danger msgError" role="alert" id="error-minimum2">@lang('messages.error_minimum')</div>
@@ -415,10 +453,43 @@
 			<!-- Modal -->
 
 
-			
+			<!-- Modal Modify / Cancel Reservation -->
+			<div id="modifyForm" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
 
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">@lang('messages.cancel_title')</h4>
+			      </div>
+			      <div class="modal-body">
+			      	@lang('messages.cancel_text')
 
+			      	<form action="https://reservations.travelclick.com/bookings.jsp" method="GET" target="_blank" id="formModalReservation" name="formModalReservation">
+					  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					    <span class="lbForm" id="txHotel">@lang('messages.select_resort')</span>
+					    <select class="form-control" id="hotelid" name="hotelid"> <option value="0" selected="">Select Resort</option> <optgroup label="Mexican Caribbean">  <option value="95939" data-subtext="Riviera Maya">Grand Residences Riviera Cancun Resort</option>  <option value="86184" data-subtext="Playa del Carmen">The Royal Haciendas All Suites Resort &amp; Spa</option>  <option value="86169" data-subtext="Cancun Hotel Zone">The Royal Sands Resort &amp; Spa All Inclusive</option>  <option value="86182" data-subtext="Cancun Hotel Zone">The Royal Islander All Suites Resort</option>  <option value="86175" data-subtext="Cancun Hotel Zone">The Royal Caribbean All Suites Resort</option>  <option value="73601" data-subtext="Cancun Hotel Zone">The Royal Cancun All Suites  Resort</option>  </optgroup> <optgroup label="Caribbean Islands">  <option value="86179" data-subtext="Sint Maarten">Simpson Bay Resort &amp; Marina</option>  <option value="86180" data-subtext="Sint Maarten">The Villas at Simpson Bay Resort &amp; Marina</option>  <option value="86181" data-subtext="Curacao">The Royal Sea Aquarium Resort</option>  </optgroup> </select>
+					  </div>
+					  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+					    <span class="lbForm" id="txHotel">@lang('messages.lb_confirm')</span>
+					    <input id="confirmId" name="confirmId" type="text" class="form-control" value="" placeholder="@lang('messages.lb_confirm')" />
+					  </div>
+					  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+					  	<input id="languageid" name="languageid" type="hidden" value="{{App::getLocale()=='en'?'1':'2'}}"/>
+					  	<span class="lbForm">.</span>
+					  	<button type="submit" class="btn btn-success" id="btn">@lang('messages.lb_continue')</button>
+					  </div>
+					</form>
+					<div class="clearfix"></div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
 
+			  </div>
+			</div>
 
 <div class="container">
     <script>  
@@ -432,554 +503,11 @@ $variable_php=$offer->end_date;
 echo '<script languaje="JavaScript"> var varjs="'.$variable_php.'";</script>';
 /*--}}
 
-
-
-
-
-
 @stop
 @endif
 
 @section('javascript')
-<script>
-function validateBookingModal(){
-	var minimumBB  =document.formModal.minimumB.value;
-
-	var DateIn  = new Date(document.formModal.dateinB.value);
-	var DateOut = new Date(document.formModal.dateoutB.value);
-
-	if(((DateOut - DateIn) /1000/60/60/24) < minimumBB){
-	  $j("#error-minimum2").show("slow");
-	  return false;
-	}
-	else{
-	  $j("#error-minimum2").hide("slow");
-
-	  document.formModalSend.datein.value=document.formModal.dateinB.value;
-	  document.formModalSend.dateout.value=document.formModal.dateoutB.value;
-
-
-	  if(document.getElementById('hotelidC').style.display=='inline'){
-	  	document.formModalSend.hotelid.value=document.formModal.hotelidC.value;
-	  }
-	  if(document.getElementById('hotelidD').style.display=='inline'){
-	  	document.formModalSend.hotelid.value=document.formModal.hotelidD.value;
-	  }
-	  if(document.getElementById('hotelidE').style.display=='inline'){
-	  	document.formModalSend.hotelid.value=document.formModal.hotelidE.value;
-	  }
-
-	  if(document.formModal.RatePlanIDB) { document.formModalSend.RatePlanID.value=document.formModal.RatePlanIDB.value;}
-	  if(document.formModal.packageIdB) { document.formModalSend.packageId.value=document.formModal.packageIdB.value;}
-		
-	  var adultsBB   =document.formModal.adultsB.value;
-	  var childrenBB =document.formModal.childrenB.value;
-	  var children2BB=document.formModal.children2B.value;
-		
-	  $j("#adults").val(adultsBB);
-	  $j("#children").val(childrenBB);
-	  $j("#children2").val(children2BB);
-
-	  document.formModalSend.submit();
-	}
-	return false;
-}
-function asignaRatesC(T){ 
-	var rate=$j('#hotelidC option:selected').attr('id');
-	var min=$j('#hotelidC option:selected').attr('name');
-	var resort=$j('#hotelidC option:selected').attr('value');
-
-	if(document.formModal.RatePlanIDB) { document.formModal.RatePlanIDB.value=rate;}
-	if(document.formModal.packageIdB) { document.formModal.packageIdB.value=rate;}
-	document.formModal.minimumB.value=min;
-
-	changeBooking2(resort);
-}
-function asignaRatesD(T){
-	var rate=$j('#hotelidD option:selected').attr('id');
-	var min=$j('#hotelidD option:selected').attr('name');
-	var resort=$j('#hotelidD option:selected').attr('value');
-
-	if(document.formModal.RatePlanIDB) { document.formModal.RatePlanIDB.value=rate;}
-	if(document.formModal.packageIdB) { document.formModal.packageIdB.value=rate;}
-	document.formModal.minimumB.value=min;
-
-	changeBooking2(resort);
-}
-function asignaRatesE(T){
-	var rate=$j('#hotelidE option:selected').attr('id');
-	var min=$j('#hotelidE option:selected').attr('name');
-	var resort=$j('#hotelidE option:selected').attr('value');
-
-	if(document.formModal.RatePlanIDB) { document.formModal.RatePlanIDB.value=rate;}
-	if(document.formModal.packageIdB) { document.formModal.packageIdB.value=rate;}
-	document.formModal.minimumB.value=min;
-
-	changeBooking2(resort);
-}
-function changeBooking2(resort_id){
-	var tag_adultB = $j('#tag_adultB').val();
-	var tag_adult2B = $j('#tag_adult2B').val();
-	var tag_teenB = $j('#tag_teenB').val();
-	var tag_childrenB = $j('#tag_childrenB').val();
-	var tag_children2B = $j('#tag_children2B').val();
-
-	if(resort_id == "95939"){
-	    $j("#children2B").val("0");
-	    $j("#children2B").hide();
-	    $j("#spChildrenB").hide();
-	    $j("#spAdultB").text(tag_adult2B);
-	    $j("#spTeenB").text(tag_childrenB);
-	}
-	if(resort_id == "86182" || resort_id == "86175"){
-	    $j("#children2B").val("0");
-	    $j("#children2B").hide();
-	    $j("#spChildrenB").hide();
-	    $j("#spAdultB").text(tag_adultB);
-	    $j("#spTeenB").text(tag_children2B);
-	}
-	if(resort_id != "86182" && resort_id != "86175" && resort_id != "95939"){
-	    $j("#childrensB").val("0");
-	    $j("#spAdultB").text(tag_adultB);
-	    $j("#spTeenB").text(tag_teenB);
-	    $j("#spChildrenB").text(tag_childrenB);
-	    $j("#children2B").show();
-	    $j("#spChildrenB").show();
-	}
-
-}
-function getTimeRemaining(endtime) { 
-  var t = Date.parse(endtime) - Date.parse(new Date());
-  var seconds = Math.floor((t / 1000) % 60);
-  var minutes = Math.floor((t / 1000 / 60) % 60);
-  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  var days = Math.floor(t / (1000 * 60 * 60 * 24));
-  return {
-    'total': t,
-    'days':days,
-    'hours': hours,
-    'minutes': minutes,
-    'seconds': seconds
-  };
-}
-
-function initializeClock(id, endtime) {
-  var clock = document.getElementById(id);
-  var daysSpan = clock.querySelector('.days');
-  var hoursSpan = clock.querySelector('.hours');
-  var minutesSpan = clock.querySelector('.minutes');
-  var secondsSpan = clock.querySelector('.seconds');
-
-  function updateClock() {
-    var t = getTimeRemaining(endtime);
-
-    daysSpan.innerHTML = t.days;
-    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-    if (t.total <= 0) {
-      clearInterval(timeinterval);
-    }
-  }
-
-  updateClock();
-  var timeinterval = setInterval(updateClock, 1000);
-}
-
-//var deadline = new Date(2017,03,24, 01,00,00);
-var deadline = new Date(varjs);
-
-initializeClock('clockdiv', deadline);
-
-$j(document).ready(function(){
-	$j('#btn-73601').click(function(){ 
-		document.getElementById('txHotel').style.display='none'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		changeBooking2(73601);
-		$j('#dates').modal('show'); 
-		document.formModalSend.hotelid.value=73601;
-		if(Jrate73601 !=1010){ document.formModal.RatePlanIDB.value=Jrate73601; }
-		if(Jpackage73601 !=1010){ document.formModal.packageIdB.value=Jpackage73601; }
-		document.formModal.minimumB.value=Jminimum73601;
-	});
-	$j('#btn-86175').click(function(){
-		document.getElementById('txHotel').style.display='none'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		changeBooking2(86175);
-		$j('#dates').modal('show');
-		document.formModalSend.hotelid.value=86175;
-		if(Jrate86175 !=1010){ document.formModal.RatePlanIDB.value=Jrate86175; }
-		if(Jpackage86175 !=1010){ document.formModal.packageIdB.value=Jpackage86175; }
-		document.formModal.minimumB.value=Jminimum86175;
-	});
-	$j('#btn-86182').click(function(){
-		document.getElementById('txHotel').style.display='none'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		changeBooking2(86182);
-		$j('#dates').modal('show');
-		document.formModalSend.hotelid.value=86182;
-		if(Jrate86182 !=1010){ document.formModal.RatePlanIDB.value=Jrate86182; }
-		if(Jpackage86182 !=1010){ document.formModal.packageIdB.value=Jpackage86182; }
-		document.formModal.minimumB.value=Jminimum86182;
-	});
-	$j('#btn-86169').click(function(){
-		document.getElementById('txHotel').style.display='none'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		changeBooking2(86169);
-		$j('#dates').modal('show');
-		document.formModalSend.hotelid.value=86169;
-		if(Jrate86169 !=1010){ document.formModal.RatePlanIDB.value=Jrate86169; }
-		if(Jpackage86169 !=1010){ document.formModal.packageIdB.value=Jpackage86169; }
-		document.formModal.minimumB.value=Jminimum86169;
-	});
-	$j('#btn-86184').click(function(){
-		document.getElementById('txHotel').style.display='none'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		changeBooking2(86184);
-		$j('#dates').modal('show');
-		document.formModalSend.hotelid.value=86184;
-		if(Jrate86184 !=1010){ document.formModal.RatePlanIDB.value=Jrate86184; }
-		if(Jpackage86184 !=1010){ document.formModal.packageIdB.value=Jpackage86184; }
-		document.formModal.minimumB.value=Jminimum86184;		
-	});
-	$j('#btn-95939').click(function(){
-		document.getElementById('txHotel').style.display='none'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		changeBooking2(95939);
-		$j('#dates').modal('show');
-		document.formModalSend.hotelid.value=95939;
-		if(Jrate95939 !=1010){ document.formModal.RatePlanIDB.value=Jrate95939; }
-		if(Jpackage95939 !=1010){ document.formModal.packageIdB.value=Jpackage95939; }
-		document.formModal.minimumB.value=Jminimum95939;
-	});
-	$j('#btn-86179').click(function(){
-		document.getElementById('txHotel').style.display='none'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		changeBooking2(86179);
-		$j('#dates').modal('show');
-		document.formModalSend.hotelid.value=86179;
-		if(Jrate86179 !=1010){ document.formModal.RatePlanIDB.value=Jrate86179; }
-		if(Jpackage86179 !=1010){ document.formModal.packageIdB.value=Jpackage86179; }
-		document.formModal.minimumB.value=Jminimum86179;
-	});
-	$j('#btn-86180').click(function(){
-		document.getElementById('txHotel').style.display='none'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		changeBooking2(86180);
-		$j('#dates').modal('show');
-		document.formModalSend.hotelid.value=86180;
-		if(Jrate86180 !=1010){ document.formModal.RatePlanIDB.value=Jrate86180; }
-		if(Jpackage86180 !=1010){ document.formModal.packageIdB.value=Jpackage86180; }
-		document.formModal.minimumB.value=Jminimum86180;
-	});
-	$j('#btn-86181').click(function(){
-		document.getElementById('txHotel').style.display='none'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		changeBooking2(86181);
-		$j('#dates').modal('show');
-		document.formModalSend.hotelid.value=86181;
-		if(Jrate86181 !=1010){ document.formModal.RatePlanIDB.value=Jrate86181; }
-		if(Jpackage86181 !=1010){ document.formModal.packageIdB.value=Jpackage86181; }
-		document.formModal.minimumB.value=Jminimum86181;
-	});
-	$j('#btn-plan1').click(function(){
-		document.getElementById('txHotel').style.display='inline'; 
-		document.getElementById('hotelidC').style.display='inline';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='none';
-		var r=$j('#hotelidC option:selected').attr('value');
-		changeBooking2(r);
-		$j('#dates').modal('show');
-		var rate=$j('select option:selected').attr('id');
-		var min=$j('select option:selected').attr('name');
-		if(document.formModal.RatePlanIDB){ $j("#RatePlanID").val(rate); document.formModal.RatePlanIDB.value=rate;}
-		if(document.formModal.packageIdB) { $j("#packageId").val(rate);  document.formModal.packageIdB.value=rate;}
-		document.formModal.minimumB.value=min;
-		
-	});
-	$j('#btn-plan2').click(function(){
-		document.getElementById('txHotel').style.display='inline'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='inline';
-		document.getElementById('hotelidE').style.display='none';
-		var r=$j('#hotelidD option:selected').attr('value');
-		changeBooking2(r);
-		$j('#dates').modal('show');
-		
-		var rate=$j('select option:selected').attr('id');
-		var min=$j('select option:selected').attr('name');
-
-		if(document.formModal.RatePlanIDB){ $j("#RatePlanID").val(rate); document.formModal.RatePlanIDB.value=rate;}
-		if(document.formModal.packageIdB) { $j("#packageId").val(rate);  document.formModal.packageIdB.value=rate;}
-		
-		document.formModal.minimumB.value=min;
-	});
-	$j('#btn-plan3').click(function(){
-		document.getElementById('txHotel').style.display='inline'; 
-		document.getElementById('hotelidC').style.display='none';
-		document.getElementById('hotelidD').style.display='none';
-		document.getElementById('hotelidE').style.display='inline';
-		var r=$j('#hotelidE option:selected').attr('value');
-		changeBooking2(r);
-		$j('#dates').modal('show');
-		
-		var rate=$j('select option:selected').attr('id');
-		var min=$j('select option:selected').attr('name');
-
-		if(document.formModal.RatePlanIDB){ $j("#RatePlanID").val(rate); document.formModal.RatePlanIDB.value=rate;}
-		if(document.formModal.packageIdB) { $j("#packageId").val(rate);  document.formModal.packageIdB.value=rate;}
-		
-		document.formModal.minimumB.value=min;
-	});
-
-	if(typeof(travel_window) != "undefined"){
-      var temp = new Date();
-      var hoy  = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), 0, 0, 0, 0);
-      temp = new Date('1950-01-01');
-      var start = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), 0, 0, 0, 0);
-      temp = new Date('2100-12-31');
-      var end   = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), 0, 0, 0, 0);
-
-      for(var i=0; i<travel_window.length; i++){
-        temp= new Date(travel_window [i]['start_date']);
-        eval('var endDate'+(i+1)+ '= new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), 0, 0, 0, 0)');  
-        temp= new Date(travel_window [i]['end_date']);
-        eval('var startDate'+(i+2)+ '= new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), 0, 0, 0, 0)');  
-        if (hoy.valueOf() > endDate1.valueOf()){
-          endDate1=hoy;
-        }
-      }
-    }
-    else{
-      var nowTemp = new Date();
-      var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-    }
-
-    var checkin = $j('#dateinB').datepicker({
-
-        onRender: function (date) {                
-
-          if(typeof(travel_window) == "undefined"){
-            return date.valueOf() < now.valueOf() ? 'disabled' : '';
-          }
-
-          if(travel_window.length==1){
-            if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) { return  'disabled'; } 
-            else if (date.valueOf() < end.valueOf() && date.valueOf() > startDate2.valueOf()) { return 'disabled';} else{ return false; }
-          }
-          if(travel_window.length==2){
-            if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) { return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) { return 'disabled'; }
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate3.valueOf()) { return 'disabled';}else{ return false;}
-          }
-          if(travel_window.length==3){
-            if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) { return 'disabled'; }
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate4.valueOf()) { return 'disabled'; }else{ return false;}
-          }
-          if(travel_window.length==4){
-            if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==5){
-            if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==6){
-            if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==7){
-            if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate7.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate8.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==8){if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate7.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate8.valueOf() && date.valueOf() > startDate8.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate9.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==9){
-            if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate7.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate8.valueOf() && date.valueOf() > startDate8.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate9.valueOf() && date.valueOf() > startDate9.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate10.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==10){
-            if (date.valueOf() < endDate1.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate7.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate8.valueOf() && date.valueOf() > startDate8.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate9.valueOf() && date.valueOf() > startDate9.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate10.valueOf() && date.valueOf() > startDate10.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate11.valueOf()) {return 'disabled';}else{return false;}
-          }
-               
-        }
-    }).on('changeDate', function (ev) {
-        if (ev.date.valueOf() > checkout.date.valueOf()) {
-            var newDate = new Date(ev.date)
-            newDate.setDate(newDate.getDate() + 1);
-            checkout.setValue(newDate);
-        }
-        checkin.hide();
-        validateBookingSingle();
-        $j('#dateoutB')[0].focus();
-    }).data('datepicker');
-    var checkout = $j('#dateoutB').datepicker({
-        onRender: function (date) {
-
-          if(typeof(travel_window) == "undefined"){
-            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
-          }
-
-          if(travel_window.length==1){
-            if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) { return  'disabled'; } 
-            else if (date.valueOf() < end.valueOf() && date.valueOf() > startDate2.valueOf()) { return 'disabled';} else{ return false; }
-          }
-          if(travel_window.length==2){
-            if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) { return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) { return 'disabled'; }
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate3.valueOf()) { return 'disabled';}else{ return false;}
-          }
-          if(travel_window.length==3){
-            if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) { return 'disabled'; }
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate4.valueOf()) { return 'disabled'; }else{ return false;}
-          }
-          if(travel_window.length==4){
-            if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==5){
-            if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==6){
-            if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==7){
-            if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate7.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate8.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==8){if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate7.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate8.valueOf() && date.valueOf() > startDate8.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate9.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==9){
-            if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate7.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate8.valueOf() && date.valueOf() > startDate8.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate9.valueOf() && date.valueOf() > startDate9.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate10.valueOf()) {return 'disabled';}else{return false;}
-          }
-          if(travel_window.length==10){
-            if (date.valueOf() < checkin.date.valueOf() && date.valueOf() > start.valueOf()) {return  'disabled';} 
-            else if (date.valueOf() < endDate2.valueOf() && date.valueOf() > startDate2.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate3.valueOf() && date.valueOf() > startDate3.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate4.valueOf() && date.valueOf() > startDate4.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate5.valueOf() && date.valueOf() > startDate5.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate6.valueOf() && date.valueOf() > startDate6.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate7.valueOf() && date.valueOf() > startDate7.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate8.valueOf() && date.valueOf() > startDate8.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate9.valueOf() && date.valueOf() > startDate9.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < endDate10.valueOf() && date.valueOf() > startDate10.valueOf()) {return 'disabled';}
-            else if(date.valueOf() < end.valueOf() && date.valueOf() > startDate11.valueOf()) {return 'disabled';}else{return false;}
-          }
-
-        }
-    }).on('changeDate', function (ev) {
-        checkout.hide();
-        validateBookingSingle();
-    }).data('datepicker');
-
-
-});
-
-</script>
+<script type="text/javascript" src="{{ asset('js/offer.min.js') }}"></script>
 @stop
 
 @if($offer->id==1)

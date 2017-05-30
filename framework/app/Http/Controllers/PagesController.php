@@ -209,7 +209,6 @@ class PagesController extends Controller{
 		$destinations_car = Destination::caribbean()->active()
 		->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])->get();
 
-		//return dd($destinations_car->toArray());
 		View::share('phones_customer',$this->phones_customer);
 		View::share('phones_mex',$this->phones_mex);
 		View::share('phones_car',$this->phones_car);
@@ -260,7 +259,6 @@ class PagesController extends Controller{
 			View::share('phones_car',$this->phones_car);
 			View::share('phone_skype',$this->phone_skype_mex);
 
-			//return dd($experiences);
 			return View('pages.experiences', compact('page','experiences'));
 		}
 	}
@@ -274,7 +272,7 @@ class PagesController extends Controller{
 			$resorts = Resort::active()->whereHas('experiences', function($q) use ($experience){
 					$q->where('id', $experience->id);
 				})->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])->get();
-			//return dd($resorts->toArray());
+			
 			$experiences_routes = Experience::active()->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])->get();
 			View::share('phones_customer',$this->phones_customer);
 			View::share('phones_mex',$this->phones_mex);
@@ -488,7 +486,7 @@ class PagesController extends Controller{
 						->whereHas('resorts', function($q) use ($resorts){$q->where('id', $resorts[0]->id);})
 						->whereHas('contents', function($q){$q->where('lang_id', $this->lang_id);})
 						->with(['contents' => function($query){$query->where('lang_id', '=', $this->lang_id);}])
-						->where('mobile_only',0)->where('main',1)->orderBy('priority','desc')->get();
+						->where('mobile_only',0)->where('main',1)->orderBy('priority','desc')->take(3)->get();
 						//return dd($all_offers->toArray());
 
 			$et_time=date('H:i:s');
@@ -532,7 +530,7 @@ class PagesController extends Controller{
 
 			}// FIN convierte fechas a TX y por idioma del vector Travel Window
 
-			$reviews=App\Review::active()->where('website_id','11')->take(3)->get();
+			$reviews=App\Review::active()->where('website_id','11')->where('lang_id',$this->lang_id)->take(3)->get();
 			
 			$offer_resort_plan=DB::table('offer_resort_plan')
 	            ->join('accommodation_contents','offer_resort_plan.room', '=', 'accommodation_contents.accommodation_id')
@@ -541,22 +539,15 @@ class PagesController extends Controller{
 	            ->where('accommodation_contents.lang_id',$this->lang_id)
 	            ->get();
 
-	        
-
-			//$offer_resort_plan= App\OfferResortPlan::where('lang_id', '=', $this->lang_id)->where('offer_id', $offer->id)->get();  
-			//return dd($offer_resort_plan);
 			$offer_contents_plan=App\OfferContentPlan::where('lang_id', '=', $this->lang_id)->where('offer_id', $offer->id)->get();
 
 			//controla variable de sentido de urgencia
 			$urgency=0;
 			$diferencia = (strtotime($offer->end_date) - strtotime(date('Y-m-d')))/60/60/24;
-			if($diferencia<7 && $diferencia>0){
+			if($diferencia<4 && $diferencia>0){
 				$urgency=1;
 			}
 
-			//return dd($offer_resort_plan);
-
-			//return View('pages.offer-new', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time'));
 			return View('pages.offer-new', compact('offer','resorts','all_offers','offer_resort2','travel_window','et_time','end_date','tx_tw','reviews','urgency','offer_resort_plan','offer_contents_plan'));
 		}else{
 			abort(404);

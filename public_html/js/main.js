@@ -4,7 +4,7 @@ var gr=0; var trc=0; var rc=0; var rh=0; var ri=0; var sb=0; var sa=0; var vsb=0
 $j(document).ready(function () {
     $j().UItoTop({easingType: 'easeOutQuart'});
     $j('#hotelid').selectpicker();
-
+    
     //scroll
     var headerHeight = $j('header').height();
     var headerWidth = $j('header').width();
