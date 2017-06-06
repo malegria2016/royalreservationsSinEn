@@ -461,10 +461,10 @@
 			      <div class="modal-body">
 			      	@lang('messages.cancel_text')
 
-			      	<form action="https://reservations.travelclick.com/bookings.jsp" method="GET" target="_blank" id="formModalReservation" name="formModalReservation">
+			      	<form action="https://reservations.travelclick.com/bookings.jsp" method="GET" target="_blank" id="formModalReservation" name="formModalReservation" onsubmit="return validateEditForm();">
 					  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 					    <span class="lbForm" id="txHotel">@lang('messages.select_resort')</span>
-					    <select class="form-control" id="hotelid" name="hotelid"> <option value="0" selected="">Select Resort</option> <optgroup label="Mexican Caribbean">  <option value="95939" data-subtext="Riviera Maya">Grand Residences Riviera Cancun Resort</option>  <option value="86184" data-subtext="Playa del Carmen">The Royal Haciendas All Suites Resort &amp; Spa</option>  <option value="86169" data-subtext="Cancun Hotel Zone">The Royal Sands Resort &amp; Spa All Inclusive</option>  <option value="86182" data-subtext="Cancun Hotel Zone">The Royal Islander All Suites Resort</option>  <option value="86175" data-subtext="Cancun Hotel Zone">The Royal Caribbean All Suites Resort</option>  <option value="73601" data-subtext="Cancun Hotel Zone">The Royal Cancun All Suites  Resort</option>  </optgroup> <optgroup label="Caribbean Islands">  <option value="86179" data-subtext="Sint Maarten">Simpson Bay Resort &amp; Marina</option>  <option value="86180" data-subtext="Sint Maarten">The Villas at Simpson Bay Resort &amp; Marina</option>  <option value="86181" data-subtext="Curacao">The Royal Sea Aquarium Resort</option>  </optgroup> </select>
+					    <select class="form-control" id="hotelid" name="hotelid" onchange="validateEditForm()"> <option value="0" selected="">@lang('messages.select_resort')</option> <optgroup label="Mexican Caribbean">  <option value="95939" data-subtext="Riviera Maya">Grand Residences Riviera Cancun Resort</option>  <option value="86184" data-subtext="Playa del Carmen">The Royal Haciendas All Suites Resort &amp; Spa</option>  <option value="86169" data-subtext="Cancun Hotel Zone">The Royal Sands Resort &amp; Spa All Inclusive</option>  <option value="86182" data-subtext="Cancun Hotel Zone">The Royal Islander All Suites Resort</option>  <option value="86175" data-subtext="Cancun Hotel Zone">The Royal Caribbean All Suites Resort</option>  <option value="73601" data-subtext="Cancun Hotel Zone">The Royal Cancun All Suites  Resort</option>  </optgroup> <optgroup label="Caribbean Islands">  <option value="86179" data-subtext="Sint Maarten">Simpson Bay Resort &amp; Marina</option>  <option value="86180" data-subtext="Sint Maarten">The Villas at Simpson Bay Resort &amp; Marina</option>  <option value="86181" data-subtext="Curacao">The Royal Sea Aquarium Resort</option>  </optgroup> </select>
 					  </div>
 					  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
 					    <span class="lbForm" id="txHotel">@lang('messages.lb_confirm')</span>
@@ -477,6 +477,8 @@
 					  </div>
 					</form>
 					<div class="clearfix"></div>
+					<hr>
+					<div class="alert alert-danger" id="msg" style="display: none;"></div>
 			      </div>
 			    </div>
 

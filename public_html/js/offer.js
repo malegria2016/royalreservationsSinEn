@@ -1,3 +1,27 @@
+function validateEditForm(){
+	if(document.formModalReservation.hotelid.value == "0"){
+		if(document.formModalReservation.languageid.value=="1"){
+			document.getElementById("msg").innerHTML = "Please select the Resort.";
+		}
+		if(document.formModalReservation.languageid.value=="2"){
+			document.getElementById("msg").innerHTML = "Por favor seleccione el Resort de su Reservación.";
+		}
+		$j("#msg").show("slow");
+    	return false;
+  	}
+  	if ($j("#confirmId").val() == ''){
+  		if(document.formModalReservation.languageid.value=="1"){
+			document.getElementById("msg").innerHTML = "Please enter your confirmation number.";
+		}
+		if(document.formModalReservation.languageid.value=="2"){
+			document.getElementById("msg").innerHTML = "Por favor ingrese su número de confirmación.";
+		}
+    	$j("#msg").show("slow");
+    	return false;
+  	}
+  	return true;
+}
+
 function validateBookingModal(){
 	var minimumBB  =document.formModal.minimumB.value;
 
