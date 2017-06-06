@@ -62,6 +62,7 @@
 						<span class="pull-left price">${{$accomodation->price}} USD <small>@lang('messages.starting_person')</small></span>
 					@endif
 				@endif
+				<form action="https://reservations.travelclick.com/bookings.jsp" method="GET" target="_blank">
 					<input name="hotelid" type="hidden" value="{{$resort->ihotelier_id}}" />
 					<input name="themeid" type="hidden" value="{{$resort->ihotelier_theme}}" />
 					@if($accomodation->ihotelier_id)
