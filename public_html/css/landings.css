@@ -1,4 +1,4 @@
-body {background: #f2f1ee !important;font-family: 'Lato', sans-serif !important;}
+body {background: #f2f1ee !important;}
 .nopadding {padding: 0 !important;}
 .mainarea {background: #fff;border-left: 1px solid #d1d1d1;border-right: 1px solid #d1d1d1;}
 input[type="text"] {width: 100% !important;}
@@ -41,15 +41,15 @@ input[type="text"] {width: 100% !important;}
 
 /********** seccion timer **********/
 .b03 {background: #9c9c9c;}
-.b031 {background: #e21a1a;border-left: 1px solid #fff;border-bottom: 5px solid #a32626;border-top: 1px solid #fff;color: #fff;font-family: 'Oswald', sans-serif;text-align: center;font-size: 1.4em}
+.b031 {background: #e21a1a;border-left: 1px solid #fff;border-bottom: 5px solid #a32626;border-top: 1px solid #fff;color: #fff;text-align: center;font-size: 1.4em}
 .b031 p {font-size: 1em;text-align: center;padding: 0;margin: 5px;}
 .b031 span {font-size: .7em;}
 .b032 {display: block;top: 5px;left: 10%;position: absolute;}
 .b033 {width: 20%;}
 #clockdiv{text-align: center;padding-bottom: 15px;border-left: 1px solid #fff;}
 #clockdiv > div{display: inline-block;}
-#clockdiv div span, #clockdiv span {color: #ffe300;text-shadow: 1px 1px 3px #4d4500;font-size: 70px;font-family: 'Oswald', sans-serif;}
-#clockdiv div div {color: #fff;font-family: 'Oswald', sans-serif;font-weight: 100;}
+#clockdiv div span, #clockdiv span {color: #ffe300;text-shadow: 1px 1px 3px #4d4500;font-size: 70px;}
+#clockdiv div div {color: #fff;font-weight: 100;}
 @media screen and (max-width: 480px) {
 	#clockdiv { font-size: 20px;}
 	#clockdiv > div{padding: 2px;}
@@ -57,7 +57,7 @@ input[type="text"] {width: 100% !important;}
 
 
 /********** seccion booking window **********/
-.b04 {background: #8d8d8d;border-bottom: 5px solid #6f6f6f;font-family: 'Oswald', sans-serif;color: #fff;}
+.b04 {background: #8d8d8d;border-bottom: 5px solid #6f6f6f;color: #fff;}
 .b041 {background: #ffff93;border-bottom: 1px solid #d1d1d1; text-align: center;}
 .b042 {color:#202d50;font-size: 1.5em;padding-top: 20px;}
 .b043 {color: #c66600;font-size: 1em;padding-bottom: 20px;}
@@ -67,16 +67,16 @@ input[type="text"] {width: 100% !important;}
 
 /********** seccion texto oferta principal **********/
 .b05 {border-right: 1px solid #d1d1d1;}
-.b05 h1 {color: #202d50;border-bottom: none !important;margin: 0;padding: 10px 0 0 20px;text-align: left;font-family: 'Oswald', sans-serif !important;font-size: 2.2em !important;}
-.b05 h3 {font-family: 'Playfair Display', serif;color: #006ec6;text-transform: none;margin: 0;padding: 0 0 0 20px;font-size: 1.2em;font-weight: bold;}
-.b05 h4 {color: #c66600;font-family: 'Oswald', sans-serif;font-weight: 100;margin: 0;padding: 0 0 0px 20px;text-transform: none;}
+.b05 h1 {color: #202d50;border-bottom: none !important;margin: 0;padding: 10px 0 0 20px;text-align: left;font-size: 2.2em !important;}
+.b05 h3 {color: #006ec6;text-transform: none;margin: 0;padding: 0 0 0 20px;font-size: 1.2em;font-weight: bold;}
+.b05 h4 {color: #c66600;font-weight: 100;margin: 0;padding: 0 0 0px 20px;text-transform: none;}
 .b05 p {color: #202d50;margin: 0;padding: 10px 20px 10px 20px;}
 .b051 {background: #f7f7f7;padding-top: 15px;padding-right: 15px;padding-bottom: 20px;}
 .b051 ul li {list-style: url(../img/general/icon-02.png);padding-bottom: 10px;color: #202d50}
 .b051 p {text-align: center;}
 .b053 {background: #057ddd;}
 .b0531 {background: #057ddd;}
-.b053 p, .b0531 p {color: #fff;border-bottom: 5px solid #ffe300;font-family: 'Oswald', sans-serif !important; font-size: 1.3em;}
+.b053 p, .b0531 p {color: #fff;border-bottom: 5px solid #ffe300;font-size: 1.3em;}
 .b054 {}
 .b056 {}
 .b057, .b054 {padding-bottom: 30px;}
@@ -89,11 +89,11 @@ input[type="text"] {width: 100% !important;}
 /********** seccion aside hotels **********/
 .b06 {}
 .b06 hr {border-top: 1px solid #d1d1d1;margin: 0;}
-.b061 {color: #202d50;font-family: 'Oswald', sans-serif !important;font-size: 1.7em;padding-top: 20px;}
+.b061 {color: #202d50;font-size: 1.7em;padding-top: 20px;}
 .b0611 {padding-bottom: 20px;}
 .b0611 img {padding-right: 15px;}
 .b062 {color: #202d50;margin: 0;padding: 0 0 5px 0;font-size: .9em;}
-.b063 {color: #006ec6;margin: 0;padding: 0;font-family: 'Cinzel', serif;font-size: 1.2em;line-height: 1em;}
+.b063 {color: #006ec6;margin: 0;padding: 0;font-size: 1.2em;line-height: 1em;}
 .b064 {color: #c66600;margin: 0;padding: 0;font-size: .75em;}
 .b065 {color: #006ec6;margin: 0;padding: 0;font-size: .7em;float: left;font-weight: bold;}
 .b066 {color: #ff6600;font-size: 1.1em; font-weight: bold;float: right;margin-bottom: 2px;margin-top: 2px;}
@@ -112,9 +112,9 @@ input[type="text"] {width: 100% !important;}
 
 
 /********** seccion reviews **********/
-.b07 {color: #202d50;font-family: 'Oswald', sans-serif !important;font-size: 1.7em;}
+.b07 {color: #202d50;font-size: 1.7em;}
 .b071 {color: #202d50;margin: 0;}
-.b072 {color: #c66600;font-family: 'Playfair Display', serif;font-weight: bold;}
+.b072 {color: #c66600;font-weight: bold;}
 .b073 {color: #0072cd;}
 .b074 {margin: 0 0 16px 0;}
 @media screen and (max-width: 480px) {
@@ -124,8 +124,8 @@ input[type="text"] {width: 100% !important;}
 
 /********** seccion banner best deal **********/
 .b08 {background: #fff url(../img/general/fondo-best-option.jpg);text-align: center;}
-.b081 {color: #0072cd;font-family: 'Oswald', sans-serif !important;font-size: 2.3em;padding: 35px 0 0 0;margin: 0;}
-.b082 {color: #ff6600;font-family: 'Cinzel', serif;font-size: 1.6em;}
+.b081 {color: #0072cd;font-size: 2.3em;padding: 35px 0 0 0;margin: 0;}
+.b082 {color: #ff6600;font-size: 1.6em;}
 .b083 {color: #00345e;width: 80%;margin: 0 auto;padding: 0 0 32px;}
 @media screen and (max-width: 480px) {
 	.b08 {display: none;}
@@ -134,7 +134,7 @@ input[type="text"] {width: 100% !important;}
 
 /********** seccion best deal/book now/why book/flexible cancellations **********/
 .b09 {padding: 50px 0;}
-.b091 {color: #c66600;font-family: 'Playfair Display', serif;font-size: 1.5em;}
+.b091 {color: #c66600;font-size: 1.5em;}
 .b09 img {padding-right: 30px;padding-bottom: 0px;}
 .b09 p {text-align: justify}
 .b09 p:last-child {text-align: center;}

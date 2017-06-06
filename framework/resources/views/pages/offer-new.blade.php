@@ -11,9 +11,6 @@
 
 
 @section('style')
-<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Cinzel:400,700" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/landings.css') }}">
 @endsection
 

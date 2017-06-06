@@ -3,7 +3,7 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner txtBanner" role="listbox">
 			<div class="item active">
-				<img src=" {{ asset($img1) }} " alt="{{ $alt1 }}">
+				<img src="{{ asset($img1) }}" alt="{{ $alt1 }}">
 				<div class="carousel-caption"><p class="linksSlider">{!! $caption1  !!}</p></div>
 			</div>
 			<div class="item ">
