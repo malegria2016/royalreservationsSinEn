@@ -304,7 +304,7 @@ else{
 
 });
 
-function loadScript(url, callback){
+/*function loadScript(url, callback){ **Se retira temp**
     var head = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
@@ -312,7 +312,7 @@ function loadScript(url, callback){
     script.onreadystatechange = callback;
     script.onload = callback;
     head.appendChild(script);
-}function MiArchivoCargado(){/*archivo agregado*/}
+}function MiArchivoCargado(){/*archivo agregado*/ /*}*/
 
 function changeBooking(value){
   var tag_adult = $j('#tag_adult').val();
@@ -328,10 +328,10 @@ function changeBooking(value){
     $j("#spAdult").text(tag_adult2);
     $j("#spTeen").text(tag_children);
 
-    if(gr==0){
+    /*if(gr==0){ **se retira temp**
       gr=1;
       loadScript("https://royalreservations.com/js/gtm/grand-residences.js", MiArchivoCargado);
-    }
+    }*/
 
   }
   if(value == "86175"){
@@ -348,10 +348,10 @@ function changeBooking(value){
     $j("#select-childrens").show();
     $j("#spChildren").show();*/
 
-    if(rc==0){
+    /*if(rc==0){ **se retira temp**
       rc=1;
       loadScript("https://royalreservations.com/js/gtm/the-royal-caribbean.js", MiArchivoCargado);
-    }
+    }*/
   }
   if(value == "86182"){
     $j("#select-childrens").val("0");
@@ -367,10 +367,10 @@ function changeBooking(value){
     $j("#select-childrens").show();
     $j("#spChildren").show();*/
 
-    if(ri==0){
+    /*if(ri==0){  **se retira temp**
       ri=1;
       loadScript("https://royalreservations.com/js/gtm/the-royal-islander.js", MiArchivoCargado);
-    }
+    }*/
   }
   if(value=="73601"){
     $j("#select-childrens").val("0");
@@ -380,10 +380,10 @@ function changeBooking(value){
     $j("#select-childrens").show();
     $j("#spChildren").show();
 
-    if(trc==0){
+    /*if(trc==0){  **se retira temp**
       trc=1;
       loadScript("https://royalreservations.com/js/gtm/the-royal-cancun.js", MiArchivoCargado);
-    }
+    }*/
   }
   if(value=="86169"){
     $j("#select-childrens").val("0");
@@ -403,10 +403,10 @@ function changeBooking(value){
       $j("#select-childrens").show();
       $j("#spChildren").show();
 
-    if(rh==0){
+    /*if(rh==0){  **se retira temp**
       rh=1;
       loadScript("https://royalreservations.com/js/gtm/the-royal-haciendas.js", MiArchivoCargado);
-    }
+    }*/
   }
   if(value=="86179"){
       $j("#select-childrens").val("0");
@@ -416,10 +416,10 @@ function changeBooking(value){
       $j("#select-childrens").show();
       $j("#spChildren").show();
 
-      if(sb==0){
+      /*if(sb==0){  **se rerira temp**
         sb=1;
         loadScript("https://royalreservations.com/js/gtm/simpson-bay.js", MiArchivoCargado);
-      }
+      }*/
   }
   if(value=="86180"){
       $j("#select-childrens").val("0");
@@ -429,10 +429,10 @@ function changeBooking(value){
       $j("#select-childrens").show();
       $j("#spChildren").show();
 
-    if(vsb==0){
+    /*if(vsb==0){  **se retira temp**
       vsb=1;
       loadScript("https://royalreservations.com/js/gtm/the-villas.js", MiArchivoCargado);
-    }
+    }*/
   }
   if(value=="86181"){
       $j("#select-childrens").val("0");
@@ -442,10 +442,10 @@ function changeBooking(value){
       $j("#select-childrens").show();
       $j("#spChildren").show();
       
-      if(sa==0){
+      /*if(sa==0){  **se retira temp**
         sa=1;
         loadScript("https://royalreservations.com/js/gtm/the-royal-sea.js", MiArchivoCargado);
-      }
+      }*/
   }
 
 

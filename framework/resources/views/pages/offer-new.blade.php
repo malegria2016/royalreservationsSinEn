@@ -502,10 +502,9 @@ echo '<script languaje="JavaScript"> var varjs="'.$variable_php.'";</script>';
 
 @section('javascript')
 <script type="text/javascript" src="{{ asset('js/offer.min.js') }}"></script>
-@stop
 
-@if($offer->id==1)
-	@section('javascript')
+@if($offer->id==113 && App::getLocale() == 'en')
+	
 	<!--Activity name for this tag: 137484-PageViews Expedia 02.05.2017-->
 	<script type='text/javascript'>
 	var axel = Math.random()+"";
@@ -515,5 +514,8 @@ echo '<script languaje="JavaScript"> var varjs="'.$variable_php.'";</script>';
 	<noscript>
 	<img src="https://pubads.g.doubleclick.net/activity;xsp=221297;ord=1?" width=1 height=1 border=0/>
 	</noscript>
-	@stop
+	
 @endif
+
+
+@stop

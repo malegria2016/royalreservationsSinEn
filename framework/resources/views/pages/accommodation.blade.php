@@ -10,16 +10,6 @@
 @section('og_image', url('img/medium/'.$resort->identifier.'-1.jpg'))
 @section('og_description', $resort->contents[0]->metadescription)
 
-@section('style')
-	<style type="text/css">
-		/*@media (min-width: 768px)
-			.modal-dialog {
-			    width: 1024px !important;
-			    margin: 30px auto;
-			}*/
-	</style>	
-@endsection
-
 @section('container')
 <div class="container">
 	<div class="row margint30">
@@ -72,7 +62,6 @@
 						<span class="pull-left price">${{$accomodation->price}} USD <small>@lang('messages.starting_person')</small></span>
 					@endif
 				@endif
-					<form action="https://bookings.ihotelier.com/bookings.jsp" method="GET" target="_blank" onsubmit="_gaq.push(['_link', 'https://bookings.ihotelier.com/bookings.jsp']);">
 					<input name="hotelid" type="hidden" value="{{$resort->ihotelier_id}}" />
 					<input name="themeid" type="hidden" value="{{$resort->ihotelier_theme}}" />
 					@if($accomodation->ihotelier_id)
@@ -88,7 +77,9 @@
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="title_modal"><strong>{!! $accomodation->contents[0]->name !!}</strong></div>
 				<div class="center">
+				@if($resort->id<'6')
 				<img  src="{{asset('img/rooms/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}" class="img-responsive" width="85%">
+				@endif
 				</div>
 			</div>
 		</div>
