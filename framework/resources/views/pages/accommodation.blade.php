@@ -78,7 +78,7 @@
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="title_modal"><strong>{!! $accomodation->contents[0]->name !!}</strong></div>
 				<div class="center">
-				@if($resort->id<'6')
+				@if($render!=100)
 				<img  src="{{asset('img/rooms/'.$accomodation->identifier.'.jpg')}}" alt="{{$accomodation->contents[0]->alt}}" class="img-responsive" width="85%">
 				@endif
 				</div>

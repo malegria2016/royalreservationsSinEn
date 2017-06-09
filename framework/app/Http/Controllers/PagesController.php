@@ -530,7 +530,7 @@ class PagesController extends Controller{
 
 			}// FIN convierte fechas a TX y por idioma del vector Travel Window
 
-			$reviews=App\Review::active()->where('website_id','11')->where('lang_id',$this->lang_id)->take(3)->get();
+			$reviews=App\Review::active()->where('website_id','11')->where('lang_id',$this->lang_id)->inRandomOrder()->take(3)->get();
 			
 			$offer_resort_plan=DB::table('offer_resort_plan')
 	            ->join('accommodation_contents','offer_resort_plan.room', '=', 'accommodation_contents.accommodation_id')

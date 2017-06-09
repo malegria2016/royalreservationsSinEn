@@ -31,18 +31,18 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/all.min.css') }}">
+		<!--<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>-->
+
+		<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700|Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+
 		@yield('style')	
 	</head>
 
 	<body>
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/all.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-		<link rel="preload" href="{{ asset('css/flexslider.css') }}" as="style" onload="this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="{{ asset('css/flexslider.css') }}"></noscript>
-
-		<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-
+		
 		@include('includes.header')
 
 		@yield('anuncio')
@@ -59,7 +59,7 @@
 		@include('includes.footer')
 		
 		<script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/main.min.js') }}"></script>
 
 		@yield('javascript')
 

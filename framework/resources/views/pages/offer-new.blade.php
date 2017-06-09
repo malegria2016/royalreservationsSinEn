@@ -9,12 +9,6 @@
 @section('og_image', asset('img/medium/'.$offer->identifier.'-'.App::getLocale().'.jpg'))
 @section('og_description', $offer->contents[0]->metadescription)
 
-
-@section('style')
-<link rel="stylesheet" href="{{ asset('css/landings.css') }}">
-@endsection
-
-
 @section('container')
 
 {{--*/  $prefix='' /*--}}
@@ -501,7 +495,6 @@ echo '<script languaje="JavaScript"> var varjs="'.$variable_php.'";</script>';
 @endif
 
 @section('javascript')
-<script type="text/javascript" src="{{ asset('js/offer.min.js') }}"></script>
 
 @if($offer->id==113 && App::getLocale() == 'en')
 	

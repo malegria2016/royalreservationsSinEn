@@ -15,7 +15,6 @@
 
 	@if(isset($rate_access_code))<input type="hidden" name="identifier" value="{{$rate_access_code}}">@endif
 
-
 	<div class="col-md-6 b004">
 		<label>@lang('messages.arrival')</label>
 		<div class="input-group espCalendario">
@@ -72,7 +71,6 @@
 	</div>
 	<div class="clearfix"></div>
 	<a href="#" class="b003" role="button" data-toggle="modal" data-target="#modifyForm">@lang('messages.modify') <span>/ @lang('messages.cancel')<span></a>
-	<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
     <img src="{{asset('img/general/payments.png')}}" class="b005">
 </form>
 
@@ -84,7 +82,7 @@
 <input type="hidden" name="tag_children2" id="tag_children2" value="@lang('messages.children2')">
 <input type="hidden" name="minimum" id="minimum" value="0">
 
-<div id="mantenimiento" class="modal fade" role="dialog"> 
+<!--<div id="mantenimiento" class="modal fade" role="dialog"> 
 	<div class="modal-dialog"> 
 		<div class="modal-content"> 
 			<div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button></div> <div class="modal-body" style="padding: 8%;"> 
@@ -96,6 +94,6 @@
 			<div class="modal-footer"> </div> 
 		</div> 
 	</div> 
-</div>
+</div>-->
 
 <div class="clear"></div>
