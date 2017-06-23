@@ -108,7 +108,7 @@ return [
     'expiring'=>'This offer is only valid until…',
     'terms'=>'Terms and conditions',
     'travel_window'=>'When you can travel',
-    'minimun'=>'nigth-stay minimum required',
+    'minimun'=>'nigths-stay minimum required',
     'resorts_apply'=>'Your choice of hotels',
     'reviews'=>'What our guests are saying',
     'modify'=>'Modify your Reservation',
