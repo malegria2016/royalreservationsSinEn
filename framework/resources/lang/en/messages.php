@@ -58,8 +58,8 @@ return [
 	'customer_service'=>'Customer Service',
 	'for_mexico'=>'For Resorts in Mexico',
 	'for_caribbean'=>'St. Maarten and Curaraco',
-	'contact_title'=>'Royal Reservations | Contact',
-	'contact_meta'=>'Royal Reservations contact page',
+	'contact_title'=>'Royal Reservations Cancun | Contact us',
+	'contact_meta'=>'Wheter you have a question or a comment about one of our Resorts in the Caribbean, we are looking forward to hearing from you.',
 	'contact_content'=>'<h1>About Royal Reservations</h1><p>Royal Reservations is an approved site for booking reservations at Royal Resorts&reg; and assisting travelers wishing to vacation in the Caribbean.</p><p><span>Royal Resorts consists of six beachfront vacation hideaways in Cancun and the Riviera Maya offering spacious, fully equipped suites, five-star services, exciting packages and an award-winning brand of Mexican hospitality. Royal Reservations also handles bookings for four fine resorts on the islands of St. Maarten, Cura&ccedil;ao and Aruba that use Systems by Royal Resorts and are independently owned and operated</span></p><p>Royal Reservations</p><p>Royal Reservations (operated by Caribbean Islands Travel L.L.C.) was founded in 2001 and has an office in Fort Lauderdale, Fl. Attention to detail is a company hallmark and its professional, multilingual travel team works hard to satisfy clients accommodation needs and create unforgettable vacation experiences for them.</p><br><h2 class=text-center>Privacy Policy</h2><p>Information Collected</p><p>Royal Reservations&reg; collects non-personally identifiable information about your activities when you visit our website. This information may include the content you view, the date and time that you viewed this content, the reservations or nights you booked, or your location information associated with your IP address.</p><p>How we use that information?</p><p>The information we collect is used in order to serve you more relevant ads (referred to as "Retargeting" or "Remarketing) and once we serve you those ads we collect information about where the ads were displayed and what ads you clicked on.</p><p>Royal Reservations&reg; works with third party advertising companies to help them recognize you when you are surfing the web or checking your news feed on Facebook&reg;.</p><p>The technology used on "Retargeting" is based on cookies and pixels that help us track your activities on our website. A cookie is a small text file that is stored on your device for record-keeping purposes. Session cookies expire when you close your browser. Persistent cookies remain on your device for an extended period of time. We and our third party advertising companies use session and persistent cookies to make it easier for you to navigate and enhance the experience of our site.</p><p>You can remove cookies by following directions provided in your internet browsers "help" file. You may also decline our cookies if your browser permits, but doing so may interfere with your use of our website.</p><p>We believe in giving you control over which ads you see. You may "opt out" of receiving all retargeted ads from us(whether served by us or a third party advertising company).</p><p>So, if you want to stop seeing ads from us, you can Opt-Out by clicking over here and following a few steps.</p>',
 	'anuncio' => 'Best-deal-guarantee only through Direct Booking on this site',
 	'whyBooking_alt' => 'Why Book with Us',
@@ -93,9 +93,7 @@ return [
 	'why_book_with_us'=>'REASONS TO <b>BOOK WITH US</b>',
 	'hotel_policies'=>'Hotel Policies',
 	'viewsrender' => 'Plan floor',
-	'maintenance'=>'We apologize for the inconvenience.
-        Our reservation system is currently undergoing maintenance from 8am to 12 pm (Central Time). Please come back later and feel free to navigate in our website anytime.',
-
+	'maintenance'=>'We apologize for the inconvenience. Our reservation system is currently undergoing maintenance from 8am to 12 pm (Central Time). Please come back later and feel free to navigate in our website anytime.',
     'form_title'=>'GRAB THIS OFFER NOW',
     'act_now'=>'Act now! This offer must end on…',
     'book_now'=>'Book Now',

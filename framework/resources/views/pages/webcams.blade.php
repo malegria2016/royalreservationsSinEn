@@ -16,6 +16,7 @@
         <p>Come to paradise and forget all your worries with an All Inclusive Plan in any of our world-class resorts in the Caribbean offering premium services and amenities for all ages. Seize all the perks and indulgences of our Royal Resorts All Inclusive plans that give you access to delicious dining, thrilling activities and the fascinating tropical landscapes of Cancun and Riviera Maya.</p>
     @else
         <h1>Cámaras Web Royal Resorts</h1>
+        <h2>Eche un vistazo al paraiso</h2>
         <p>Venga al paraíso y olvide todas sus preocupaciones con un Plan Todo Incluido en cualquiera de nuestros resorts en el Caribe, que ofrecen servicios y amenidades de primera para todas las edades. Aproveche todos los beneficios de nuestros planes Todo Incluido Royal Resorts que dan acceso a deliciosos restaurantes, emocionantes actividades y los fascinantes paisajes tropicales de Cancún y la Riviera Maya.</p>
     @endif
     </div>
