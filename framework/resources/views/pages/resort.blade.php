@@ -70,9 +70,11 @@ and (max-width : 384px)  {
 			<p>32° Cancun, Quintana Roo</p>
 			-->
 			<div class="resort_stars">
+				<!--
 				<a href="https://www.facebook.com/RoyalReservations" target="_blank">
 					<img class="img-responsive marco" src="{{ asset('img/general/banner-facebook.jpg') }}" alt="Facebook - Royal Reservations Site">
 				</a>
+				-->
 				<!-- CONTENIDOS DE TRIPADVISOR CANCELADO POR DISEÑO DE FACEBOOK
 				{{--*/ $stars = round( $resort->stars * 2, 0, PHP_ROUND_HALF_UP); $i=1 /*--}}
 				@while($i <= $stars - 1)
